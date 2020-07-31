@@ -1,6 +1,46 @@
 var ExpColl = '<b>Simplified Menu</b><br>'
 var d       = ' for embedded OpenEpi (eOE)<br> for the original version please visit <a href="https://openepi.com">openepi.com</a>'
 
+ExpColl = ExpColl + "<a href=\"../BriefDoc/About.htm\">BriefDoc/About.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../BriefDoc/Credits.htm\">BriefDoc/Credits.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../BriefDoc/History.htm\">BriefDoc/History.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../BriefDoc/Licensing.htm\">BriefDoc/Licensing.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../BriefDoc/News.htm\">BriefDoc/News.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../BriefDoc/UsingOpenEpi.htm\">BriefDoc/UsingOpenEpi.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Calculator/calculator.htm\">Calculator/calculator.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../DiagnosticTest/DiagnosticTest.htm\">DiagnosticTest/DiagnosticTest.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Documentation/JavaScriptTips.htm\">Documentation/JavaScriptTips.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Documentation/Proposal2.htm\">Documentation/Proposal2.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Documentation/ToolkitDoc.htm\">Documentation/ToolkitDoc.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Documentation/Translation.htm\">Documentation/Translation.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../DoseResponse/DoseResponse.htm\">DoseResponse/DoseResponse.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Downloads/Downloads.htm\">Downloads/Downloads.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Links/Links.htm\">Links/Links.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../MatchCC/MatchCC.htm\">MatchCC/MatchCC.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Mean/ANOVA.htm\">Mean/ANOVA.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Mean/CIMean.htm\">Mean/CIMean.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Mean/t_testMean.htm\">Mean/t_testMean.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Median/CIMedian.htm\">Median/CIMedian.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Menu/OE_Menu.htm\">Menu/OE_Menu.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../PersonTime1/PersonTime1.htm\">PersonTime1/PersonTime1.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../PersonTime2/PersonTime2.htm\">PersonTime2/PersonTime2.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Power/PowerCC.htm\">Power/PowerCC.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Power/PowerCohort.htm\">Power/PowerCohort.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Power/PowerCross.htm\">Power/PowerCross.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Power/PowerMean.htm\">Power/PowerMean.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Power/PowerRCT.htm\">Power/PowerRCT.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Proportion/Proportion.htm\">Proportion/Proportion.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Random/Random.htm\">Random/Random.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../RbyC/RbyC.htm\">RbyC/RbyC.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../SampleSize/SSCC.htm\">SampleSize/SSCC.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../SampleSize/SSCohort.htm\">SampleSize/SSCohort.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../SampleSize/SSMean.htm\">SampleSize/SSMean.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../SampleSize/SSPropor.htm\">SampleSize/SSPropor.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Search/Choosing.htm\">Search/Choosing.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../Settings/Settings.htm\">Settings/Settings.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../SMR/SMR.htm\">SMR/SMR.htm</a><br>"
+ExpColl = ExpColl + "<a href=\"../TwobyTwo/TwobyTwo.htm\">TwobyTwo/TwobyTwo.htm</a><br>"
+
 function noalert(msg) {
-	ExpColl = ExpColl + msg;
+ExpColl = ExpColl + msg;
 }
