@@ -46,9 +46,9 @@ function CalcStats(outTable)
     var ptunit=1;   //Units in which to express the results
 	
    a  = parseFloat(outTable.data[1]["E0D0"]);
-   //alert("a="+a);
+   //noalert("a="+a);
    b  = parseFloat(outTable.data[1]["E1D0"]);
-   //alert("b="+b);
+   //noalert("b="+b);
   
    
     if ((a == 0) || (b == 0)) 
@@ -90,7 +90,7 @@ function CalcStats(outTable)
 	
 	
 	// to compute Title ---% Confidence Interval;
-	//alert("cscript"+cscrit);
+	//noalert("cscript"+cscrit);
 	var ci=0;
 	if (cscrit==2.706) {ci=90};
 	if (cscrit==3.841) {ci=95};

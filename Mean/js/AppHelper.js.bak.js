@@ -21,9 +21,9 @@ var applabel=null;  //Label for section in the translation file.  Will be set by
 if (typeof(basefilename)== "undefined")
   {
 	var basefilename="NoBaseFile"
-	//alert("location.pathname="+location.pathname);
+	//noalert("location.pathname="+location.pathname);
   }
-//alert("window.top.code.translationpath="+window.top.code.translationpath);  //This works when menu is running alone without a shell
+//noalert("window.top.code.translationpath="+window.top.code.translationpath);  //This works when menu is running alone without a shell
 var demofile="";     //Must be defined even if there is no demo file.
 
 //Basefilename must be defined and set at the beginning of the application
@@ -57,7 +57,7 @@ function useOpenEpiEntry(tblcmdarray1,tblcmdarray2,externalData)
   catch(e)
   {
   }*/
- // alert("61 LoadData="+LoadData);
+ // noalert("61 LoadData="+LoadData);
 appDataArray=new Array()   //Initialize the arrays in case this is a rerun
 etablecmds1=new Array()
 etablecmds2=new Array()
@@ -70,7 +70,7 @@ if (tblcmdarray1 && tblcmdarray1.length>0)
  //There must be tabcmdarray1, probably from a demo file or other outside input
  etablecmds1=tblcmdarray1;  //If commands are provided, use them; otherwise this should do no harm.
  etablecmds2=tblcmdarray2;
- //alert("etablecmds1 has "+ etablecmds1.length + " commands")
+ //noalert("etablecmds1 has "+ etablecmds1.length + " commands")
 }
 else
 {
@@ -88,7 +88,7 @@ else
 var entryProg="../Etable/ETable.htm";
 
 var myFrame=document.getElementById('panel2');
-//alert("about to set SRC at 89")
+//noalert("about to set SRC at 89")
 myFrame.setAttribute('src',"../Etable/ETable.htm");
 //frames["panel2"].location.href="../Etable/ETable.htm";
 
@@ -98,7 +98,7 @@ showPanel(2); //moved down, Mar 2007
 //if (device=="smartphone")
 //  {showPanelAsWindow(2)}
 
-//alert("finished loading frame in 94");
+//noalert("finished loading frame in 94");
 
 EntryWin=frames["panel2"]
 //EntryWin=myFrame;  //Mar 2007
@@ -106,7 +106,7 @@ EntryWin=frames["panel2"]
 if (externalData)
  {
   appDataArray=externalData;
-  //alert("128 ada Must be external Data")
+  //noalert("128 ada Must be external Data")
  }
 if (EntryWin != null && EntryWin.OpenEpi==true)
     {
@@ -117,14 +117,14 @@ if (EntryWin != null && EntryWin.OpenEpi==true)
 	 //setTimeout("checkWindowOpen()",1000)
 	 //Give Etable time to load before loading data or trying again
     }
-//alert("finished useOpenEpiEntry")
+//noalert("finished useOpenEpiEntry")
 }
 
 function checkWindowOpen()
 {
  //Calls useOpenEpiEntry again if there is no EntryWin, up to 4 times.  Loads
  //data into EntryWin if this is a demo
- alert("in appHelper 145 in checkWindowOpen")
+ noalert("in appHelper 145 in checkWindowOpen")
 try
  {
 
@@ -132,13 +132,13 @@ try
    {
     if (triedtoopen<4)
      {
-	   //alert("Calling useOpenEpiEntry "+"try="+triedtoopen)
+	   //noalert("Calling useOpenEpiEntry "+"try="+triedtoopen)
        useOpenEpiEntry()
-	   //alert(93)
+	   //noalert(93)
      }
     else
      {
-     alert("Problem in opening the data entry window.\n If you have a popup window exterminator, you can turn it off, or work by clicking on the ENTER menu item.");
+     noalert("Problem in opening the data entry window.\n If you have a popup window exterminator, you can turn it off, or work by clicking on the ENTER menu item.");
     //Gives user advice, but may also solve the problem through providing more time;
      }
    }
@@ -153,15 +153,15 @@ try
 	if (appDataArray && appDataArray.length>1)
 	   {
 
-		//alert("sample data in appDataArray[1]="+appDataArray[1]["E0D0"])
-		//alert("sample data in appDataArray[5]="+appDataArray[5]["E0D0"])
+		//noalert("sample data in appDataArray[1]="+appDataArray[1]["E0D0"])
+		//noalert("sample data in appDataArray[5]="+appDataArray[5]["E0D0"])
 	   if(EntryWin && EntryWin.OpenEpi==true && !EntryWin.closed)
 	    {
 		 //EntryWin exists and is completely loaded and not closed")
 
 	    EntryWin.dataMatrix=appDataArray;
-	//alert("148 sample data in EntryWin.dataMatrix[1]="+EntryWin.dataMatrix[1]["E0D0"])
-		//alert("sample data in EntryWin.dataMatrix[5]="+EntryWin.dataMatrix[5]["E0D0"])
+	//noalert("148 sample data in EntryWin.dataMatrix[1]="+EntryWin.dataMatrix[1]["E0D0"])
+		//noalert("sample data in EntryWin.dataMatrix[5]="+EntryWin.dataMatrix[5]["E0D0"])
 
 		EntryWin.readMemToTable(1);  //Get stratum 1 data
 
@@ -180,12 +180,12 @@ try
 	 }
 	 while (EntryWin && !(EntryWin.OpenEpi==true) && !EntryWin.closed);
 	 appDataArray=new Array();  //Clean up
-	 //alert("166 entryWin.OpenEpi="+EntryWin.OpenEpi)
+	 //noalert("166 entryWin.OpenEpi="+EntryWin.OpenEpi)
    }
  }
  catch(e)
   {
-  alert("Problem in opening window or reading data.  Error message is: "+e)
+  noalert("Problem in opening window or reading data.  Error message is: "+e)
   }
 }
 
@@ -259,10 +259,10 @@ if (!regexp.test(stringtofix))
     '<html>\n'+'<head>\n'+'<title>Untitled Document</title>\n'+
     '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n'+
     '</head>\n'+'<body>\n'
-	//alert("htmlheader="+htmlheader+ " stringtofix="+stringtofix)
+	//noalert("htmlheader="+htmlheader+ " stringtofix="+stringtofix)
 
     stringtofix=htmlheader+stringtofix
-//		alert(stringtofix)
+//		noalert(stringtofix)
 }
 
 regexp=/<\/html>/i;
@@ -304,7 +304,7 @@ var resultpane=document.getElementById("panel3");
 htmlstr=completedHTML(htmlstr,omitfooter); //Adds HTML tags and header if necessary
 
 resultpane.innerHTML=htmlstr;
-//alert(298+resultpane.innerHTML)
+//noalert(298+resultpane.innerHTML)
 //htmlstr=completedHTML(htmlstr,omitfooter); //Adds HTML tags and header if necessary
 var fname=""
 //window.frames["panel2"].timerStop(10);
@@ -417,14 +417,14 @@ for (i=0; i<dataArray.length;i++)
    {
     val=dataArray[i][key]
     //jsStr+='s["'+key+'"]='+dataArray[i][key]+'\n'
-	//if(key=="Evals") {alert("typeof="+typeof(val)+" length="+val.length)}
+	//if(key=="Evals") {noalert("typeof="+typeof(val)+" length="+val.length)}
 	if (typeof(val)=="object")
 	  {
 
-	     //alert("key="+key)
+	     //noalert("key="+key)
 		 if (val!=null && val.length)
 		 {
-		 // if (val.length==null) {alert("val.length=null" + "val=" + val)}
+		 // if (val.length==null) {noalert("val.length=null" + "val=" + val)}
 	       if (val.length>0)
 	       {
 	        //must be an array
@@ -829,7 +829,7 @@ fe+='</body>';
 
 document.write(fe);
 
-//alert(document.body)
+//noalert(document.body)
 document.close();
 }
 
@@ -920,12 +920,12 @@ fe+='</html>';
 var resultpane=document.getElementById("panel4");
 
 resultpane.innerHTML=fe;
-//alert(fe);
+//noalert(fe);
 translateHTML(resultpane.body);   //August 2007
 //htmlstr=completedHTML(htmlstr,omitfooter); //Adds HTML tags and header if necessary
 
 showPanel(4);   //Open the results panel
-//alert(resultpane.innerHTML)
+//noalert(resultpane.innerHTML)
 /*
 ExWin=window.open("","Exercises");
 ExWin.document.open();

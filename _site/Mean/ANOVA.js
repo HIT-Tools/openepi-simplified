@@ -113,7 +113,7 @@ n[7] = parseFloat(data[1].E6D0);m[7] = parseFloat(data[1].E6D1);s[7] = parseFloa
 n[8] = parseFloat(data[1].E7D0);m[8] = parseFloat(data[1].E7D1);s[8] = parseFloat(data[1].E7D2);se[8] = parseFloat(data[1].E7D4);
 n[9] = parseFloat(data[1].E8D0);m[9] = parseFloat(data[1].E8D1);s[9] = parseFloat(data[1].E8D2);se[9] = parseFloat(data[1].E8D4);
 n[10] = parseFloat(data[1].E9D0);m[10] = parseFloat(data[1].E9D1);s[10] = parseFloat(data[1].E9D2);se[10] = parseFloat(data[1].E9D4);
-//alert("n7"+n[10]+"m7"+m[10]+"s7"+s[10]);
+//noalert("n7"+n[10]+"m7"+m[10]+"s7"+s[10]);
 
 
 // ------------------------------ANOVA test calculation;
@@ -171,7 +171,7 @@ var cs= (sumnum2-sumnum1)/cval; 		//chisquare statistics;
 var dfbart=g-1;  				//degree of freedom;
 var pbart= ChiSq(cs,dfbart); 			//p value of chisq;
 
-//alert(vF+"  "+vP+"   "+cs+"   "+pbart+" "+dfbart)
+//noalert(vF+"  "+vP+"   "+cs+"   "+pbart+" "+dfbart)
 
 
 // ----------------------------calculating 95% confidence intervals of individual MEANs;
@@ -206,9 +206,9 @@ uu[i]=m[i] + t*Math.sqrt(vEVw/n[i]);
 uu[i]=fmtSigFig(uu[i],6);
 }
 }
-//alert(m[1]+" "+s[1]+" "+se[1]+" "+l[1]+"  "+u[1]+"  "+ll[1]+"  "+uu[1]);
-//alert(m[2]+" "+s[2]+" "+se[1]+" "+l[2]+"  "+u[2]+"  "+ll[2]+"  "+uu[2]);
-//alert(m[10]+" "+l[10]+"  "+u[10]+"  "+ll[10]+"  "+uu[10]);
+//noalert(m[1]+" "+s[1]+" "+se[1]+" "+l[1]+"  "+u[1]+"  "+ll[1]+"  "+uu[1]);
+//noalert(m[2]+" "+s[2]+" "+se[1]+" "+l[2]+"  "+u[2]+"  "+ll[2]+"  "+uu[2]);
+//noalert(m[10]+" "+l[10]+"  "+u[10]+"  "+ll[10]+"  "+uu[10]);
 
 
 

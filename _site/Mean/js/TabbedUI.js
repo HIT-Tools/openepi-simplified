@@ -22,7 +22,7 @@ function initPanels(panelInicial)
           {
             //just for now
 		  document.getElementById('panel'+pp).style.display = 'none';
-		  //alert("display set to none for panel "+pp+ " in showpanel");
+		  //noalert("display set to none for panel "+pp+ " in showpanel");
           }
 		}
 		else
@@ -156,7 +156,7 @@ function hidePanel(){
        //The following line causes Safari to Crash completely.
       // document.getElementById('panel'+currentPanel).style.display = 'none';
 
-	//alert("display set to none for panel "+currentPanel+ " in hidepanel")
+	//noalert("display set to none for panel "+currentPanel+ " in hidepanel")
     $('panel'+ currentPanel).hide();
 	document.getElementById('panel'+currentPanel).style.visibility = 'hidden';
 	document.getElementById('tab'+currentPanel).style.backgroundColor = '#ffffff';

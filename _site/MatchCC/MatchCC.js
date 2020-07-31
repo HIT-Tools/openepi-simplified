@@ -56,7 +56,7 @@ var cs; var num; var denom; var lowerci; var upperci;  var od;
 var od_lo; var od_hi;    
 added05 = 0;
 a  = parseFloat(cmdObj.data[1]["E1D1"]);
-//alert("a="+a);
+//noalert("a="+a);
 //Experiment--swap these two values and turn off UseTableSettings
 //Nov 2007
 /*
@@ -68,10 +68,10 @@ swapval=null;
 
 c  = parseFloat(cmdObj.data[1]["E1D0"]); //switched b and c
 b = parseFloat(cmdObj.data[1]["E0D1"]);
-//alert("b="+b);
-//alert("c="+c);
+//noalert("b="+b);
+//noalert("c="+c);
 d  = parseFloat(cmdObj.data[1]["E0D0"]);
-//alert("d="+d)
+//noalert("d="+d)
 
 //Note that this setup assumes a,b,c,d with Disease on the LEFT and
 //EXPOSURE at the TOP of the table, the opposite of the Epi Info
@@ -93,7 +93,7 @@ exactStats.matchedCC(1,mORbased,mRRbased,massoc,mreferences)
 
 //alert (mORbased[1] + "\n"+ mRRbased[1] +"\n"+ massoc [1] +"\n"+ mreferences[1]);
 
-//alert("a=" + a + " b=" + b + " c=" + c + "d=" + d);
+//noalert("a=" + a + " b=" + b + " c=" + c + "d=" + d);
 if ( (b == 0) || (c == 0)) 
 {
   added05 = 1;
@@ -128,10 +128,10 @@ line(7,1);
 newrow("span4:","span3:c:bold:P Values");
 newrow("","span2:l:bold:Test","l:bold:Value", "l:bold:d.f.", "l:bold:1-tail",editorschoice1+"c:bold:2-tail");
 line(7,1);
-//alert("EntryWin.ConfLevel="+EntryWin.ConfLevel)   
+//noalert("EntryWin.ConfLevel="+EntryWin.ConfLevel)   
   
   
-//alert("pcutoff="+pcutoff)
+//noalert("pcutoff="+pcutoff)
   
    var p = Csp(cs);
    
@@ -141,7 +141,7 @@ line(7,1);
    
    newrow("","span2:l:McNemar with continuity correction::","l:"+fmtSigFig(csc,4),"l:1","", "c:"+fmtPValue(p))
  
- //alert("massoc1="+massoc[1]);
+ //noalert("massoc1="+massoc[1]);
    eval(massoc[1]);
    //line(6)
  newrow("<br>");  

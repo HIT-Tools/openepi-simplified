@@ -31,7 +31,7 @@ function configureInput()
 		 {
 		  //Note this complex but effective way of getting user input
 		  var promptstr=t("How many EXPOSURE LEVEL CATEGORIES are there (including the baseline)?")
-		  var crows=prompt(promptstr,5)
+		  var crows=5
 		   if (!crows) 
 		     {
 			  //User hit cancel; bail out
@@ -112,7 +112,7 @@ function checkcode(r,c,entry)
   //To see what row and column entries are made in, uncomment the following line before
   //running the program, then enter unique numbers so that you can see which cells they
   //are in.
-  //alert("Row="+r+"  Col=" + c)
+  //noalert("Row="+r+"  Col=" + c)
   var infoStr=t("Note: Click on cells in the Exposure Level column to change the numbers to other numeric scores if desired. They are used in the calculations.");
   if (r==1 && c==1 && currentstratum==1)
     { 
@@ -137,7 +137,7 @@ function checkcode(r,c,entry)
     { 
 	 //Don't forget the DOUBLE equals sign for equality
 	 EntryWin.setCellValue(1,2,parseInt(entry)*43)
-	 alert(EntryWin.getCellValue(1,2))
+	 noalert(EntryWin.getCellValue(1,2))
     }
   */
 	
@@ -159,7 +159,7 @@ appDataArray=data;
 //array, uncomment the following 3 lines and run the program:
 
 //EntryWin.writeTable(data)
-//alert("This is the data array, ready for programming in the statistical routine.")
+//noalert("This is the data array, ready for programming in the statistical routine.")
 //return  //exits from OECalculate
 
 //Remove the comment from the 3 lines above to see a table of the contents of the data array

@@ -22,7 +22,7 @@ function currConfig()
      }
    return config;
 }
-//alert("currConfig="+currConfig());
+//noalert("currConfig="+currConfig());
 
 </script>
 </head>
@@ -179,7 +179,7 @@ function writeIntro()
  //  {c++}
   for ( i=0; i<intro.length; i++)
   {
-  // alert("length="+intro[i].length);
+  // noalert("length="+intro[i].length);
   if (typeof t =="function")
       {
 	  s+=t(intro[i])
@@ -225,7 +225,7 @@ function writeIntro()
    s+="<strong> Dean AG, Sullivan KM, Soe MM. "
    s+="OpenEpi:  Open Source Epidemiologic Statistics for Public Health, " + version+". "
    s+= "www.OpenEpi.com, "+ lcupdated +" "+modDate+ ", "+ accessed + " "+ dateToday+".</strong></p></span>"
- // alert(s);
+ // noalert(s);
  //  jQuery('div#appDiv').append(s);
   //document.getElementById("appDiv").innerHTML = s;
 

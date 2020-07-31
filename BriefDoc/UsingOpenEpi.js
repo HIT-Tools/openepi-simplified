@@ -136,5 +136,5 @@ usingStr+='style='font-size:7.0pt;font-family:"Times New Roman"'>&nbsp;&nbsp;&nb
 usingStr+='    you would like to develop a program, check the developer’s section of the'
 usingStr+='    menu, and also send us an email</span></b></font></h2>'
 usingStr+='</div>'
-alert("usingStr="+usingStr);
+noalert("usingStr="+usingStr);
 

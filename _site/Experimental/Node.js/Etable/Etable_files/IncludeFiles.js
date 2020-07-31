@@ -5,10 +5,10 @@ jsName="'"+jsName+"'";
 var transfile="";
 
 transfile='<SCRIPT language=JavaScript src='+jsName+' type=text/JavaScript>' + '\</SC'+'RIPT>';
-//alert(8 + transfile);  // Very important debugging line.  Detected error in translation file, for example. Mar 2007
+//noalert(8 + transfile);  // Very important debugging line.  Detected error in translation file, for example. Mar 2007
 
 document.write(transfile)
-//alert('wrote '+transfile);
+//noalert('wrote '+transfile);
 }
 
 //includeJs(basefilename+'.js'); //The js file is the one that you write, containing the statistics for this module

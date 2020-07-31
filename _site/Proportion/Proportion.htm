@@ -116,7 +116,7 @@ function checkcode(r,c,entry)
   //zeros.  Conditional statements, such as the switch statement can be used
   //to write code that applies only to particular cells.
   //To see what row and column entries are made in, uncomment the following line:
-  //alert("Row="+r+"  Col=" + c)
+  //noalert("Row="+r+"  Col=" + c)
   /* The following is a useless bit of code, but it illustrates how you might
   set a value of a cell in the table and also how to get the value of another cell.
   The value entered by the user is passed in as "entry".  Hence, you can act on the
@@ -127,7 +127,7 @@ function checkcode(r,c,entry)
   if (r==0)
     {
 	 setCellValue(1,2,parseInt(entry)*43)
-	 alert(getCellValue(1,2))
+	 noalert(getCellValue(1,2))
 	}
 	*/
 	//The following code returns a blank string if the user enters anything other

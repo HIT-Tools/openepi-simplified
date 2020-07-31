@@ -106,12 +106,12 @@ function checkcode(r,c,entry)
   //zeros.  Conditional statements, such as the switch statement can be used
   //to write code that applies only to particular cells.
   //To see what row and column entries are made in, uncomment the following line:
- //alert("Row="+r+"  Col=" + c + " value="+entry )
+ //noalert("Row="+r+"  Col=" + c + " value="+entry )
 
  // if (r==3)
  //   {
    //  setCellValue(3,3,"999")
-   //	 alert("1,3 value is"+ getCellValue(1,3))
+   //	 noalert("1,3 value is"+ getCellValue(1,3))
  //	}
    var today=new Date();
    var futureDateMsg=t("Date cannot be later than today. Check dates and computer date.");
@@ -125,7 +125,7 @@ function checkcode(r,c,entry)
      {
       if (daysBetween(getCellValue(r,3), today)<0)
         {
-          alert(r+futureDateMsg)
+          noalert(r+futureDateMsg)
  //         moveInputTo(r,3);
         }
      }

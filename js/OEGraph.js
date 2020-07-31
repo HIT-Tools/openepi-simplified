@@ -72,7 +72,7 @@ var pointnum=0;
 //If any of the arguments are arrays, unfold them into individual parameters
 //(Only down one level for now.  That is, an array is ok, but it must be an
 //array of legal parameters, not an array of arrays, etc.
-//alert("In validate")
+//noalert("In validate")
 for (i=0; i<origargs.length; i++)
  {
   if (objType(origargs[i])=="string")
@@ -84,7 +84,7 @@ for (i=0; i<origargs.length; i++)
 	 for (j=0; j<origargs[i].length; j++)
 	  {
 	   args[args.length]=origargs[i][j];
-	   //alert("arg="+args[args.length-1]);
+	   //noalert("arg="+args[args.length-1]);
 	  }
 	}	
  }
@@ -114,7 +114,7 @@ for (i=0; i<args.length; i++)
 				 retArray[arg[0]]=tmpArray;
 			   }
 			   
-			  // alert("type of retArray[arg[0]]="+objType(retArray[arg[0]]) + " arg[0]="+arg[0]+
+			  // noalert("type of retArray[arg[0]]="+objType(retArray[arg[0]]) + " arg[0]="+arg[0]+
 			  // "\nlength="+retArray[arg[0]].length)
 			    
 			   retArray[arg[0]][retArray[arg[0]].length]=tmp;
@@ -123,7 +123,7 @@ for (i=0; i<args.length; i++)
 			  {
 			   retArray[arg[0]]=tmp;
 			  }
-			//alert("arg0 "+arg[0] + " retArray[arg[0]]="+retArray[arg[0]][retArray[arg[0]].length-1])
+			//noalert("arg0 "+arg[0] + " retArray[arg[0]]="+retArray[arg[0]][retArray[arg[0]].length-1])
        } 
       else
        {
@@ -131,21 +131,21 @@ for (i=0; i<args.length; i++)
 			if (legalsonly)
 			  {
 				//Reject it
-				alert("'"+arg[0]+"'"+ " is not a valid parameter.")
+				noalert("'"+arg[0]+"'"+ " is not a valid parameter.")
 			  }	
 			else
 			  { 
 				//Assume it is data in the format x:y and return x as the key or index
 				// and y as the value
-				//alert(arg[0]+":"+arg[1]+"   "+objType(arg[0])+":"+objType(arg[1]));
+				//noalert(arg[0]+":"+arg[1]+"   "+objType(arg[0])+":"+objType(arg[1]));
 				retArray[arg[0]+""]=arg[1]
 			  } 
         }
     }
    else
-     {alert("Items in the list must be strings.  Quotation marks may help.")}
+     {noalert("Items in the list must be strings.  Quotation marks may help.")}
  }
-// alert("valname in return array "+retArray.valname)	
+// noalert("valname in return array "+retArray.valname)	
  return retArray
 }
 
@@ -203,13 +203,13 @@ function vAxis ()
   
   
   var vars=this.validate(param,arguments,true)
- // alert("vars for labelevery="+vars["labelevery"])
+ // noalert("vars for labelevery="+vars["labelevery"])
  
   //var i
  
   var pxu=(this.height/(vars.vmax-vars.vmin))  //pixels per axis unit
   this.vunit=pxu
-  //alert("pxu="+pxu + " vars.vmax="+vars.vmax+"vars.vmin="+vars.vmin)
+  //noalert("pxu="+pxu + " vars.vmax="+vars.vmax+"vars.vmin="+vars.vmin)
   this.vmax=vars.vmax
   this.vmin=vars.vmin
     this.jg.setColor("#000000");
@@ -221,31 +221,31 @@ function vAxis ()
 	//Do ticks
 	for (var i=vars.vmin+vars.tick; i<=vars.vmax; i+=vars.tick)
 	  {
-	    //alert("i for tick="+i)
+	    //noalert("i for tick="+i)
 	    this.jg.drawLine(-4,this.height-(i*pxu),0,this.height-(i*pxu));
 	  }
-	  //alert(204)
+	  //noalert(204)
 	this.jg.setFont("arial,helvetica,sans-serif", "11px", Font.PLAIN);
-    //alert(206)
+    //noalert(206)
 	 //do labels
 	if (vars.valname)
 	 {//labels specified
-	   alert("vars.valname.0="+vars.valname[0])
+	   noalert("vars.valname.0="+vars.valname[0])
 	 }
 	else
 	 {
-	   //alert("vars.labelevery="+vars.labelevery+"\nvars.vmin="+vars.vmin+
+	   //noalert("vars.labelevery="+vars.labelevery+"\nvars.vmin="+vars.vmin+
 	   //"\nvars.vmax="+vars.vmax);
 	   for (var i=vars.vmin; i<=vars.vmax; i+=vars.labelevery)
 	    {
-		 //alert("i="+i+" pxu="+pxu+" i * pxu="+(i*pxu))
-	     //alert("drawlabel at "+(this.height-(i*pxu)));
+		 //noalert("i="+i+" pxu="+pxu+" i * pxu="+(i*pxu))
+	     //noalert("drawlabel at "+(this.height-(i*pxu)));
 		 this.jg.drawString(fmtFixed(i,1),-35, this.height-(i*pxu)-6);
 	    }
 	 }
 	 this.jg.setFont("arial,helvetica,sans-serif","14px",Font.BOLD);
 	 this.jg.drawString(vars.varname,-100,Math.round(this.height/2)-6);
-	 //alert(224)
+	 //noalert(224)
 }
 
 function hAxis ()
@@ -279,7 +279,7 @@ var vars=this.validate(param,arguments,true)
 	//Do ticks
 	for (i=vars.hmin; i<=vars.hmax; i+=vars.tick)
 	  {
-	  //alert("i="+i)
+	  //noalert("i="+i)
 	    this.jg.drawLine((i*pxu),this.height,(i*pxu),this.height+4);
 	  }
 	  this.jg.setFont("arial,helvetica,sans-serif", "11px", Font.PLAIN);
@@ -293,7 +293,7 @@ var vars=this.validate(param,arguments,true)
 	     {
 	      // for(var i=0; i<vars.valname.length; i++)
 	      //  {str+=vars.valname[i]+"\n";}
-		  //  alert("vars.valname in hbar="+str)
+		  //  noalert("vars.valname in hbar="+str)
 		  this.hvalarray=vars.valname;  
 	     }
 	    else 
@@ -304,7 +304,7 @@ var vars=this.validate(param,arguments,true)
 		//Draw ticks and labels
 		for (var i=0; i<this.hvalarray.length; i++)
 	    {
-		 //alert("i for drawing="+i);
+		 //noalert("i for drawing="+i);
 	     this.jg.drawLine((i+1)*this.hunit,this.height,(i+1)*this.hunit,this.height+4);
 		 this.jg.drawString(this.hvalarray[i],((i+1)*this.hunit)-(this.hunit/2.5), this.height+12);
 	    }
@@ -331,7 +331,7 @@ function Line()
 //"color:#xxxxxx", "hhh:vvv","hhh:vvv",.etc. 
 var param=new Array()
   
-//alert(arguments.join())  
+//noalert(arguments.join())  
 var vars=this.validate(param,arguments,false)
 
 //Validate with legalsonly set to false.  Will return x:y pairs as data
@@ -384,7 +384,7 @@ var vars=this.validate(param,arguments,false)
 	 
 	 }
    }	 	 
-// alert(Xpoints[0]+" "+Ypoints[0]+" "+Xpoints[1]+" "+Ypoints[1])
+// noalert(Xpoints[0]+" "+Ypoints[0]+" "+Xpoints[1]+" "+Ypoints[1])
  this.jg.drawPolyline(Xpoints,Ypoints)
 }
 
@@ -408,12 +408,12 @@ strcmd+='"'+args.join()+"\""
 //strcmd+=args.join()
 //+"\""
 strcmd=strcmd.replace(/[^'"],[^'"]/g,"\",\"")
-//alert("strcmd="+strcmd)
+//noalert("strcmd="+strcmd)
 strcmd+=")";
 //Construct a new command as a string and save it in the bararray for later 
 //execution with eval
 this.bararray[this.bararray.length]='this.groupBar('+strcmd;
-alert(this.bararray[this.bararray.length-1])
+noalert(this.bararray[this.bararray.length-1])
 }
 
 function groupBar()
@@ -421,7 +421,7 @@ function groupBar()
 //Find offset from center of location of bar group
 //
 
-//alert("groupbar")
+//noalert("groupbar")
 
 var beginbar;
 var groupspacing=10;
@@ -431,8 +431,8 @@ var barwidth=(this.width/this.hvalarray.length)/(barsingroup+groupspacing)
 for (var i=0; i<this.hvalarray.length; i++)
   {
    beginbar= -0.5*barwidth + 0.5*groupspacing + i*barwidth//half of barwidth*barsingroup+1
-   //alert("beginbar="+beginbar)
-   alert("hvalarray="+this.hvalarray[i])
+   //noalert("beginbar="+beginbar)
+   noalert("hvalarray="+this.hvalarray[i])
   }
 }
 
@@ -491,7 +491,7 @@ for(var i=0; i<this.bararray.length; i++)
 this.add(this.jg.htm)
 this.add("</div>")
 this.add(str);
-//alert(this.html)
+//noalert(this.html)
 //this.add('opener.resultwin.document.write(jg.htm);')
 //this.add("opener.resultwin.document.write('chart canvas</div>')")
 }

@@ -102,7 +102,7 @@ if(numStrata>1)
    var expLT5 = new Array()
    
    var z=zFromP((cmdObj.data[0].conflevel/100 +1)/2)  //z of (1-alpha)/2
- //  alert("z="+z)
+ //  noalert("z="+z)
    
    var RRarr=new Array();
    var wRRarr=new Array();
@@ -184,7 +184,7 @@ for (stratum=1; stratum<=numStrata; stratum++)
     {
 	 minrate=num/cmdObj.data[stratum].E1D1
 	}
-	//alert("minrate="+minrate);
+	//noalert("minrate="+minrate);
   //minrate should now be the smallest rate in any stratum for the unexposed,
   //with 0 rates replaced by 1 case.
  }
@@ -194,7 +194,7 @@ while (minrate < 1)
 	ptunit*=10;
   }
 //ptunit should now be the number of person time units needed to make the rate exceed 1
-//alert("ptunit="+ptunit);
+//noalert("ptunit="+ptunit);
   	   	 										  
 for (stratum=1; stratum<=numStrata; stratum++)
  {
@@ -337,13 +337,13 @@ if (numStrata>1)
 	upRRmh=adjRRmh*Math.exp(z*SE);
 	//Display results
 	//'\nnewrow("c:'+stratum+'","span2:Risk in Exposed","'+fmtSigFig(risk_exposed_pt,4)+'","c:span2:'+limits(risk_exposed_lower,risk_exposed_upper)+'")'
-   // alert(limits(lowRRDirect,upRRDirect,1))
+   // noalert(limits(lowRRDirect,upRRDirect,1))
 	rateBased[index]='\nnewrow("","span2:Directly Adjusted RR","'+fmtSigFig(adjRRDirect,4)+'"\,\"c:span2:'+limits(lowRRDirect,upRRDirect,1)+'\",\"span2:Taylor\")'
-	//alert("401"+rateBased[index])
+	//noalert("401"+rateBased[index])
 	rateBased[index]+='\nnewrow("","span2:MH Adjusted RR","'+fmtSigFig(adjRRmh,4)+'","c:span2:'+limits(lowRRmh,upRRmh,1)+'",\"span2:Taylor\")'
 	rateBased[index]+='\nnewrow("","span2:Directly Adjusted RD","'+fmtSigFig(adjRDdirect,4,ptunit)+'","c:span2:'+limits(lowRD,upRD,0,ptunit)+'",\"span2:Taylor\")'
 		 //note: RD limits will be marked if they exclude 0, not 1
-	//alert("405"+rateBased[index])	 
+	//noalert("405"+rateBased[index])	 
 	for(i=1; i<=numStrata; i++)
 	  {
 		BDchiRR+=Math.pow ( Math.log(RRarr[i])-Math.log(adjRRDirect),2) / (1/(wRRarr[i]))
@@ -423,9 +423,9 @@ a  = parseFloat(dataTable["E0D0"]);
 b  = parseFloat(dataTable["E0D1"]);
 c  = parseFloat(dataTable["E1D0"]);
 d  = parseFloat(dataTable["E1D1"]);
-//alert("c="+c);
+//noalert("c="+c);
 
-//alert("d="+d)
+//noalert("d="+d)
 r1 = a+b;
 m1=r1;
 r2 = c+d;
@@ -436,7 +436,7 @@ n0=d;
 //c1 = a+c;
 //c2 = b+d;
 //t  = a+b+c+d;
-//alert("a="+a+" b="+b+" c="+c+" d="+d)
+//noalert("a="+a+" b="+b+" c="+c+" d="+d)
 if (stratum=="Crude")
    {
     rec=numStrata+1
@@ -488,7 +488,7 @@ zstatp= pnorm(zstat,true);  //Call function in Statfunctions1 to calculate p
 //cs_p = Csp(cs);
 //var pcs = pchisq(cs,1);
   assoc[rec]='newrow("c:'+pstratum+'","span2:z-score","'+fmtSigFig(zstat,4)+'","span2:'+fmtPValue(zstatp)+'","c:' + fmtPValue(2*zstatp)+'")'; 
-//  alert("assoc="+assoc[rec]+" rec="+rec);
+//  noalert("assoc="+assoc[rec]+" rec="+rec);
   // cmdObj.newrow("","Uncorrected",Fmt(cs), 1, cs_p)   
   
     cscrit=cscritFromOEConfLevel(cmdObj.data[0].conflevel);
@@ -575,7 +575,7 @@ if (stratum==1)
 //Confidence interval for the rate difference, Taylor series;
   var dp_lo = dp - Math.sqrt(cscrit) * Math.sqrt((a / Math.pow(c,2)) + (b / Math.pow(d,2)));
   var dp_hi = dp + Math.sqrt(cscrit) * Math.sqrt((a / Math.pow(c,2)) + (b / Math.pow(d,2)));
-// alert("A=" + a + " B=" + b + " C="+c+" D="+d)
+// noalert("A=" + a + " B=" + b + " C="+c+" D="+d)
 
 //Confidence interval for the etiologic fraction in the population based on rate, from Abramson, Pepi manual;
 // Note: Kahn and Sempos use a different table setup, so be careful in the formula

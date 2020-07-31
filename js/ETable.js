@@ -83,7 +83,7 @@ function infoDialog(prompt)
   //Shows the alert modal dialog box.  Placed here so that the dialog appears
   //in front of Etable.  Dialogs called from another window will appear in front of
   //that window, leading to confusion if Etable has been in the foreground.
-  alert(prompt);
+  noalert(prompt);
 }
 
 function setColors()
@@ -93,13 +93,13 @@ var totalcolor="#aaaaaa";
 var valuecolor="#bbbbbb";
 var variablecolor="#cccccc";
 var ccolor = myTable.bgcolor;
-//alert("in setcolors")
+//noalert("in setcolors")
 for (r=0 ; r< myTable.rows ; r++)
   {
 		for (c=0; c < myTable.cols ; c++)
 		{
 		  var tt=myTable.row[r].cell[c].type;
-		  // alert("r="+r+" c="+"tt="+tt)
+		  // noalert("r="+r+" c="+"tt="+tt)
 			if ((tt== "data") ||(tt=="calendar")) {ccolor=datacolor;}
 			  else if  (tt=="rowtot" || tt== "row total" || tt=="column total") {ccolor=totalcolor;}
 			  else if (tt=="valname") {ccolor=valuecolor;}
@@ -149,7 +149,7 @@ function cmdExecute(cmdArray)
 {
 //Executes a series of commands passed in as a one-dimensional array
 //Commands must be JavaScript as text strings
-//alert("in cmdExecute cmdArray has "+cmdArray.length +" commands")
+//noalert("in cmdExecute cmdArray has "+cmdArray.length +" commands")
 count=0;
 for (var i=0; i<cmdArray.length; i++)
   {
@@ -167,7 +167,7 @@ for (var i=0; i<cmdArray.length; i++)
   }
  if(typeof(myTable)=="object") {configured=true;}
    else
-   {alert("myTable not ready. Please try again.")}
+   {noalert("myTable not ready. Please try again.")}
  return count;  
 }
 
@@ -187,7 +187,7 @@ if (typeof (myTable) != null)
 function evalKey(evt) {
   var keyCode = document.layers ? evt.which : document.all ?  
         evt.keyCode : evt.keyCode;
- //alert("keycode "+evt.keyCode);
+ //noalert("keycode "+evt.keyCode);
   if (keyCode == 9)   
     {evalEntry();
 	return false;}
@@ -262,7 +262,7 @@ var i,n;
 	}   
    else 
   	  {
-	  alert(selstrat);
+	  noalert(selstrat);
 	  }
  
  if (strat.options.length<2)
@@ -277,7 +277,7 @@ function changeStratumTo(newchoice)
 {
 evalEntry();
 var strat = document.form1.theStratum;
-//alert("New Stratum="+newchoice + "currentstratum="+currentstratum)
+//noalert("New Stratum="+newchoice + "currentstratum="+currentstratum)
 //Store currentstratum to dataMatrix
 storeAllToMem(currentstratum, MaxValueAtLeft, MaxValueAtTop, ExposureLeft);
 //Get new stratum from dataMatrix if it exists there
@@ -311,7 +311,7 @@ if (storeAllToMem(currentstratum, MaxValueAtLeft, MaxValueAtTop, ExposureLeft))
    }
 else
    {
-    alert(plsenter)
+    noalert(plsenter)
 	clearTable();
    }     
 }
@@ -349,7 +349,7 @@ function ShowHide(spanname, show)
 	     {
 		 
 		 eval("document.layers['"+spanname+"'].visibility='show';");
-		 alert('show');
+		 noalert('show');
 		 }
     else 
 	     {
@@ -406,7 +406,7 @@ var w=Math.round(600/obj.cols);
 if (w<40){w=40};
 if (w>100){w=100}
 out.newtable(obj.cols+1,w);
-//alert("obj.cols="+obj.cols)
+//noalert("obj.cols="+obj.cols)
 out.title("<h3>" + obj.headText + "</h3>");
 out.line(obj.cols+1);
 for (var r=0; r<obj.rows; r++)
@@ -447,7 +447,7 @@ if (currentstratum==1)
    else
    {
 
-    alert(beforecalc)
+    noalert(beforecalc)
 	clearTable();
 	myTable.moveInputNext();
 	myTable.moveInputTo(myTable.inputR-1,myTable.inputC);
@@ -571,7 +571,7 @@ try
 }
 catch(err)
 {
-  alert(ffmsg);
+  noalert(ffmsg);
 }
 
 */
@@ -590,7 +590,7 @@ if (typeof (etablecmds1) =="object")
 
    //cssString="<style media=\"screen,projection\" type=\"text/css\">" + myTable.css+ "</style>";
   // document.getElementsByTagName("head")[0].innerHTML+= cssString;
- //alert("Etablejs 605 myTable.div \n"+ myTable.div);
+ //noalert("Etablejs 605 myTable.div \n"+ myTable.div);
  //$("panel2").HTML+=  myTable.div ;    //use jQuery to write the HTML code for the table
 // $("panel2").innerHTML+=  myTable.div ;    //use jQuery to write the HTML code for the table
  addStringToDiv(myTable.div,"panel2");

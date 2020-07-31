@@ -152,7 +152,7 @@ function StratumLockCell(cellortypename, locked)
 
     var rc = new Array(2);
     rc = rcFromStrId(cellortypename)
-    alert("rc0="+rc[0]+ " rc1="+rc[1]);
+    noalert("rc0="+rc[0]+ " rc1="+rc[1]);
     this.row[rc[0]].cell[rc[1]].locked = locked;
   }
   else
@@ -185,7 +185,7 @@ function StratumSetRow()
   args = (arguments.length - 1)/2
   if (args > this.cols)
   {
-    alert(morecols)
+    noalert(morecols)
     return
   }
   for (var i = 0; i<(arguments.length-1); i = i+2)
@@ -300,7 +300,7 @@ function removeCalendar()
     }
     // jQuery("#entryfield").datepicker("destroy");
   } catch(ex) {
-   alert("error in line 295 removing calendar: "+ex.message)
+   noalert("error in line 295 removing calendar: "+ex.message)
   }
 }
 function StratumMoveInputTo(r, c) {
@@ -315,9 +315,9 @@ function StratumMoveInputTo(r, c) {
     if (tp=="rowtot")
     {
       tp = rowtotmsg;
-      //alert("r="+r+" Empty cells="+this.emptyCellsinRow(r))
+      //noalert("r="+r+" Empty cells="+this.emptyCellsinRow(r))
       if (this.emptyCellsinRow(r) !=1)
-      {alert(singleemp);
+      {noalert(singleemp);
         //this.out(r,c);
         //this.moveInputTo(this.inputR,this.inputC);
         //self.focus()
@@ -328,13 +328,13 @@ function StratumMoveInputTo(r, c) {
     {
       tp = coltotmsg;
       if (this.emptyCellsinCol(c) !=1)
-      {alert(singleempc);
+      {noalert(singleempc);
         return
       }
     }
     else if (tp=="grandtot")
     {
-      alert(gtmsg)
+      noalert(gtmsg)
       return
     }
     //Handle label fields.  Pop dialog to get permission for changes,
@@ -426,7 +426,7 @@ function StratumMoveInputTo(r, c) {
     // <a name="anchor"></a>
 
 
-    //alert("moved input to: R " + this.inputR + " C " + this.inputC)
+    //noalert("moved input to: R " + this.inputR + " C " + this.inputC)
     //document.inBox.entryfield.focus();
     return true;
   }
@@ -473,7 +473,7 @@ function StratumMoveInputNext()
       row = 0;
       col = 0;
     }
-    // alert("tries="+ tries + "row=" + row + "  col=" + col)
+    // noalert("tries="+ tries + "row=" + row + "  col=" + col)
   }
   while ((this.row[row].cell[col].type != "data") && (this.row[row].cell[col].type != "calendar") && (tries <= this.rows * this.cols));
   //May want to put test and message here if no data cells found.
@@ -515,14 +515,14 @@ function StratumEvalEntry()
   else if (celltype == "coltot")
   {
     entry1 = this.totalCol(this.inputR, this.inputC, entry);
-    //alert("this.emptycol="+this.emptycol)
+    //noalert("this.emptycol="+this.emptycol)
     if (this.emptycol!=-2)
     {
       this.insert(this.inputR, this.inputC, entry1);
     }
     else
     {
-      alert(clearone);
+      noalert(clearone);
     }
   }
   else if ((celltype=="data")||(celltype=="calendar"))
@@ -604,8 +604,8 @@ function StratumInsert(r, c, val) {
   // if (this.lockCheck(r,c)) {return}
   //}
 
-  if (r > this.rows) {alert(norow+ r); return false}
-  if (c > this.cols) {alert(nocol + c); return false}
+  if (r > this.rows) {noalert(norow+ r); return false}
+  if (c > this.cols) {noalert(nocol + c); return false}
   //alert ("329: inserting r,c,val " + r + " ," + c +"," +val)
   //if (this.inputR==r && this.inputC==c)  {this.moveInputTo(r,c)}
   this.row[r].cell[c].value = val
@@ -679,7 +679,7 @@ function StratumSetCellSpan(r, c, span)
   this.row[r].cell[c].span = span
   //for now, set the array value to the number of columns in the span command,
   //but later we could make use of this to set a true 'colspan='  attribute.
-  //if (r<3) {alert("span="+ span+" row="+r+" cell="+c)}
+  //if (r<3) {noalert("span="+ span+" row="+r+" cell="+c)}
 }
 
 // Dynlayer setbg() required
@@ -787,7 +787,7 @@ function StratumBuild() {
   this.css += css(this.name+"ShadowDiv", this.x+this.shadowwidth, this.y+this.shadowwidth, this.w, this.h, this.shadowcolor, "hidden",-1)
 
   this.div += '<div id="' + this.name + 'LayerDiv" class="shadow">\n'
-  //alert(782+this.div);
+  //noalert(782+this.div);
   //this.css += css(this.name + "LayerDiv",this.x,this.y,this.w,this.h,this.bgColor,"show");//Mar 2007 show changed to visible
  // this.css += css(this.name + "LayerDiv", this.x, this.y, this.w, this.h, this.bgColor, "visible")
  // this.css += css(this.name + "LayerDiv", "", this.y, this.w, this.h, this.bgColor, "visible")
@@ -825,7 +825,7 @@ function StratumBuild() {
 
   this.css += '#InputDiv INPUT {font-family : Trebuchet MS;font-size : 10pt;font-weight : bold; background-color:#ddddff; border-color : #336699;' +
   'border-style : inset; border-width : 0;color : #000000;}\n';
-  //alert(701 + this.css)
+  //noalert(701 + this.css)
   //Build cell div and css's
   for (i = 0; i < this.row.length; i++)
   {
@@ -923,14 +923,14 @@ function StratumOut(r, c)
   {
     this.row[r].cell[c].dynlayer.setbg(this.cellColor)
   }
-  // alert("before 895")
+  // noalert("before 895")
 
   entryObj = jQuery("#entryfield");
   entryObj.focus();
   entryObj.select();
   // if (this.row[r].cell[c].type!="calendar")
   //     {removeCalendar()};
-  //  alert(900);
+  //  noalert(900);
   // if (this.row[r].cell[c].type=="calendar")
   //   {addCalendar()}
   //  else

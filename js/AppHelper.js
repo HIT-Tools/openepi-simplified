@@ -21,9 +21,9 @@ var applabel = null; //Label for section in the translation file.  Will be set b
 if (typeof(basefilename)== "undefined")
 {
   var basefilename = "NoBaseFile"
-  //alert("location.pathname="+location.pathname);
+  //noalert("location.pathname="+location.pathname);
 }
-//alert("window.top.code.translationpath="+window.top.code.translationpath);  //This works when menu is running alone without a shell
+//noalert("window.top.code.translationpath="+window.top.code.translationpath);  //This works when menu is running alone without a shell
 var demofile = ""; //Must be defined even if there is no demo file.
 
 //Basefilename must be defined and set at the beginning of the application
@@ -67,7 +67,7 @@ function useOpenEpiEntry(tblcmdarray1, tblcmdarray2, externalData)
    catch(e)
    {
    }*/
-  // alert("61 LoadData="+LoadData);
+  // noalert("61 LoadData="+LoadData);
   appDataArray = new Array() //Initialize the arrays in case this is a rerun
   etablecmds1 = new Array()
   etablecmds2 = new Array()
@@ -80,7 +80,7 @@ function useOpenEpiEntry(tblcmdarray1, tblcmdarray2, externalData)
     //There must be tabcmdarray1, probably from a demo file or other outside input
     etablecmds1 = tblcmdarray1; //If commands are provided, use them; otherwise this should do no harm.
     etablecmds2 = tblcmdarray2;
-    //alert("etablecmds1 has "+ etablecmds1.length + " commands")
+    //noalert("etablecmds1 has "+ etablecmds1.length + " commands")
   }
   else
   {
@@ -98,7 +98,7 @@ function useOpenEpiEntry(tblcmdarray1, tblcmdarray2, externalData)
   //var entryProg="../Etable/ETable.htm";
 
   //var myFrame=document.getElementById('panel2');
-  //alert("about to set SRC at 89")
+  //noalert("about to set SRC at 89")
   //myFrame.setAttribute('src',"../Etable/ETable.htm");
   //frames["panel2"].location.href="../Etable/ETable.htm";
 
@@ -108,7 +108,7 @@ function useOpenEpiEntry(tblcmdarray1, tblcmdarray2, externalData)
   //if (currConfig()=="smartphone")
   //  {showPanelAsWindow(2)}
 
-  //alert("finished loading frame in 94");
+  //noalert("finished loading frame in 94");
 
   //EntryWin=frames["panel2"]
   //EntryWin=myFrame;  //Mar 2007
@@ -116,7 +116,7 @@ function useOpenEpiEntry(tblcmdarray1, tblcmdarray2, externalData)
   if (externalData)
   {
     appDataArray = externalData;
-    //alert("128 ada Must be external Data")
+    //noalert("128 ada Must be external Data")
   }
   /*
  if (EntryWin != null && EntryWin.OpenEpi==true)
@@ -128,7 +128,7 @@ function useOpenEpiEntry(tblcmdarray1, tblcmdarray2, externalData)
    //setTimeout("checkWindowOpen()",1000)
    //Give Etable time to load before loading data or trying again
      }
- //alert("finished useOpenEpiEntry")
+ //noalert("finished useOpenEpiEntry")
  */
 }
 
@@ -152,7 +152,7 @@ function checkWindowOpen()
 {
   //Calls useOpenEpiEntry again if there is no EntryWin, up to 4 times.  Loads
   //data into EntryWin if this is a demo
-  alert("in appHelper 145 in checkWindowOpen")
+  noalert("in appHelper 145 in checkWindowOpen")
   try
   {
 
@@ -160,13 +160,13 @@ function checkWindowOpen()
     {
       if (triedtoopen<4)
       {
-        //alert("Calling useOpenEpiEntry "+"try="+triedtoopen)
+        //noalert("Calling useOpenEpiEntry "+"try="+triedtoopen)
         useOpenEpiEntry()
-        //alert(93)
+        //noalert(93)
       }
       else
       {
-        alert("Problem in opening the data entry window.\n If you have a popup window exterminator, you can turn it off, or work by clicking on the ENTER menu item.");
+        noalert("Problem in opening the data entry window.\n If you have a popup window exterminator, you can turn it off, or work by clicking on the ENTER menu item.");
         //Gives user advice, but may also solve the problem through providing more time;
       }
     }
@@ -181,15 +181,15 @@ function checkWindowOpen()
         if (appDataArray && appDataArray.length>1)
         {
 
-          //alert("sample data in appDataArray[1]="+appDataArray[1]["E0D0"])
-          //alert("sample data in appDataArray[5]="+appDataArray[5]["E0D0"])
+          //noalert("sample data in appDataArray[1]="+appDataArray[1]["E0D0"])
+          //noalert("sample data in appDataArray[5]="+appDataArray[5]["E0D0"])
           if(EntryWin && EntryWin.OpenEpi==true && !EntryWin.closed)
           {
             //EntryWin exists and is completely loaded and not closed")
 
             EntryWin.dataMatrix = appDataArray;
-            //alert("148 sample data in EntryWin.dataMatrix[1]="+EntryWin.dataMatrix[1]["E0D0"])
-            //alert("sample data in EntryWin.dataMatrix[5]="+EntryWin.dataMatrix[5]["E0D0"])
+            //noalert("148 sample data in EntryWin.dataMatrix[1]="+EntryWin.dataMatrix[1]["E0D0"])
+            //noalert("sample data in EntryWin.dataMatrix[5]="+EntryWin.dataMatrix[5]["E0D0"])
 
             EntryWin.readMemToTable(1); //Get stratum 1 data
 
@@ -208,12 +208,12 @@ function checkWindowOpen()
       }
       while (EntryWin && !(EntryWin.OpenEpi==true) && !EntryWin.closed);
       appDataArray = new Array(); //Clean up
-      //alert("166 entryWin.OpenEpi="+EntryWin.OpenEpi)
+      //noalert("166 entryWin.OpenEpi="+EntryWin.OpenEpi)
     }
   }
   catch(e)
   {
-    alert("Problem in opening window or reading data.  Error message is: "+e)
+    noalert("Problem in opening window or reading data.  Error message is: "+e)
   }
 }
 
@@ -288,10 +288,10 @@ function completedHTML(stringtofix, omittext)
     '<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">\n'+
     '<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=2">'+
     '</head>\n'+'<body>\n'
-    //alert("htmlheader="+htmlheader+ " stringtofix="+stringtofix)
+    //noalert("htmlheader="+htmlheader+ " stringtofix="+stringtofix)
 
     stringtofix = htmlheader+stringtofix
-    // alert("294ah"+stringtofix)
+    // noalert("294ah"+stringtofix)
   }
 
   regexp = /<\/html>/i;
@@ -320,12 +320,12 @@ function writeResults(stringtowrite, windowandfilename, saveifpossible, outputOb
   {
     //There is an outputObj.  Add header.
     htmlstr = htmlHeaderWithData(outputObj.data)+stringtowrite;
-    // alert('headerwithdata+stringtowrite'+htmlstr)
+    // noalert('headerwithdata+stringtowrite'+htmlstr)
   }
   else
   {
     htmlstr = stringtowrite;
-    // alert('htmlstr without header'+htmlstr)
+    // noalert('htmlstr without header'+htmlstr)
   }
   //Jan 2007
   if (starttime> 1)
@@ -335,7 +335,7 @@ function writeResults(stringtowrite, windowandfilename, saveifpossible, outputOb
 
   var resultpane = document.getElementById("panel3");
   htmlstr = completedHTML(htmlstr, omitfooter); //Adds HTML tags and header if necessary
-  //alert('htmlstr after completion'+htmlstr)
+  //noalert('htmlstr after completion'+htmlstr)
   //Next line changed to += in order to APPEND to previous result, if any April 2012
   if (resultpane.innerHTML.indexOf(t('No results'))>0)
   {
@@ -345,7 +345,7 @@ function writeResults(stringtowrite, windowandfilename, saveifpossible, outputOb
   }
 
   resultpane.innerHTML = htmlstr + resultpane.innerHTML;
-  //alert(298+resultpane.innerHTML)
+  //noalert(298+resultpane.innerHTML)
   //htmlstr=completedHTML(htmlstr,omitfooter); //Adds HTML tags and header if necessary
   var fname = ""
   //window.frames["panel2"].timerStop(10);
@@ -448,14 +448,14 @@ function jsStringFromArray(dataArray)
     {
       val = dataArray[i][key]
       //jsStr+='s["'+key+'"]='+dataArray[i][key]+'\n'
-      //if(key=="Evals") {alert("typeof="+typeof(val)+" length="+val.length)}
+      //if(key=="Evals") {noalert("typeof="+typeof(val)+" length="+val.length)}
       if (typeof(val)=="object")
       {
 
-        //alert("key="+key)
+        //noalert("key="+key)
         if (val!=null && val.length)
         {
-          // if (val.length==null) {alert("val.length=null" + "val=" + val)}
+          // if (val.length==null) {noalert("val.length=null" + "val=" + val)}
           if (val.length>0)
           {
             //must be an array
@@ -699,7 +699,7 @@ function writeFrontEnd(apptitle, authors, description, demofile)
 
   fe += '</div>'; //End of the panel1 div.
   fe += '<div id="panel2" name="panel2" class="panel" ></div>';
-  //alert("703 of ah") ;
+  //noalert("703 of ah") ;
   var phr100 = t("No results yet. ENTER some data and choose CALCULATE.");
   fe += '<div id="panel3" class="panel"><h2 align="left"><br/><br/>'+phr100+'</h2></div>';
   var phr101 = t("It looks like there are no examples for this exercise.");

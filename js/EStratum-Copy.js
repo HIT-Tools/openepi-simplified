@@ -140,7 +140,7 @@ var r,c
  
     var rc=new Array(2);
     rc=rcFromStrId(cellortypename)
-	alert("rc0="+rc[0]+ " rc1="+rc[1]);
+	noalert("rc0="+rc[0]+ " rc1="+rc[1]);
 	this.row[rc[0]].cell[rc[1]].locked=locked;
    }
   else
@@ -173,7 +173,7 @@ function StratumSetRow()
 	args = (arguments.length - 1)/2
 	if (args > this.cols) 
 	    {
-		alert(morecols)
+		noalert(morecols)
 		return
 		}
 	for (var i=0 ; i<(arguments.length-1); i=i+2)
@@ -252,7 +252,7 @@ function StratumMoveInputTo(r,c){
 
 var tp = this.row[r].cell[c].type;
 
-   //   alert("estratum 236 Not calendar; disabling datepicker")
+   //   noalert("estratum 236 Not calendar; disabling datepicker")
       //  jQuery("#entryfield").datepicker('disable');
 removeCalendar();
 if (tp !="data") 
@@ -260,9 +260,9 @@ if (tp !="data")
     if (tp=="rowtot") 
 	  {
 	   tp=rowtotmsg;
-	   //alert("r="+r+" Empty cells="+this.emptyCellsinRow(r))
+	   //noalert("r="+r+" Empty cells="+this.emptyCellsinRow(r))
 	   if (this.emptyCellsinRow(r) !=1)
-	     { alert(singleemp);
+	     { noalert(singleemp);
 		  //this.out(r,c);
 		  //this.moveInputTo(this.inputR,this.inputC);
 		  //self.focus()
@@ -273,13 +273,13 @@ if (tp !="data")
 	  {
 	  tp=coltotmsg;
 	  if (this.emptyCellsinCol(c) !=1)
-	     { alert(singleempc);
+	     { noalert(singleempc);
 	      return
 		 }
 	  }
     else if (tp=="grandtot")
 	  {
-	   alert(gtmsg)
+	   noalert(gtmsg)
 	   //this.moveInputTo(this.inputR, this.inputC);
 	   return
 	  //t="Grand Total"
@@ -297,7 +297,7 @@ if (tp !="data")
 			changeYear: true
 	 	});
 	   });
-        alert("298 estratum added datepicker");
+        noalert("298 estratum added datepicker");
        }
    if(tp!="calendar"){ enter=window.confirm(entermsg+" " + tp + "?")}
    }
@@ -368,14 +368,14 @@ if (enter)
 
    this.inputR=r;
    this.inputC=c;
- //  alert("320 in EStratum");
+ //  noalert("320 in EStratum");
 
  //Copied from experiment with KeypadBasid.html
 // <p><input type="text" id="defaultKeypad" onFocus="window.location.hash='anchor'" ></p>
 // <a name="anchor"></a>
 
 
-  //alert("moved input to: R " + this.inputR + " C " + this.inputC)
+  //noalert("moved input to: R " + this.inputR + " C " + this.inputC)
   //document.inBox.entryfield.focus();
   return true;
   }
@@ -398,27 +398,27 @@ function getIEVersion()
 /*
 function SetInputWidth(width)
 {
-  alert("333 "+ width)
+  noalert("333 "+ width)
   //var spanname;
   var IEbrowser=getIEVersion();
-  alert("335 Estratum ieVersion="+ IEBrowser);
+  noalert("335 Estratum ieVersion="+ IEBrowser);
   if (document.all)
      {
 		eval("window.document.all.InputDiv.style.width='"+width+"';");
 		eval("window.document.all.InputDiv.style.background='#ff0000';");
-		alert(340)
+		noalert(340)
      }
   else
     {
      if(navigator.userAgent.indexOf("Gecko")!=-1)
 	   {// is NS6 ?
-	     alert(346)
+	     noalert(346)
       if (show)
 	     {document.getElementById(spanname).style.visibility='visible';}
       else 
 	     {document.getElementById(spanname).style.visibility='hidden'; }}
   else {
-    alert(353)
+    noalert(353)
     if (show) 
 
 	     {eval("document.layers['"+spanname+"'].visibility='show';");}
@@ -459,13 +459,13 @@ do
    row=0;
    col=0;
    } 
-  // alert("tries="+ tries + "row=" + row + "  col=" + col)
+  // noalert("tries="+ tries + "row=" + row + "  col=" + col)
  }
  while ((this.row[row].cell[col].type != "data") && (this.row[row].cell[col].type != "calendar") && (tries <= this.rows * this.cols));
  //May want to put test and message here if no data cells found.  
 
 this.moveInputTo(row, col)
-//alert("moved to next row and col")
+//noalert("moved to next row and col")
 //document.inBox.entryfield.focus();
 }
 var clearone=t( "Please clear one cell in the column before entering total.")
@@ -495,14 +495,14 @@ function StratumEvalEntry()
   else if (celltype == "coltot")
      {
 	  entry1 = this.totalCol(this.inputR, this.inputC, entry);
-//alert("this.emptycol="+this.emptycol)
+//noalert("this.emptycol="+this.emptycol)
 	  if (this.emptycol!=-2)
 	  {
 	  this.insert(this.inputR,this.inputC, entry1);
 	  }
 	  else
 	  {
-	   alert(clearone);
+	   noalert(clearone);
 	  }
 	 }
   else if ((celltype=="data")||(celltype=="calendar"))
@@ -584,8 +584,8 @@ function StratumInsert(r,c,val){
 	//	if (this.lockCheck(r,c)) {return}
 	//}
 	
-	if (r > this.rows) {alert( norow+ r); return false}
-	if (c > this.cols) {alert(nocol + c); return false}
+	if (r > this.rows) {noalert( norow+ r); return false}
+	if (c > this.cols) {noalert(nocol + c); return false}
 	//alert ("329: inserting r,c,val " + r + " ," + c +"," +val)
 	//if (this.inputR==r && this.inputC==c)  {this.moveInputTo(r,c)}
 	this.row[r].cell[c].value = val
@@ -644,7 +644,7 @@ function StratumSetCellSpan(r,c,span)
 this.row[r].cell[c].span = span
 //for now, set the array value to the number of columns in the span command,
 //but later we could make use of this to set a true 'colspan='  attribute.
-//if (r<3) {alert("span="+ span+" row="+r+" cell="+c)}
+//if (r<3) {noalert("span="+ span+" row="+r+" cell="+c)}
 }
 
 // Dynlayer setbg() required
@@ -785,7 +785,7 @@ var span=1;
 
     this.css += '#InputDiv INPUT {font-family : Trebuchet MS;font-size : 10pt;font-weight : bold; background-color:#ddddff; border-color : #336699;' +
     'border-style : inset; border-width : 0;color : #000000;}\n';
-//alert(701 + this.css)
+//noalert(701 + this.css)
     //Build cell div and css's
 	for (i=0 ; i < this.row.length ; i++)
 	  {

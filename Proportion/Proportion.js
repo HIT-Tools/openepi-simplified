@@ -39,7 +39,7 @@ function doStatistics(cmdObj)
 //array, uncomment the following 3 lines and run the program:
 
 //EntryWin.writeTable(cmdObj.data)
-//alert("This is the data array, ready for programming in the statistical routine.")
+//noalert("This is the data array, ready for programming in the statistical routine.")
 //return  //exits from OECalculate
 
 //Remove the comment from the 3 lines above to see a table of the contents of the data array
@@ -88,21 +88,21 @@ function CalcBin() {
  
 
     if (vx < 0) {
-      alert(numnotless);
+      noalert(numnotless);
       return;
     }
     if (vN < 0) {
-      alert(denomnotless);
+      noalert(denomnotless);
       return;
     }
     if (vx > vN) {
-      alert(numnotlarger);
+      noalert(numnotlarger);
       return;
     }
     var msgGTpop=t("Sample denominator must be smaller than population. Please ENTER again.")
 	if (vN>pop)
     {
-      alert(msgGTpop)
+      noalert(msgGTpop)
       return;
     }
     var vP = vx/vN
@@ -155,7 +155,7 @@ function CalcBin() {
       else var vSL_fpc = (vN/(vN+zsquare))*((vP+(zsquare/(2*vN)))- fpc*zL*Math.sqrt(((vx*(vN-vx)/(vN*vN*vN))+(zsquare/(4*vN*vN)))));
       if (vP == 1) var vSU = 1;
       else var vSU_fpc = (vN/(vN+zsquare))*((vP+(zsquare/(2*vN)))+ fpc*zU*Math.sqrt(((vx*(vN-vx)/(vN*vN*vN))+(zsquare/(4*vN*vN)))));
-     //alert( "vSL_fpc="+vSL_fpc + "vSU_fpc="+vSU_fpc)
+     //noalert( "vSL_fpc="+vSL_fpc + "vSU_fpc="+vSU_fpc)
      }
 
     //Score with continuity correction, Fleiss Quadratic method;
@@ -202,7 +202,7 @@ function CalcBin() {
         while((vsH-vsL)>veryClose) { if(BinP(vN,v,0,vx) <p) { vsH=v; v=(vsL+v)/2 } else { vsL=v; v=(vsH+v)/2 } };
         var DU = (v);
         }
- // alert("at 210 in Fisher, vsH="+vsH+" vsL="+vsL+ " vsH-vsL="+(vsH-vsL) + "DL="+DL);
+ // noalert("at 210 in Fisher, vsH="+vsH+" vsL="+vsL+ " vsH-vsL="+(vsH-vsL) + "DL="+DL);
     
     //mid-P test;
     if (vx==0) 	{ var T1 = 0 } 
@@ -219,7 +219,7 @@ function CalcBin() {
         var T2 = (v);
         }
     }  //end of Fisher and mid-P
-  // alert(211+"finished mid-p");
+  // noalert(211+"finished mid-p");
      //One-Sample test for binomial proportion--normal theory (two-sided alternative)
    //  compareWith=compareWith/multiplier;
      compareWith=compareWith/100;
@@ -230,7 +230,7 @@ function CalcBin() {
              {twoSidedP=2*pnorm(zValue,true)}
          else
              {twoSidedP=2*pnorm(zValue,false)}     ;
- //  alert("220 finished compare");
+ //  noalert("220 finished compare");
 
 
 

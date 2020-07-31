@@ -1,7 +1,7 @@
 var inTbl = "HELLO From Panel 2";
 function buildTable()
 {
-alert("Here we are in buildTable");
+noalert("Here we are in buildTable");
 var pTag = document.createElement("p");
 
            // pTag.setAttribute("align","center");
@@ -22,7 +22,7 @@ document.getElementById("panel2").appendChild(pTag);
 inTbl += '<script type=text/javascript>\n';
 inTbl += 'function buildTable()\n';
 inTbl += '{\n';
-inTbl += 'alert("Here we are in buildTable")\n';
+inTbl += 'noalert("Here we are in buildTable")\n';
 inTbl += '}\n';
 inTbl += 'buildTable()\n';
 inTbl += '</script>\n';

@@ -23,7 +23,7 @@ function initPanels(panelInicial)
         {
           //just for now
          // document.getElementById('panel'+pp).style.display = 'none';
-          //alert("display set to none for panel "+pp+ " in showpanel");
+          //noalert("display set to none for panel "+pp+ " in showpanel");
         }
       }
       else
@@ -63,7 +63,7 @@ function showPanelAsWindow(panelNum)
   HTMLforDiv += '<div id="tab1" class="tab" style="left: 18%;" onClick = "showPanelAsWindow(1);" onMouseOver="hover(this);" onMouseOut="setState(1)">'
   HTMLforDiv += t('Start*')
   HTMLforDiv += '</div>'
-  alert("at 66 in TabbedUI.js")
+  noalert("at 66 in TabbedUI.js")
   //HTMLforDiv+='<div id="tab2" class="tab" style="left: 34%;" onClick = "useOpenEpiEntry();self.close()" onMouseOver="hover(this);" onMouseOut="setState(2);">'
   HTMLforDiv += '<div id="tab2" class="tab" style="left: 34%;" onClick = "showPanel(2);" onMouseOver="hover(this);" onMouseOut="setState(2);">'
   HTMLforDiv += t('Enter')
@@ -161,7 +161,7 @@ function hidePanel() {
   //The following line causes Safari to Crash completely.
   // document.getElementById('panel'+currentPanel).style.display = 'none';
  // removeCalendar();
-  //alert("display set to none for panel "+currentPanel+ " in hidepanel")
+  //noalert("display set to none for panel "+currentPanel+ " in hidepanel")
 
  $('panel'+ currentPanel).hide();
 

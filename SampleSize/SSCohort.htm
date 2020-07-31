@@ -94,16 +94,16 @@ function checkcode(r,c,entry)
   //zeros.  Conditional statements, such as the switch statement can be used
   //to write code that applies only to particular cells.
   //To see what row and column entries are made in, uncomment the following line:
-   //alert("Row="+r+"  Col=" + c + " Value: " + entry)
+   //noalert("Row="+r+"  Col=" + c + " Value: " + entry)
 
    var temp;
    var e=parseFloat(entry)
-   //alert("e="+e+"r="+r)
+   //noalert("e="+e+"r="+r)
    if (isNaN(e))
      {
 	   return ("")
 	 }
-   //alert("e2="+e+"r="+r)
+   //noalert("e2="+e+"r="+r)
    if (r==3 && c==3 && e !=0)
      { 
 	   // New value for percent outcome in unexposed
@@ -114,7 +114,7 @@ function checkcode(r,c,entry)
 		  setCellValue(r+5, 3, "");
 	  } 
 	v22 = parseFloat(getCellValue(3, 3))/100;
-	//alert("V11:" +v11+ " v22: " + v22 + " vorr: "+vorr)
+	//noalert("V11:" +v11+ " v22: " + v22 + " vorr: "+vorr)
 	 if ((r == 5 ) && ( c == 3) && ( e != 0))
 	 	{
 		vorr = e;		
@@ -135,11 +135,11 @@ function checkcode(r,c,entry)
 			setCellValue(r+1, c, temp.toFixed(2));
 
 			temp = Math.round(100000 * v11/v22) / 100000;	//For row 7
-			//alert("R7:" + temp)
+			//noalert("R7:" + temp)
 			setCellValue(r+2, c, temp.toFixed(2));
 
 			temp = 100*Math.round((v11-v22)*100000) / 100000;	//For row 8
-			//alert("R8:" + temp)			
+			//noalert("R8:" + temp)			
 			setCellValue(r+3,c,temp.toFixed(2));
 		}
 			
@@ -158,11 +158,11 @@ function checkcode(r,c,entry)
 		  	setCellValue(r-1, c, temp.toFixed(2));
 		
 			temp = Math.round(100000 * v11/v22) / 100000;	//For row 7
-			//alert("R7:" + temp)
+			//noalert("R7:" + temp)
 			setCellValue(r+1, c, temp.toFixed(2));
 
 			temp = 100*Math.round((v11-v22)*100000) / 100000; //For Row 8
-			//alert("R8:" + temp)			
+			//noalert("R8:" + temp)			
 			setCellValue(r+2,c,temp.toFixed(2));
 	 	}
 		
@@ -172,7 +172,7 @@ function checkcode(r,c,entry)
 		v11 = 0;
 		rrr = e;
 		rdd = 0;
-		//alert("Vorr: " + e);
+		//noalert("Vorr: " + e);
 		if (rrr != 0)
 			{
 			v11 = v22 * rrr;
@@ -199,7 +199,7 @@ function checkcode(r,c,entry)
 		v11 = 0;
 		rrr = 0;
 		rdd = e/100;
-		//alert("Rdd: " + e + " Row: " + r);
+		//noalert("Rdd: " + e + " Row: " + r);
 		if (rdd != 0)
 			{
 			v11 = rdd + parseFloat(v22);
@@ -209,7 +209,7 @@ function checkcode(r,c,entry)
 			{ 
 			return e; 
 			}				
-			//alert("V11: " + v11 + "RDD: " + rdd + " V22: " + v22);	
+			//noalert("V11: " + v11 + "RDD: " + rdd + " V22: " + v22);	
 			temp = Math.round(100000 * v11/v22) / 100000; // for row 7
 			setCellValue(r-1, c, temp.toFixed(2));
 
@@ -290,7 +290,7 @@ var results;
 
 		//Calc() //Function in the ssizecc.js file for output calculation
 		//parseFloat(data[1]["E5D0"]);
-		//alert(parseFloat(data[1]["E0D0"]));
+		//noalert(parseFloat(data[1]["E0D0"]));
 		//vx is the numerator
 		
 		//vN = parseFloat(data[1]["E6D1"]);

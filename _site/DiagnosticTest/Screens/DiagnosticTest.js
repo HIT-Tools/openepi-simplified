@@ -7,11 +7,11 @@
 function CalcBin() {
     if (levels==2) {
          if (tp<0||tn<0||fp<0||fn<0) {
-             alert("Counts can not be negative!");
+             noalert("Counts can not be negative!");
              return;
          }
          if (tp!=Math.floor(tp)||tn!=Math.floor(tn)||fp!=Math.floor(fp)||fn!=Math.floor(fn)) {
-             alert("Counts can not be fractions!");
+             noalert("Counts can not be fractions!");
              return;
          }
          assesstwobytwo();

@@ -67,7 +67,7 @@ function saveSettings()
 	*/
 	if (!cookiesEnabled())
 		{
-		alert("Cookies are disabled or not allowed in this browser. Please enable them in the browser settings to allow saving settings.");
+		noalert("Cookies are disabled or not allowed in this browser. Please enable them in the browser settings to allow saving settings.");
 		return;
 		}
 
@@ -122,13 +122,13 @@ function saveSettings()
 }
 
 var OnTop;// = readCookie("openepi","Dropbox0");
-//alert("onTop=" +OnTop)
+//noalert("onTop=" +OnTop)
 var TopLeft ;// = readCookie("openepi","TopLeft");
-//alert("TopLeft=" +TopLeft)
+//noalert("TopLeft=" +TopLeft)
 var TopRight ;// = readCookie("openepi","TopRight");
-//alert("TopRight=" +TopRight)
+//noalert("TopRight=" +TopRight)
 var Dropbox1 ;// = readCookie("openepi","Dropbox1");
-//alert("Dropbox1=" +Dropbox1)
+//noalert("Dropbox1=" +Dropbox1)
 
 var Exposure ;
 var Top ;
@@ -151,38 +151,38 @@ var conflevel;
 function readSettings()
 {
 OnTop = readCookie("openepi","Dropbox0");
-//alert("onTop=" +OnTop)
+//noalert("onTop=" +OnTop)
 TopLeft = readCookie("openepi","TopLeft");
-//alert("TopLeft=" +TopLeft)
+//noalert("TopLeft=" +TopLeft)
 TopRight = readCookie("openepi","TopRight");
-//alert("TopRight=" +TopRight)
+//noalert("TopRight=" +TopRight)
 Dropbox1 = readCookie("openepi","Dropbox1");
-//alert("Dropbox1=" +Dropbox1)
+//noalert("Dropbox1=" +Dropbox1)
 Exposure = readCookie("openepi","Exp");
-//alert("Exp=" +Exposure)
+//noalert("Exp=" +Exposure)
 Top = readCookie("openepi","Top");
-//alert("Top=" +Top)
+//noalert("Top=" +Top)
 Bottom = readCookie("openepi","Bottom");
-//alert("Bottom=" +Bottom)
+//noalert("Bottom=" +Bottom)
 Dropbox2 = readCookie("openepi","Dropbox2");
-//alert("Dropbox2=" +Dropbox2)
+//noalert("Dropbox2=" +Dropbox2)
 AutoLayout = readCookie("openepi","AutoLayout");
-//alert("AutoLayout=" +AutoLayout)
+//noalert("AutoLayout=" +AutoLayout)
 ConfidenceLevel = readCookie("openepi","ConfidenceLevel");
-//alert("ConfidenceLevel=" + ConfidenceLevel)
+//noalert("ConfidenceLevel=" + ConfidenceLevel)
 Pvalues = readCookie("openepi","Pvalues");
-//alert("Pvalues=" +Pvalues)
+//noalert("Pvalues=" +Pvalues)
 Columnpercents = readCookie("openepi","Columnpercents");
-//alert("Columnpercents=" + Columnpercents)
+//noalert("Columnpercents=" + Columnpercents)
 RowPercents = readCookie("openepi","RowPercents");
-//alert("RowPercents="+RowPercents)
+//noalert("RowPercents="+RowPercents)
 Language = readCookie("openepi","Language");
 ShowTables = readCookie("openepi","ShowTables");
 ShowStrata = readCookie("openepi","ShowStrata");
 
 ExposureLeft =true;
 if (Exposure !=null && Exposure!="Exposure") {ExposureLeft=false};
-//alert("ExposureLeft="+ExposureLeft);
+//noalert("ExposureLeft="+ExposureLeft);
 MaxValueAtLeft = true;
 if (TopLeft != null&&TopLeft!="(+)") {MaxValueAtLeft=false}
 //alert ("MaxValueAtLeft="+MaxValueAtLeft);
@@ -193,7 +193,7 @@ if (ConfidenceLevel == null || ConfidenceLevel< 20) {ConfidenceLevel=95}
 ConfLevel = ConfidenceLevel;
 conflevel=ConfLevel;
 
-//alert("RowPercents in Etable="+RowPercents)
+//noalert("RowPercents in Etable="+RowPercents)
 
 if (Language == null)  {Language="EN"}
 
@@ -204,4 +204,4 @@ if (ShowStrata == null) {ShowStrata = true}
 readSettings();
 
    
-//alert("Language="+Language+ "\nShowTables=" +ShowTables + "\nShowStrata="+ShowStrata);
+//noalert("Language="+Language+ "\nShowTables=" +ShowTables + "\nShowStrata="+ShowStrata);

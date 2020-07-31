@@ -10808,7 +10808,7 @@ $.extend($.easing,
 {
 	def: 'easeOutQuad',
 	swing: function (x, t, b, c, d) {
-		//alert($.easing.default);
+		//noalert($.easing.default);
 		return $.easing[$.easing.def](x, t, b, c, d);
 	},
 	easeInQuad: function (x, t, b, c, d) {

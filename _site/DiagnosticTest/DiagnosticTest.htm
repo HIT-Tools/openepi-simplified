@@ -128,7 +128,7 @@ function configureInput()
 			    return false
 			  }
 		    }
-			//alert("levels="+levels+ " choice="+choice)
+			//noalert("levels="+levels+ " choice="+choice)
 		  }
          while (levels<2 || choice || isNaN(levels)); 
 		 //Repeat as long as result is unsatisfactory
@@ -205,7 +205,7 @@ function checkcode(r,c,entry)
   //zeros.  Conditional statements, such as the switch statement can be used
   //to write code that applies only to particular cells.
   //To see what row and column entries are made in, uncomment the following line:
-  //alert("Row="+r+"  Col=" + c)
+  //noalert("Row="+r+"  Col=" + c)
   /* 
    The following "if" statement acts on an entry in row 1 (the numerator in this
    case).  It muliplies the entry by 43 and sets the cell in row 1, column 2, to
@@ -222,7 +222,7 @@ function checkcode(r,c,entry)
   if (r==0)
     { 
 	 EntryWin.setCellValue(1,2,parseInt(entry)*43)
-	 alert(EntryWin.getCellValue(1,2))
+	 noalert(EntryWin.getCellValue(1,2))
     }
   */
 	
@@ -268,7 +268,7 @@ var results;
 
                 tn = parseFloat(data[1]["E1D1"]);
                 //tn are true negatives
-          // alert("tp="+tp+ " fp="+fp+" fn="+fn+" tn="+tn)
+          // noalert("tp="+tp+ " fp="+fp+" fn="+fn+" tn="+tn)
                 D = tp+fn;
                 //D subjects have disease
 

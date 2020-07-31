@@ -53,5 +53,5 @@ function writeAscss(cssStr, selector)
 {
  rule = addcssRule(selector);
  //rule.style=cssStr;
- alert("The rule for " + selector  + " is:\n" + getcssRule(selector));
+ noalert("The rule for " + selector  + " is:\n" + getcssRule(selector));
 }

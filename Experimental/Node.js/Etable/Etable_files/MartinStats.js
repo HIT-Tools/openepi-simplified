@@ -53,7 +53,7 @@ function martinStats(cmdObj)
 	this.resultArray=new Array();
 	this.cmdObj=cmdObj;
 	
-	//alert("MS 56   cmdObj.data[1].E0D0=" + cmdObj.data[1].E0D0);
+	//noalert("MS 56   cmdObj.data[1].E0D0=" + cmdObj.data[1].E0D0);
 	//JavaScript
 this.MAXNTABLES = 1000        // Apparently never used (was 100)  Max # "unique" 2x2 tables 
 this.MAXDEGREE = 100000       // Max degree of a polynomial 
@@ -169,7 +169,7 @@ if (stratum=="Crude")
 	}
    else
     {
-	 alert(probspec)
+	 noalert(probspec)
 	 return false
 	} 
 
@@ -229,7 +229,7 @@ var curTbl = new Array()
     {
       curTbl = this.Tables[i]
      
-	/*   alert( "Stratum="+i+
+	/*   noalert( "Stratum="+i+
       "\na="+curTbl.a+
 	  "\nb="+curTbl.b+
 	  "\nc="+curTbl.c+
@@ -250,7 +250,7 @@ var curTbl = new Array()
  //                { Case-control data }
             	this.minSumA += Math.round(Math.max(0, curTbl.m1 - curTbl.n0) * curTbl.freq) 
             	this.maxSumA += Math.round(Math.min(curTbl.m1, curTbl.n1) * curTbl.freq) 
-           //  alert("minSumA="+this.minSumA+
+           //  noalert("minSumA="+this.minSumA+
 			//        "\nmaxSumA="+this.maxSumA)   
 		 	}
 		   else if (DataType==3)
@@ -258,7 +258,7 @@ var curTbl = new Array()
  //                                       { Person-time data }
             	this.minSumA = 0
             	this.maxSumA += Math.round(curTbl.m1 * curTbl.freq)
-	//	alert("at 261 stratum,freq, cur m1, maxSumA,this.sumA="+i+","+curTbl.freq+","+curTbl.m1+","+this.maxSumA+","+this.sumA) 
+	//	noalert("at 261 stratum,freq, cur m1, maxSumA,this.sumA="+i+","+curTbl.freq+","+curTbl.m1+","+this.maxSumA+","+this.sumA) 
          	}
        	  }
 
@@ -335,7 +335,7 @@ function Process(stratum, DataType, pnConfLevel,ORbased,RRbased,assoc,references
 	 
 	 firststratum=1
 	 laststratum=NumStrata
-	 // alert("stratum=adjusted "+firststratum+" "+laststratum)
+	 // noalert("stratum=adjusted "+firststratum+" "+laststratum)
 	}
 	else if (parseInt(stratum)>0)
 	{
@@ -350,9 +350,9 @@ function Process(stratum, DataType, pnConfLevel,ORbased,RRbased,assoc,references
 	  laststratum=1
     }
    var tbl = new Array()
-   //alert("as defined tbl="+tbl)
+   //noalert("as defined tbl="+tbl)
     //ReDim Tables(NumStrata - 1)
-	//alert("in 355, stratum, firststratum, laststratum="+stratum +", "+firststratum+", "+ laststratum);
+	//noalert("in 355, stratum, firststratum, laststratum="+stratum +", "+firststratum+", "+ laststratum);
    for (i = firststratum; i<= laststratum; i++)
 	  {
 	   tbl=new Array()
@@ -368,7 +368,7 @@ function Process(stratum, DataType, pnConfLevel,ORbased,RRbased,assoc,references
          tbl.c = parseFloat(dataTable.E1D0)  
          tbl.d = parseFloat(dataTable.E0D0)  
 		/*
-		 alert("tbl.a crude="+tbl.a
+		 noalert("tbl.a crude="+tbl.a
 		 +"\nb="+tbl.b
 		 +"\nc="+tbl.c
 		 +"\nd="+tbl.d)
@@ -382,16 +382,16 @@ function Process(stratum, DataType, pnConfLevel,ORbased,RRbased,assoc,references
          tbl.d = parseFloat(this.cmdObj.data[i].E0D0)  
          }
 		 
-		 //alert(" 378 in MartinStats tbl.a="+ tbl.a);
+		 //noalert(" 378 in MartinStats tbl.a="+ tbl.a);
 	
          tbl.freq = 1 //
          tbl.m1 = tbl.a + tbl.b // { # cases }
          tbl.n1 = tbl.a + tbl.c // { # exposed }
          tbl.n0 = tbl.b + tbl.d // { # unexposed }
          tbl.informative = ((tbl.a * tbl.d) != 0) || ((tbl.b * tbl.c) != 0) 
-		// alert(" 385 in MartinStats tbl.n1="+ tbl.n0);
+		// noalert(" 385 in MartinStats tbl.n1="+ tbl.n0);
    /*
-	  alert( "stratum="+stratum+
+	  noalert( "stratum="+stratum+
 	  "\ni="+i+
       "\na="+tbl.a+
 	  "\nb="+tbl.b+
@@ -430,10 +430,10 @@ function Process(stratum, DataType, pnConfLevel,ORbased,RRbased,assoc,references
 			addCCTbl(1,0,0,1,this.cmdObj.data[i].E0D1,this.Tables); // b cell
 			
 			/*
-			alert(this.cmdObj.data[i].E1D0 + " for E1D0"); //
-			alert(this.cmdObj.data[i].E1D1+ " for E1D1"); // d cell on the screen
-			alert(this.cmdObj.data[i].E0D0+ " for E0D0");// a cell
-			alert(this.cmdObj.data[i].E0D1+ " for E0D1");
+			noalert(this.cmdObj.data[i].E1D0 + " for E1D0"); //
+			noalert(this.cmdObj.data[i].E1D1+ " for E1D1"); // d cell on the screen
+			noalert(this.cmdObj.data[i].E0D0+ " for E0D0");// a cell
+			noalert(this.cmdObj.data[i].E0D1+ " for E0D1");
 			*/ 
 			   			
 			}
@@ -466,7 +466,7 @@ function Process(stratum, DataType, pnConfLevel,ORbased,RRbased,assoc,references
          tbl.n1 = dataTable.E1D0  
          tbl.n0 = dataTable.E1D1  
 		/*
-		 alert("tbl.a crude="+tbl.a
+		 noalert("tbl.a crude="+tbl.a
 		 +"\nb="+tbl.b
 		 +"\nc="+tbl.c
 		 +"\nd="+tbl.d)
@@ -486,7 +486,7 @@ function Process(stratum, DataType, pnConfLevel,ORbased,RRbased,assoc,references
          tbl.informative = (tbl.a * tbl.n0 != 0) 
 		        || ((tbl.b * tbl.n1) != 0) 
 		/*
-		alert( "stratum="+stratum+
+		noalert( "stratum="+stratum+
 	  "\ni="+i+
       "\na="+tbl.a+
 	  "\nb="+tbl.b+
@@ -504,9 +504,9 @@ function Process(stratum, DataType, pnConfLevel,ORbased,RRbased,assoc,references
 	  {
 	  this.Tables[this.Tables.length]=tbl;
 	  }
-	// alert("450 this.Tables.length="+this.Tables.length);
+	// noalert("450 this.Tables.length="+this.Tables.length);
    }//Next i
-  /* alert("this.Tables has length="+this.Tables.length)
+  /* noalert("this.Tables has length="+this.Tables.length)
    for (i=0; i<this.Tables.length; i++)
     {
 	  alert ("this.Tables["+i+"].a="+this.Tables[i].a)
@@ -542,9 +542,9 @@ function Process(stratum, DataType, pnConfLevel,ORbased,RRbased,assoc,references
 	//  {
         this.calcPoly (DataType)
         pValues=this.calcExactPVals()
-        //alert("In 530 Martin cmle="+cmle);	
+        //noalert("In 530 Martin cmle="+cmle);	
         cmle=this.calcCmle(1)
-        //alert("In 532 Martin cmle="+cmle);
+        //noalert("In 532 Martin cmle="+cmle);
 		
         if (isNaN(cmle)||!isFinite(cmle)) 
        	{
@@ -611,7 +611,7 @@ function Process(stratum, DataType, pnConfLevel,ORbased,RRbased,assoc,references
 	 	
 	  var pstratum ="";
 	  if (totalstrata>1) {pstratum=stratum}
-	  //alert("pstratum="+pstratum +"NumStrata="+NumStrata);
+	  //noalert("pstratum="+pstratum +"NumStrata="+NumStrata);
 	  ORbased[index]='\nnewrow("'+pstratum +'","span2:CMLE Odds Ratio*",'+fmtSigFig(cmle,4)+','
 	  ORbased[index]+='"c:span2:'+limits(loMidPLim,upMidPLim,1)+'","'+editorschoice1+'Mid-P Exact");'
 	  ORbased[index]+='\nnewrow("","span2:","","c:span2:'+limits(loFishLim,upFishLim,1)+'","Fisher Exact");'
@@ -628,7 +628,7 @@ function Process(stratum, DataType, pnConfLevel,ORbased,RRbased,assoc,references
 		 
 		RRbased[index]='\nnewrow("'+pstratum +'","span2:'+editorschoice1+'CMLE Rate Ratio*",'+fmtSigFig(cmle,4)+','
 	    RRbased[index]+='"c:span2:'+limits(loMidPLim,upMidPLim,1)+'","'+editorschoice1+'Mid-P Exact");'
-//alert("cmle="+cmle);
+//noalert("cmle="+cmle);
  
 	    RRbased[index]+='\nnewrow("","span2:","","c:span2:'+limits(loFishLim,upFishLim,1)+'","Fisher Exact");'
 
@@ -717,7 +717,7 @@ function CalcExactLim(pbLower, pbFisher, pvApprox, pnConfLevel)
   //   { Point estimate = 0 => pbLower pnLimit = 0 }
       if ( pbLower ) 
        {
-	    // alert("pnLimit must be zero")
+	    // noalert("pnLimit must be zero")
          pnLimit = 0
        }
       else
@@ -777,11 +777,11 @@ function GetExactLim(pbLower, pbFisher, pvApprox, pnConfLevel)
 function CalcCmle(approx)
 {
    var cmle
-  //alert("minSumA, sumA, maxSumA="+this.minSumA+","+this.sumA+","+this.maxSumA) 
+  //noalert("minSumA, sumA, maxSumA="+this.minSumA+","+this.sumA+","+this.maxSumA) 
  if ( (this.minSumA < this.sumA) && (this.sumA < this.maxSumA) ) 
      {
  //  { Can calc point estimate }
-     //alert("Calculating cmle..")
+     //noalert("Calculating cmle..")
       cmle=this.getCmle( approx)
      } 
    else if ( (this.sumA == this.minSumA) ) 
@@ -802,17 +802,17 @@ function GetCmle(approx)
 {
    var i, error,cmle
    this.value = this.sumA  //   { The sum of the observed "a" cells }
-   //alert("this.degN in GetCmle="+this.degN)
+   //noalert("this.degN in GetCmle="+this.degN)
    this.degN = this.degD //      { Degree of the numerator polyNomial }
    //alert ( "785 this.degN="+this.degN)
  //  for(i = 0; i<=this.degN; i++) //  { Defines the numerator polynomial }
      for(i = 0; i<=this.degN; i++) //  { Defines the numerator polynomial }
      {
 	  this.polyN[i] = (this.minSumA + i) * this.polyD[i]
-	  //alert("in GetCmle, this.polyN["+i+"]="+this.polyN[i])
+	  //noalert("in GetCmle, this.polyN["+i+"]="+this.polyN[i])
      }
 	 
-//alert("791 polyD=" +this.polyD)	 
+//noalert("791 polyD=" +this.polyD)	 
    cmle=this.converge( approx)  //         { Solves so that Func(cmle) = 0 }
   return cmle
 }
@@ -837,7 +837,7 @@ function CalcExactPVals()
    var i, diff  //        { Index; sumA - minSumA }
    var upTail, denom  // { Upper tail; the whole distribution }
    var pValues= new Array();
- //alert("at 812, minSumA, sumA, maxSumA="+this.minSumA+","+this.sumA+","+this.maxSumA) 
+ //noalert("at 812, minSumA, sumA, maxSumA="+this.minSumA+","+this.sumA+","+this.maxSumA) 
    diff = this.sumA - this.minSumA
    upTail = this.polyD[this.degD]
    for (i = this.degD - 1; i>=diff; i-=1)
@@ -908,7 +908,7 @@ function Zero(nums)
    if ( !(found) && (iter >= this.MAXITER) && (error == 0) ) 
    {
 	error=2                 // Too many iterations 
-	//alert("Too many iterations in Zero function")
+	//noalert("Too many iterations in Zero function")
    }
    nums.error=error;
    return root
@@ -931,14 +931,14 @@ function BracketRoot(approx)
    var x0 = 0  //              { X0 is the lower bound }
    var f0 = this.func(x0) //   { Func at X0 }
    var f1 = this.func(x1) //  { Func at X1 }
-  // alert("In BracketRoot, approx, x1, x0, f0,f1="+approx+", "+x1+", "+x0+", "+f0+", "+f1)
+  // noalert("In BracketRoot, approx, x1, x0, f0,f1="+approx+", "+x1+", "+x0+", "+f0+", "+f1)
    while ((f1 * f0) > 0.0 && (iter < this.MAXITER)) 
     {
 	  iter = iter + 1
       x0 = x1  //What does this accomplish?  x0 does not seem to be used.
       f0 = f1
       x1 = x1 * 1.5 * iter
-	  //alert("put in r ="+x1)
+	  //noalert("put in r ="+x1)
       f1 = this.func(x1)
 	}
 	nums.x1=x1
@@ -1040,7 +1040,7 @@ function CalcPoly(DataType)
    if (DataType==1)
 			{	 
 			 this.degD=this.polyStratCC (CurTable, this.polyD)
-			// alert("datatype 1: this.degD="+this.degD+" this.polyD.length="+this.polyD.length);
+			// noalert("datatype 1: this.degD="+this.degD+" this.polyD.length="+this.polyD.length);
 			}
    else if (DataType==2)
 			{
@@ -1049,15 +1049,15 @@ function CalcPoly(DataType)
    else if (DataType==3)
 			{
 			 this.degD=this.polyStratPT (CurTable, this.polyD)
-			//alert(" 962 this.degD before decrementing="+this.degD + " this.polyD[1]="+this.polyD[1])
-           // alert("datatype 3: this.degD="+this.degD+" this.polyD.length="+this.polyD.length);
+			//noalert(" 962 this.degD before decrementing="+this.degD + " this.polyD[1]="+this.polyD[1])
+           // noalert("datatype 3: this.degD="+this.degD+" this.polyD.length="+this.polyD.length);
 			
 			// this.degD--;  //Not found in Martin's code  Removed Nov 2003
-		//	alert("this.degD="+this.degD + " this.polyD[1]="+this.polyD[1])
+		//	noalert("this.degD="+this.degD + " this.polyD[1]="+this.polyD[1])
 			}
    else
 			{
-			 alert("DataType of "+DataType+" must be incorrect.  It should be 1,2,or 3");
+			 noalert("DataType of "+DataType+" must be incorrect.  It should be 1,2,or 3");
 			 return
 			}	
    
@@ -1066,7 +1066,7 @@ function CalcPoly(DataType)
    for(i = 1; i<this.Tables.length;i++)    
      {
 	 
-//alert("1046 this.Tables.length="+ this.Tables.length + " this.Tables[0].a="+  this.Tables[0].a)
+//noalert("1046 this.Tables.length="+ this.Tables.length + " this.Tables[0].a="+  this.Tables[0].a)
 	  CurTable = this.Tables[i]
       //alert ("at 1048, CurTable.a=" + CurTable.a)
 	 // var poly1=new Array(); //Reinitialize Poly1  Nov 2003 Note mistaken capitalization in previous version.  Fixed to lower case
@@ -1075,7 +1075,7 @@ function CalcPoly(DataType)
         {
 		    poly1.length=0; //Experiment 2007
 			deg1 = this.degD
-		//	alert("deg1 at 1053="+deg1+ " this.Tables.length="+this.Tables.length)
+		//	noalert("deg1 at 1053="+deg1+ " this.Tables.length="+this.Tables.length)
 		// WAS for (j = 0; j<= deg1; j++) Experiment 2007
 		
       		for (j = 0; j<= deg1; j++)    
@@ -1084,9 +1084,9 @@ function CalcPoly(DataType)
 			  // Copy this.polyD to poly1
         		poly1[j] = this.polyD[j]
             }
-//alert(" at 1057 poly1="+ poly1[0]+ ", "+ poly1[poly1.length-1])
-//alert("this.polyD=" + this.polyD[0]+ ", "+ this.polyD[this.polyD.length-1])
-//alert("poly2="+ poly2[0]+ ", "+ poly2[poly2.length-1])
+//noalert(" at 1057 poly1="+ poly1[0]+ ", "+ poly1[poly1.length-1])
+//noalert("this.polyD=" + this.polyD[0]+ ", "+ this.polyD[this.polyD.length-1])
+//noalert("poly2="+ poly2[0]+ ", "+ poly2[poly2.length-1])
             if (DataType==1)
 			{
 			   deg2=this.polyStratCC (CurTable, poly2)
@@ -1100,20 +1100,20 @@ function CalcPoly(DataType)
 			   poly2.length=0; //Experiment 2007  Seems to work to get same results regardless of order of strata
 		
 			   deg2=this.polyStratPT (CurTable, poly2)   //Feb 2007 Changed from poly2 to poly1 as experiment.  Can't calculate
-//alert(" 1079 i="+i+" deg2="+deg2 + " poly2.length="+poly2.length)
+//noalert(" 1079 i="+i+" deg2="+deg2 + " poly2.length="+poly2.length)
 			}
 			else
 			{
-			    alert("DataType of "+DataType+" must be incorrect.  It should be 1,2,or 3");
+			    noalert("DataType of "+DataType+" must be incorrect.  It should be 1,2,or 3");
 			    return
 			}
-//alert(" 1086 poly1="+poly1)
-//alert(" poly2="+poly2)
-//alert(" deg1="+deg1)
-//alert(" deg2="+deg2)
-//alert(" this.polyD="+this.polyD)		
+//noalert(" 1086 poly1="+poly1)
+//noalert(" poly2="+poly2)
+//noalert(" deg1="+deg1)
+//noalert(" deg2="+deg2)
+//noalert(" this.polyD="+this.polyD)		
             this.degD=this.multPoly( poly1, poly2, deg1, deg2, this.polyD)
-//alert(" 1087 this.degD="+ this.degD)	
+//noalert(" 1087 this.degD="+ this.degD)	
       } //if
      }  //for   
 }
@@ -1133,7 +1133,7 @@ function MultPoly(p1 , p2 , deg1, deg2, p3 )
          p3[i + j] = p1[i] * p2[j] + p3[i + j]
          }
       }
-	//alert("1025 deg1="+deg1+"  p1.length="+p1.length+"  deg2="+deg2+ "  p2.length="+p2.length+" deg3=this.polyD="+deg3+" p3.length="+p3.length);
+	//noalert("1025 deg1="+deg1+"  p1.length="+p1.length+"  deg2="+deg2+ "  p2.length="+p2.length+" deg3=this.polyD="+deg3+" p3.length="+p3.length);
  
 	return deg3;  
 } //; { MultPoly }
@@ -1143,7 +1143,7 @@ function BinomialExpansion(c0 , c1 , f, p, degp )
 {
    var i
    //degp=f
-   //alert("in BE, c0="+c0+ " c1="+c1+" f="+f)
+   //noalert("in BE, c0="+c0+ " c1="+c1+" f="+f)
    //var   Mar 2007  IE says degp already defined, but why is it being set equal to f
    // I don't see anything RETURNED from this function.  Shouldn't it DO something?
    degp = f
@@ -1151,7 +1151,7 @@ function BinomialExpansion(c0 , c1 , f, p, degp )
    for (i = degp - 1; i>=0; i--)
      {
 	  p[i] = p[i + 1] * c0 * (i + 1) / (c1 *(degp - i))
-//alert("in binomial expansion, p["+i+"]="+p[i])
+//noalert("in binomial expansion, p["+i+"]="+p[i])
 	 }
      
 }     //; { BinomialExpansion }
@@ -1199,7 +1199,7 @@ function PolyStratCC(Table, polyDi)
       for (i = 1; i<= degDi; i++)
         {
 		 polyDi[i] = polyDi[i - 1] * ((bb - i) / (aa + i)) * ((cc - i) / (dd + i))
-        // alert("polyDi["+i+"]="+polyDi[i])
+        // noalert("polyDi["+i+"]="+polyDi[i])
         }
     } //if
     } //with
@@ -1249,7 +1249,7 @@ function PolyStratPT(Table,polyDi)
       this.binomialExpansion ((n0 / n1), 1.0, Math.round(m1), polyDi, degDi)
     }
    } //end with
-   //alert("in 1209 polyDi.length="+polyDi.length);
+   //noalert("in 1209 polyDi.length="+polyDi.length);
    return polyDi.length-1; //Added -1  Nov 2003  Feb 2007 Tried zero and then + 1  experiment, but neither works
    
 }

@@ -21,7 +21,7 @@ function Commandclass()
 
        this.htmlheader+='</head>\n<body>\n'
       }
-    //  alert("18 in OECommands htmlHeader="+this.htmlheader)
+    //  noalert("18 in OECommands htmlHeader="+this.htmlheader)
 	this.cols=0;
 	this.rows=0;
 	this.colwidth=100;
@@ -116,7 +116,7 @@ var i,n;
 	   n=this.data[i]["E"+r+"D"+c]
 	   //Jan 2007 Added parseFloat below  
 	   table["E"+r+"D"+c]+=parseFloat(n)
-     //  alert("in 117 OEC"+table);
+     //  noalert("in 117 OEC"+table);
 	  } 
     } 
   } 
@@ -181,7 +181,7 @@ title=t("Unstratified (Crude) Values");
 
 if (parseInt(stratum)>0)
 {   
-    //alert("fetching stratum="+stratum)
+    //noalert("fetching stratum="+stratum)
     table=this.data[stratum]
 	if (this.data[0].strata>=2)
      {
@@ -275,7 +275,7 @@ for(c=0; c<this.data[0].numD; c++)
  var leftvar=this.data[0].varE;
  copyArray(this.data[0].Dvals,topvals);
  copyArray(this.data[0].Evals,leftvals);
- //alert("usetablesettings="+this.data[0].usetablesettings+" maxattop="+this.data[0].maxattop)
+ //noalert("usetablesettings="+this.data[0].usetablesettings+" maxattop="+this.data[0].maxattop)
  
  if (this.data[0].usetablesettings)
    {
@@ -345,7 +345,7 @@ for(c=0; c<this.data[0].numD; c++)
 	  if (r==1) {this.cell("c:"+leftvar)} else {this.cell("")}
 	  this.cell("c:"+leftcolor+leftvals[r])
 	  
-	 // alert("leftvals["+r+"]="+leftvals[r])
+	 // noalert("leftvals["+r+"]="+leftvals[r])
 	  
 	  for(c=0; c<cols; c++)
 	  {
@@ -355,11 +355,11 @@ for(c=0; c<this.data[0].numD; c++)
 	   cell=parseFloat(table["R"+r+"C"+c])
 	   //Add a data cell
 	   this.cell(countcolor+"c:"+cell)
-	   //alert("cell="+cell+"\nrowtot["+r+"]="+rowtot[r])
+	   //noalert("cell="+cell+"\nrowtot["+r+"]="+rowtot[r])
 	   
 	   //Calculate row and column percents but keep for later
 	   rowpercents["R"+r+"C"+c]=fmtFixed(100*cell/rowtot[r],1)
-	  // alert("rowpercents value="+rowpercents["R"+r+"C"+c])
+	  // noalert("rowpercents value="+rowpercents["R"+r+"C"+c])
 	   colpercents["R"+r+"C"+c]=fmtFixed(100*cell/coltot[c],1)
 	   
 	  } 
@@ -436,7 +436,7 @@ function CmdNewTable(cols, colwidth, border, spacing, padding)
   this.colwidth=colwidth;
   var i;
   this.s+='<table " border="'+border+'" cellspacing="0" cellpadding="0">\n'
-  //alert("in 256, "+this.s)
+  //noalert("in 256, "+this.s)
   this.s+='<tr>\n'
 //The following is a trick to maintain constant column width in an
 //empty HTML table.  It is done by embedding img tags in the top
@@ -451,7 +451,7 @@ function CmdNewTable(cols, colwidth, border, spacing, padding)
 
 function NewInputTable(rows,cols,w,h,x,y)
 {
- // alert("at 452 in OECmds, device="+device+", ScreenConfig=" +ScreenConfig+" screen.width="+screen.width);
+ // noalert("at 452 in OECmds, device="+device+", ScreenConfig=" +ScreenConfig+" screen.width="+screen.width);
 if ((currConfig()=="smartphone"))
   {
     //shrink and move table to left for small screen
@@ -513,13 +513,13 @@ else
 	   for ( i=0; i<arguments.length; i++)
 		{
 		  //revisedarr[revisedarr.length]=arguments[i];
-		  //alert("arg.i="+arguments[i]);
+		  //noalert("arg.i="+arguments[i]);
 		  revisedarr[revisedarr.length]=arguments[i];
 		  a=arguments[i].match(/span(\d+)/i)
 		  
 		  if (a && a.length>1)
 			{
-			 // alert("a[1]="+a[1])
+			 // noalert("a[1]="+a[1])
 			  var z;
 			  a=parseInt(a[1]);
 			  if (a>0)
@@ -635,18 +635,18 @@ var pretag2=""
 var posttag="";
 //var endtags="";
 var textitem="";
-//alert("content="+content+" \n"+typeof(content));
+//noalert("content="+content+" \n"+typeof(content));
 
 if  (content.indexOf(":") > 0) 
 //Colon found; there must be commands
  {
   strArray=content.split(":");
- // alert("strArray.length=" + strArray.length)
+ // noalert("strArray.length=" + strArray.length)
   //textitem=strArray[strArray.length-1]
  /* 
   if (this.mode=="output") 
 	    {
-	    alert("strArray[strArray.length-1]="+strArray[strArray.length-1]  );
+	    noalert("strArray[strArray.length-1]="+strArray[strArray.length-1]  );
 		}
 	*/
 
@@ -658,7 +658,7 @@ if  (content.indexOf(":") > 0)
              {
               dataNames[dataNames.length+1]=strItem.substring(5);
               strItem="data";
-            //  alert(658 + dataNames[dataNames.length-1]);
+            //  noalert(658 + dataNames[dataNames.length-1]);
              }
 
 	 if (strItem.search(/\bimage/i)>=0) 
@@ -674,7 +674,7 @@ if  (content.indexOf(":") > 0)
 		  }
 		else 
 		  {
-		   alert("Please specify relative path and filename after 'image='")
+		   noalert("Please specify relative path and filename after 'image='")
 		  } 
 		}  
 	 else if (strItem.search(/\bc\b/i)>=0)
@@ -775,9 +775,9 @@ if  (content.indexOf(":") > 0)
 	 else if (strItem.search(/\bcolor\s*#\s*[a-f,0-9]{6}\b/i)>=0)
 	    {
 		 strItem.replace(/\s/,"");
-		 //alert(strItem)
+		 //noalert(strItem)
 		 pos=strItem.search(/#/)
-		 //alert("pos="+pos)
+		 //noalert("pos="+pos)
 		 pretag+=" bgcolor="+ strItem.substring(pos)
 		 if (this.mode=="input")
 		   {
@@ -806,9 +806,9 @@ if  (content.indexOf(":") > 0)
 					this.precmds[this.precmds.length]=
 					'myTable.row['+r+'].cell['+c+'].type='+"\""+strItem.replace(/\:/,"").replace(/\s/,"")+"\"";			  
 					//strArray[i]="";
-      //    alert(this.precmds[this.precmds.length])
+      //    noalert(this.precmds[this.precmds.length])
 					strItem="";
-					//alert("cmd="+this.precmds[this.precmds.length-1])
+					//noalert("cmd="+this.precmds[this.precmds.length-1])
 				  }
 			  }
 		  if (strItem.length>=0 && textitem.length>0)
@@ -819,10 +819,10 @@ if  (content.indexOf(":") > 0)
 		  else
 			  { 
 			     textitem+=strItem;
-				 //alert("textitem at 324="+textitem)
+				 //noalert("textitem at 324="+textitem)
 			  }	 	
-			  //alert("leftover strItem="+strItem)
-			  //alert("leftover textitem="+textitem)
+			  //noalert("leftover strItem="+strItem)
+			  //noalert("leftover textitem="+textitem)
 			 
 		 }		   
    } 
@@ -836,14 +836,14 @@ else
 //Translate the item
 if (t) {textitem=t(textitem);};
 
-//alert("textitem at OEC 834="+textitem)
+//noalert("textitem at OEC 834="+textitem)
 
  if (this.mode=="input")
    {
    //Command to set myTable cell value property
    this.precmds[this.precmds.length]=  
      'myTable.row['+r+'].cell['+c+'].value=' + "\""+pretag2+textitem+posttag+"\"";
-	 //alert("pretag2+textitem+posttag="+pretag2+textitem+posttag);
+	 //noalert("pretag2+textitem+posttag="+pretag2+textitem+posttag);
    }
  else  		
    {
@@ -993,12 +993,12 @@ else
 
 function InputDataRange(rmin,rmax,cmin,cmax)
 {
-//alert("rows="+this.rows+" cols="+this.cols)
+//noalert("rows="+this.rows+" cols="+this.cols)
 
 if (rmax>=rmin && cmax>=cmin && rmin>0 && cmin>0
     && rmax<this.rows && cmax< this.cols)
  {
- //alert(438)
+ //noalert(438)
   //If rmin,rmax, cmin,cmax appear to specify a data area.
   for (var r=0 ; r< this.rows ; r++)
    {
@@ -1029,14 +1029,14 @@ if (rmax>=rmin && cmax>=cmin && rmin>0 && cmin>0
 			this.postcmds[this.postcmds.length]= 
 			  "if(myTable.row["+r+"].cell["+c+"].type.length!=0)"+ 
 			   "{\n myTable.row["+r+"].cell["+c+"].type ="+ "\""+t+"\"}";
-			 //alert(this.postcmds[this.postcmds.length-1])
+			 //noalert(this.postcmds[this.postcmds.length-1])
 		  }
 	} 
 	this.postcmds[this.postcmds.length]="setColors()";  	
   }
 else
   {
-  alert(t("Please check that rowmin, rowmax, colmin, and colmax are within the boundaries of the table.\n  The boundaries are: 0,") +this.rows-1+t(", 0, and ")+this.cols-1)
+  noalert(t("Please check that rowmin, rowmax, colmin, and colmax are within the boundaries of the table.\n  The boundaries are: 0,") +this.rows-1+t(", 0, and ")+this.cols-1)
   }
 }
 

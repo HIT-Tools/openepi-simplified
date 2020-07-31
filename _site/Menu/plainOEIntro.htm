@@ -52,9 +52,9 @@ function fixDate(theDate)
    if (year < 2000) year += 1900;
    return year + "/"+month + "/"+day;
 }
-//alert("modDate="+modDate)
+//noalert("modDate="+modDate)
 //modDate=fixDate(modDate);
-//alert("modDate="+modDate)
+//noalert("modDate="+modDate)
 var dateToday=fixDate(new Date());
 var heading =fe
 var updated="Updated " ;
@@ -154,7 +154,7 @@ function writeIntro()
  //  {c++}
   for ( i=0; i<intro.length; i++)
   {
-  // alert("length="+intro[i].length);
+  // noalert("length="+intro[i].length);
  //  if (typeof(t)=="function")
      if(t)
       {
@@ -201,7 +201,7 @@ function writeIntro()
    s+="<strong> Dean AG, Sullivan KM, Soe MM. "
    s+="OpenEpi:  Open Source Epidemiologic Statistics for Public Health, " + version+". "
    s+= "www.OpenEpi.com, "+ lcupdated +" "+modDate+ ", "+ accessed + " "+ dateToday+".</strong></p></span>"
-   //alert(s);
+   //noalert(s);
   document.getElementById("appDiv").innerHTML = s;
 
 }

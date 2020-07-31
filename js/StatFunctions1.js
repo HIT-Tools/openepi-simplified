@@ -33,7 +33,7 @@ function objType(item)
 //Returns 'array', 'function', 'string', or 'number'
 if (item.substring)
    {
-    //alert("has substring method")
+    //noalert("has substring method")
 	if (isNumber(item))
 	  {
 	   return "numstring";
@@ -156,7 +156,7 @@ if (epos<0) {
 		     var efactor=parseInt(result1.substring(epos+1))
 			 var finalnum=result1.substring(0,epos); //Put numbers prior to e in finalnum
 			 finalnum=finalnum.replace(/[\,\.]/,"");
-				// alert("Point gone? "+finalnum);
+				// noalert("Point gone? "+finalnum);
 			if (efactor>0)
 			   {
 				 
@@ -229,8 +229,8 @@ function fmtSigFig(num, sig, multby)
             //Round to acc decimal places (which is sig significant figures)
 			
 			//if (factor > 10e7) {factor=factor/1000;refactor=1000}
-	//if (num<10e6) {alert("num="+num+" factor="+factor+"Math.roung(num * factor)="+Math.round(num*factor)+" res="+Math.round(num*factor)/factor) }
-	      // alert("Math.round(num*factor)="+ Math.round(num*factor))
+	//if (num<10e6) {noalert("num="+num+" factor="+factor+"Math.roung(num * factor)="+Math.round(num*factor)+" res="+Math.round(num*factor)/factor) }
+	      // noalert("Math.round(num*factor)="+ Math.round(num*factor))
 		  // var corenum=Math.round(num*factor);
 		   result= (Math.round(num*factor)/factor);
 		   result=fmtSci2Dec(result);
@@ -241,7 +241,7 @@ function fmtSigFig(num, sig, multby)
 	  }	
 	else
 	  { 
-	   // alert("in fmtSigFig,formatting "+num + " multby is "+multby);
+	   // noalert("in fmtSigFig,formatting "+num + " multby is "+multby);
            return "'\?'"
       }
 }			
@@ -405,10 +405,10 @@ if (prob> 0.9999999 && prob <= 1.0) //Deals with numbers close to 1
 	  
 	  prob=SigFigNo((prob),4)  //Three significant figures
 	  
-	 // alert("398  "+prob)
+	 // noalert("398  "+prob)
 	 // prob=StrU(prob,1,11)
 	  prob=StrU(prob,1,9);  //Changed to 9 digits to correct a  bug in Safari that always returned 2147......
-	 // alert("400  "+prob)
+	 // noalert("400  "+prob)
  var index =prob.search(reg)
  prob=prob.substring(0,index+4)
  
@@ -971,6 +971,6 @@ function proportion95CL(vx,vN,type)
 	pcl[2]=vSCU;
 	}
 	else
-	{alert("Confidence interval ,"+type+", does not exist. Legal types are 'Wilson' and 'Fleiss'.");}
+	{noalert("Confidence interval ,"+type+", does not exist. Legal types are 'Wilson' and 'Fleiss'.");}
 	return pcl;
  }

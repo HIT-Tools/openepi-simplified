@@ -12,7 +12,7 @@
 function DynLayer(id,nestref,frame)
  {
 	//bc:maybe? if (!is.ns5 && !DynLayer.set && !frame) DynLayerInit()
-	//alert("is.ie="+is.ie + "is.ns="+is.ns + "is.ns5="+is.ns5)
+	//noalert("is.ie="+is.ie + "is.ns="+is.ns + "is.ns5="+is.ns5)
 	if (!DynLayer.set && !frame) DynLayerInit()
 	this.frame = frame || self
 	//bc:if (is.ns) {
@@ -49,18 +49,18 @@ function DynLayer(id,nestref,frame)
     //bc:
     if (is.ie)
 	    {
-	   //alert("47:frame="+this.frame + "this.frame.document.all[id]="+ this.frame.document.all[id] + " id=" + id)
+	   //noalert("47:frame="+this.frame + "this.frame.document.all[id]="+ this.frame.document.all[id] + " id=" + id)
 		this.elm = this.event = this.frame.document.all[id]
-	//	alert("id=" +id)
-	//	alert("49: this.elm="+this.elm)
+	//	noalert("id=" +id)
+	//	noalert("49: this.elm="+this.elm)
 		}
     //bc:
     else 
 		{this.elm = this.event = this.frame.document.getElementById(id)}
-//alert("52 this.elm=" + this.elm)
-//alert("53 is.ie=" + is.ie)
+//noalert("52 this.elm=" + this.elm)
+//noalert("53 is.ie=" + is.ie)
 		//bc:this.css = this.frame.document.all[id].style
-//alert("57: this.elm.style="+this.elm.style)		
+//noalert("57: this.elm.style="+this.elm.style)		
 		this.css = this.elm.style
 		this.doc = document
 		this.x = this.elm.offsetLeft
@@ -73,8 +73,8 @@ function DynLayer(id,nestref,frame)
 	this.nestref = nestref
 	this.obj = id + "DynLayer"
 	//this.obj=id+".dynlayer"  //experiment
-//alert("69 in Dynlayer.")
-//alert("in 70, this.obj+=this is: "+this.obj+"=this" + "this="+this)	
+//noalert("69 in Dynlayer.")
+//noalert("in 70, this.obj+=this is: "+this.obj+"=this" + "this="+this)	
 	eval(this.obj + "=this")
 }
 function DynLayerMoveTo(x,y) {
@@ -112,7 +112,7 @@ DynLayerTest = new Function('return true')
 
 // DynLayerInit Function
 function DynLayerInit(nestref) {
-   //alert("in DynLayerInit")
+   //noalert("in DynLayerInit")
 	if (!DynLayer.set) DynLayer.set = true
 	//bc:if (is.ns) {
 	if (is.ns4) {
@@ -303,7 +303,7 @@ function css(id,left,top,width,height,color,vis,z,other) {
 		}
 	}
 	//bc:if (arguments.length>=6 && color!=null) str += (is.ns)? ' layer-background-color:'+color+';' : ' background-color:'+color+';'
-//alert(305 +"in dynlayer.  Color="+color)
+//noalert(305 +"in dynlayer.  Color="+color)
 	if (arguments.length>=6 && color!=null) str += (is.ns4)? ' layer-background-color:'+color+';' : ' background-color:'+color+';'
 	if (arguments.length>=7 && vis!=null) str += ' visibility:'+vis+';'
 	if (arguments.length>=8 && z!=null) str += ' z-index:'+z+';'
@@ -314,5 +314,5 @@ function css(id,left,top,width,height,color,vis,z,other) {
 function writecss(str,showAlert) {
 	str = css('START')+str+css('END')
 	document.write(str)
-	if (showAlert) alert(str)
+	if (showAlert) noalert(str)
 }

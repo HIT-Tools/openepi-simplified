@@ -62,7 +62,7 @@ function CalcCIMedian(data)
 {
 var n = parseFloat(data[1].E0D0);
 if (n <= 0) {
-	alert("Sample size must be >0");
+	noalert("Sample size must be >0");
 	return false;
 	}
 	
@@ -76,10 +76,10 @@ if (median<=0 || median >100)
 
 
 var  cscrit=0; var pt=0; var z=0;
-//alert("fed to cscrit ...."+String(data[1].E4D0));
+//noalert("fed to cscrit ...."+String(data[1].E4D0));
 //var cscrit = cscritFromOEConfLevel(String(data[1].E4D0S));
-//alert("cscrit="+cscrit);
-//alert("setting for conflevel="+data[0].conflevel);
+//noalert("cscrit="+cscrit);
+//noalert("setting for conflevel="+data[0].conflevel);
 //cscrit=cscritFromOEConfLevel(data[0].conflevel);
 var pt=data[1].E2D0;
 

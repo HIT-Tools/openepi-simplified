@@ -70,7 +70,7 @@ function CalcBin(outObj) {
 
                 tn = parseFloat(outObj.data[1]["E1D1"]);
                 //tn are true negatives
-          // alert("tp="+tp+ " fp="+fp+" fn="+fn+" tn="+tn)
+          // noalert("tp="+tp+ " fp="+fp+" fn="+fn+" tn="+tn)
                 D = tp+fn;
                 //D subjects have disease
 
@@ -90,11 +90,11 @@ function CalcBin(outObj) {
 	var notfrac=t("Counts cannot be fractions!");
     if (levels==2) {
          if (tp<0||tn<0||fp<0||fn<0) {
-             alert(notneg);
+             noalert(notneg);
              return;
          }
          if (tp!=Math.floor(tp)||tn!=Math.floor(tn)||fp!=Math.floor(fp)||fn!=Math.floor(fn)) {
-             alert(notfrac);
+             noalert(notfrac);
              return;
          }
          assesstwobytwo();

@@ -22,8 +22,8 @@ document.write(theLink)
 }
 
 var currLocation=this.location.toString().toLowerCase();
-//alert("In IncludeFiles 22, currLocation="+currLocation)
-//alert(currLocation.lastIndexOf("/openepi/"));
+//noalert("In IncludeFiles 22, currLocation="+currLocation)
+//noalert(currLocation.lastIndexOf("/openepi/"));
 var rootDir=unescape(currLocation.substring(0,(currLocation.lastIndexOf("openepi/"))+8));
 //alert ("rootDir="+rootDir);
 var jsDir=rootDir+"js/";

@@ -61,7 +61,7 @@ function CalcStats(cmdObj)
 	  {
 	   //go down the rows
 	   cellval=data[1]["E"+r+"D"+c]
-	  // alert("63 cellval=" + cellval)
+	  // noalert("63 cellval=" + cellval)
 	   coltot[c]+=cellval
 	   rowtot[r]+=cellval
 	   grandtot+=cellval

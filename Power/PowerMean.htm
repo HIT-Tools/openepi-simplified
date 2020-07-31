@@ -85,7 +85,7 @@ function checkcode(r,c,entry)
   //zeros.  Conditional statements, such as the switch statement can be used
   //to write code that applies only to particular cells.
   //To see what row and column entries are made in, uncomment the following line:
-  //alert("Row="+r+"  Col=" + c + " Value: " + entry)
+  //noalert("Row="+r+"  Col=" + c + " Value: " + entry)
 
    var temp; var temp1; var n;  var S;  var P;
 
@@ -104,7 +104,7 @@ function checkcode(r,c,entry)
 		if ((r == 0 ) && ( c == 3) && (e!=20 && e!=25 && e!=30&& e!=35&& e!=40&& e!=45&& e!=50&& e!=55&& e!=60&& e!=65&& e!=70&& e!=75
 		&& e!=80 && e!=85&& e!=90&& e!=95&& e!=98&& e!=99&& e!=99.5&& e!=99.8&& e!=99.9&& e!=99.95&& e!=99.98&& e!=99.99 ))
 		{
-		alert("Ooh! The confidence interval you selected is not available. Please select others.");
+		noalert("Ooh! The confidence interval you selected is not available. Please select others.");
 		return "";
 		}
 

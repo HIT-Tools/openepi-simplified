@@ -21,7 +21,7 @@ var device=parent.device;
 
 function t(phrase)
  {
-  //if (/\n/.test(phrase)) {alert(phrase)}
+  //if (/\n/.test(phrase)) {noalert(phrase)}
  // alert (19 + phrase);
 
  // if (parent.location.href != document.location.href)       //May 2009
@@ -116,19 +116,19 @@ var h=600;
 function loadExternalData()
 {
 //if (parent.appDataArray && parent.appDataArray.length>1)
-//{alert("sample data in appDataArray[1]="+parent.appDataArray[1]["E0D0"])}
-//alert("100 in ETable  LoadData="+parent.LoadData);
+//{noalert("sample data in appDataArray[1]="+parent.appDataArray[1]["E0D0"])}
+//noalert("100 in ETable  LoadData="+parent.LoadData);
 //if (appDataArray && appDataArray.length>1)
 if (parent.LoadData && parent.appDataArray && parent.appDataArray.length>1)
 	   {
 	    
-		//alert("sample data in appDataArray[1]="+appDataArray[1]["E0D0"])
-		//alert("sample data in appDataArray[5]="+appDataArray[5]["E0D0"])
+		//noalert("sample data in appDataArray[1]="+appDataArray[1]["E0D0"])
+		//noalert("sample data in appDataArray[5]="+appDataArray[5]["E0D0"])
 		 //EntryWin exists and is completely loaded and not closed")
 		 
 	    dataMatrix=parent.appDataArray;
-	//alert("148 sample data in EntryWin.dataMatrix[1]="+EntryWin.dataMatrix[1]["E0D0"])
-		//alert("sample data in EntryWin.dataMatrix[5]="+EntryWin.dataMatrix[5]["E0D0"])
+	//noalert("148 sample data in EntryWin.dataMatrix[1]="+EntryWin.dataMatrix[1]["E0D0"])
+		//noalert("sample data in EntryWin.dataMatrix[5]="+EntryWin.dataMatrix[5]["E0D0"])
 
 		readMemToTable(1);  //Get stratum 1 data
 		
@@ -160,7 +160,7 @@ function infoDialog(prompt)
   //Shows the alert modal dialog box.  Placed here so that the dialog appears
   //in front of Etable.  Dialogs called from another window will appear in front of
   //that window, leading to confusion if Etable has been in the foreground.
-  alert(prompt);
+  noalert(prompt);
 }
 
 function setColors()
@@ -170,13 +170,13 @@ var totalcolor="#aaaaaa";
 var valuecolor="#bbbbbb";
 var variablecolor="#cccccc";
 var ccolor = myTable.bgcolor;
-//alert("in setcolors")
+//noalert("in setcolors")
 for (r=0 ; r< myTable.rows ; r++)
   {
 		for (c=0; c < myTable.cols ; c++)
 		{
 		   t=myTable.row[r].cell[c].type; 
-		  // alert("r="+r+" c="+"t="+t)
+		  // noalert("r="+r+" c="+"t="+t)
 			if (t== "data") {ccolor=datacolor;}
 			  else if  (t=="rowtot" || t== "row total" || t=="column total") {ccolor=totalcolor;}  
 			  else if (t=="valname") {ccolor=valuecolor;}
@@ -224,11 +224,11 @@ function cmdExecute(cmdArray)
 {
 //Executes a series of commands passed in as a one-dimensional array
 //Commands must be JavaScript as text strings
-//alert("in cmdExecute cmdArray has "+cmdArray.length +" commands")
+//noalert("in cmdExecute cmdArray has "+cmdArray.length +" commands")
 count=0;
 for (var i=0; i<cmdArray.length; i++)
   {
-  //alert(cmdArray[i]);
+  //noalert(cmdArray[i]);
   var c=cmdArray[i];
   try 
    {
@@ -243,7 +243,7 @@ for (var i=0; i<cmdArray.length; i++)
   }
  if(typeof(myTable)=="object") {configured=true;}
    else
-   {alert("myTable not ready")}
+   {noalert("myTable not ready")}
  return count;  
 }
 
@@ -260,7 +260,7 @@ myTable.moveInputNext();
 function evalKey(evt) {
   var keyCode = document.layers ? evt.which : document.all ?  
         evt.keyCode : evt.keyCode;
- //alert("keycode "+evt.keyCode);
+ //noalert("keycode "+evt.keyCode);
   if (keyCode == 9)   
     {evalEntry();
 	return false;}
@@ -338,7 +338,7 @@ var i,n;
 	}   
    else 
   	  {
-	  alert(selstrat);
+	  noalert(selstrat);
 	  }
  
  if (strat.options.length<2)
@@ -353,7 +353,7 @@ function changeStratumTo(newchoice)
 {
 evalEntry();
 var strat = document.form1.theStratum;
-//alert("New Stratum="+newchoice + "currentstratum="+currentstratum)
+//noalert("New Stratum="+newchoice + "currentstratum="+currentstratum)
 //Store currentstratum to dataMatrix
 storeAllToMem(currentstratum, MaxValueAtLeft, MaxValueAtTop, ExposureLeft);
 //Get new stratum from dataMatrix if it exists there
@@ -385,7 +385,7 @@ if (storeAllToMem(currentstratum, MaxValueAtLeft, MaxValueAtTop, ExposureLeft))
    }
 else
    {
-    alert(plsenter)
+    noalert(plsenter)
 	clearTable();
    }     
 }
@@ -423,7 +423,7 @@ function ShowHide(spanname, show)
 	     {
 		 
 		 eval("document.layers['"+spanname+"'].visibility='show';");
-		 alert('show');
+		 noalert('show');
 		 }
     else 
 	     {
@@ -480,7 +480,7 @@ var w=Math.round(600/obj.cols);
 if (w<40){w=40};
 if (w>100){w=100}
 out.newtable(obj.cols+1,w);
-//alert("obj.cols="+obj.cols)
+//noalert("obj.cols="+obj.cols)
 out.title("<h3>" + obj.headText + "</h3>");
 out.line(obj.cols+1);
 for (var r=0; r<obj.rows; r++)
@@ -519,7 +519,7 @@ if (currentstratum==1)
    }
    else
    {
-    alert(beforecalc)
+    noalert(beforecalc)
 	clearTable();
 	myTable.moveInputNext();
 	myTable.moveInputTo(myTable.inputR-1,myTable.inputC);
@@ -664,7 +664,7 @@ try
 }
 catch(err)
 {
-  alert(ffmsg);
+  noalert(ffmsg);
 }
 //if (window != null && window.parent != null)
 if (parent != null)
@@ -678,9 +678,9 @@ if (typeof (parent.etablecmds1) =="object")
   if (numcmds!=-1)
    {
     myTable.build();
-//alert(myTable.css);
+//noalert(myTable.css);
     writecss(myTable.css);
-//alert(myTable.div);
+//noalert(myTable.div);
     document.write(myTable.div);
 //The document.write must be in the body or called from the body or it will write
 //over the existing HTML in the window, including the buttons.
@@ -699,7 +699,7 @@ myTable.moveInputNext();
 }
 else
  { 
-   alert(notalone)
+   noalert(notalone)
   // window.close();
  }
 

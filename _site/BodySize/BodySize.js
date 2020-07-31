@@ -55,7 +55,7 @@ var ageDays=parseInt(daysBetween(DOB,dateMeas));
 var negAgeMsg=t("Date of Measurement cannot be before Birth")
 if (ageDays < 0)
    {
-     alert(negAgeMsg);
+     noalert(negAgeMsg);
      return;
    }
 //var ageMonths= parseInt(monthsBetween(DOB,dateMeas));
@@ -69,7 +69,7 @@ var sex=parseInt(cmdObj.data[1]["E4D1"]);
    else
      {
 
-     alert(sexMissing)
+     noalert(sexMissing)
      removeCalendar();
      return
      }
@@ -78,7 +78,7 @@ var kg=parseFloat(cmdObj.data[1]["E5D1"]);
 //var cm=parseFloat(cmdObj.data[1]["E6D1"]);
 
 var standingCM=parseFloat(cmdObj.data[1]["E6D1"]);
-//alert("standingCM="+standingCM);
+//noalert("standingCM="+standingCM);
 var recumbentCM=parseFloat(cmdObj.data[1]["E7D1"]);
 var headCM=parseFloat(cmdObj.data[1]["E8D1"]);
 var armCM=parseFloat(cmdObj.data[1]["E9D1"]);
@@ -116,7 +116,7 @@ var armCM=parseFloat(cmdObj.data[1]["E9D1"]);
      adjustedCM=0;
    }
 
-   alert("Stature in cm ="+adjustedCM)
+   noalert("Stature in cm ="+adjustedCM)
 
 
 
@@ -128,7 +128,7 @@ var armCM=parseFloat(cmdObj.data[1]["E9D1"]);
  //var bmi=BMI(kg,cm);
  var adjustedBMI=BMI(kg,adjustedCM);
 // bmiAge=Z_WHO(statistic, sex, agedays, kg, cm, LorH, headcm, muac)
- //  alert(bsa + ", "+bmi +  ", "+bmiAge)
+ //  noalert(bsa + ", "+bmi +  ", "+bmiAge)
  var BMIZ_W06=Z_WHO("BMIZ_W06",sex,ageDays,kg,adjustedCM);
  var WAZ_W06=Z_WHO("WAZ_W06",sex,ageDays,kg,adjustedCM);
  var HAZ_W06=Z_WHO("HAZ_W06",sex,ageDays,kg,adjustedCM);

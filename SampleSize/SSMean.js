@@ -28,7 +28,7 @@ function CalcPower(data)
 // Enter confidence interval level;
 var powerz=0; var  cscrit=0; var z=0; var pt=0; //pt=percent;
 var pt=parseFloat(data[1].E0D2);
-//alert("percent"+pt);
+//noalert("percent"+pt);
 
 	if (pt==99.99)  cscrit=15.137
     if (pt==99.98)  cscrit=13.831
@@ -66,15 +66,15 @@ if (powerpt==90)  power=1.2815;
 if (powerpt==80)  power=0.8416;
 if (powerpt==70)  power=0.5244;
 if (powerpt==60)  power=0.2533;
-//alert("power"+power+"percent"+powerpt);
+//noalert("power"+power+"percent"+powerpt);
 
 
 // desired ratio of sample size of gp-2 to gp-1;
 if (parseFloat(data[1].E2D2)==0) {
-	alert("missing value in ratio");
+	noalert("missing value in ratio");
 	}
 else {var ratio = parseFloat(data[1].E2D2)}; 
-//alert("ratio"+ratio);
+//noalert("ratio"+ratio);
 
 
 // Obtain the Mean difference ;
@@ -93,18 +93,18 @@ else {
 	var d  =  m1-m2;
 	var diff = Math.abs(m1-m2);
 }
-//alert("diff"+diff);
+//noalert("diff"+diff);
 
 
 
 // reading SD and Variance;
 var s1 = parseFloat(data[1].E5D0);
 var v1 = parseFloat(data[1].E6D0);
-//alert("s1  "+s1+" v1 "+v1);
+//noalert("s1  "+s1+" v1 "+v1);
 
 var s2 = parseFloat(data[1].E5D2);
 var v2 = parseFloat(data[1].E6D2);
-//alert("s2  "+s2+" v2 "+v2);
+//noalert("s2  "+s2+" v2 "+v2);
 
 if ((s1!=0) && (s2!=0)) {
 	v1=s1*s1;
@@ -126,7 +126,7 @@ n1=Math.ceil( ( Math.pow(s1,2)+ (Math.pow(s2,2)/ratio) ) * Math.pow(z+power,2) /
 //n2=Math.ceil( (ratio*(Math.pow(s1,2))+ Math.pow(s2,2) ) * Math.pow(z+power,2) / (Math.pow(diff,2)) );
 n2=Math.ceil(n1*ratio);
 n3=n1+n2;
-//alert("n1   "+n1+"   n2   "+n2);
+//noalert("n1   "+n1+"   n2   "+n2);
 
 //---------------------------------------------------------------------------------------------;
 

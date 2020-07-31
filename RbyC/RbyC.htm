@@ -114,7 +114,7 @@ function checkcode(r,c,entry)
   //To see what row and column entries are made in, uncomment the following line:
   //running the program, then enter unique numbers so that you can see which cells they
   //are in.
-  //alert("Row="+r+"  Col=" + c)
+  //noalert("Row="+r+"  Col=" + c)
   /* 
    The following "if" statement acts on an entry in row 1 (the numerator in this
    case).  It muliplies the entry by 43 and sets the cell in row 1, column 2, to
@@ -131,7 +131,7 @@ function checkcode(r,c,entry)
   if (r==0)
     { 
 	 myTable.setCellValue(1,2,parseInt(entry)*43)
-	 alert(myTable.getCellValue(1,2))
+	 noalert(myTable.getCellValue(1,2))
     }
   */
 	
@@ -155,7 +155,7 @@ function OECalculate(data)
 var results;
 
 //EntryWin.writeTable(data)
-//alert("This is the data array, ready for programming in the statistical routine.")
+//noalert("This is the data array, ready for programming in the statistical routine.")
 //return  //remove this to proceed
 //Comment out the three lines above to continue into the calculations...
 //Remove the comment from the 2 lines above to see a table of the contents of the dataMatrix

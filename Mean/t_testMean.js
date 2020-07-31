@@ -74,17 +74,17 @@ var m1=0; var m2=0; var s1=0; var se1=0; var n1=0; var v1=0; var s2=0; var se2=0
 
 //sample size;
 var n1 = parseFloat(data[1].E2D0);
-if (n1==0) alert("missing value in sample size of group-1");
+if (n1==0) noalert("missing value in sample size of group-1");
 
 var n2 = parseFloat(data[1].E3D0);
-if (n2==0) alert("missing value in sample size of group-2");
+if (n2==0) noalert("missing value in sample size of group-2");
 
 //sample means;
 var mean1 = parseFloat(data[1].E2D1);
-if (mean1==0) alert("missing value in group-1 mean");
-//alert("mean1-"+m1);
+if (mean1==0) noalert("missing value in group-1 mean");
+//noalert("mean1-"+m1);
 var mean2 = parseFloat(data[1].E3D1);
-if (mean2==0) alert("missing value in group-2 mean");
+if (mean2==0) noalert("missing value in group-2 mean");
 //alert ("mean2-"+m2);
 
 //converting values between std deviation and variance;
@@ -92,7 +92,7 @@ var s1 = parseFloat(data[1].E2D2);
 var se1 = parseFloat(data[1].E2D4);
 var s2 = parseFloat(data[1].E3D2);
 var se2 = parseFloat(data[1].E3D4);
-//alert("s1-"+s1);alert("v1-"+v1);alert("s2-"+s2);alert("v2-"+v2);
+//noalert("s1-"+s1);noalert("v1-"+v1);noalert("s2-"+s2);noalert("v2-"+v2);
 
 if (s1!=0) 	{v1=s1*s1; se1=""};
 if (se1!=0) {
@@ -108,12 +108,12 @@ if (se2!=0)  {
 	s2="";
 	};
 	
-//alert("s1-"+s1);alert("v1-"+v1);alert("s2-"+s2);alert("v2-"+v2);
+//noalert("s1-"+s1);noalert("v1-"+v1);noalert("s2-"+s2);noalert("v2-"+v2);
 
 // --------------------------------------significance level----------------------------------------------;
 var pp=0; var pt=0;  //pt=percent;
 var pt=parseFloat(data[1].E0D2);
-//alert("percent"+pt);
+//noalert("percent"+pt);
 var pp=(100-pt)/100;
 var t=AStudT(pp,n1+n2-2);
 
@@ -153,9 +153,9 @@ var meandif = (mean1-mean2);
 //if (meandif<0) {meandif= (mean2-mean1)};    // Removed April 2009 to provide
                              //predictable results for a series of comparisons
 var ll=meandif -(t * d); //'t' depends on confidence level chosen;
-//alert("ll"+ll);
+//noalert("ll"+ll);
 var ul=meandif +(t * d);
-//alert("ul"+ul);
+//noalert("ul"+ul);
 
 // -----------------ASSUMING UNEQUAL VARIANCE
 // calculating t statistics and degree of freedom for unequal variance;
@@ -168,17 +168,17 @@ var p1=StudT(t1,df1);
 
 // calculating confidence limits of mean difference;
 var meandif1=meandif;
-//alert("meandif1-"+meandif1);
+//noalert("meandif1-"+meandif1);
 var t=AStudT(pp,df1);
-//alert("t"+t);
+//noalert("t"+t);
 
 var s=Math.sqrt( (v1/n1)+(v2/n2) );
-//alert("s"+s);
+//noalert("s"+s);
 
 var lll= (meandif1) -(t*s);
 var ull= (meandif1) + (t*s);
-//alert("lll"+lll);
-//alert("ull"+ull);
+//noalert("lll"+lll);
+//noalert("ull"+ull);
 //----------------------------------------------------------------------------------------------------------;
 
 // Output table;

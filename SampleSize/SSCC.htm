@@ -97,7 +97,7 @@ function checkcode(r,c,entry)
      {
 	   return ("")
 	 }
-   //alert("e2="+e+"r="+r)
+   //noalert("e2="+e+"r="+r)
    if (r==3 && c==3 && e !=0)
       { 
 	   // New value for percent outcome in unexposed
@@ -106,19 +106,19 @@ function checkcode(r,c,entry)
 		  setCellValue(r+3, 3, "");
 	  } 
 	 v22 = parseFloat(getCellValue(3,3))/100;
-	//alert("V11:" +v11+ " v22: " + v22 + " vorr: "+vorr)
+	//noalert("V11:" +v11+ " v22: " + v22 + " vorr: "+vorr)
 	 if ((r == 5 ) && ( c == 3) && ( e != 0) )
 	 	{
 		//Odds ratio entered. Calculate % exposure in cases. 
 		vorr = e;
 		v11 = 0;
-  		//alert("Row= "+ r +"  Col= " + c + " Value= " + e)	
+  		//noalert("Row= "+ r +"  Col= " + c + " Value= " + e)	
 	   if (vorr != 0)
 		   	{
-			//alert("Vorr:" + vorr);
+			//noalert("Vorr:" + vorr);
 	    	v11 = 100*v22 * vorr / (1 + v22 * (vorr - 1));
 			}
-			//alert("R3: " + v22 + " R5: " + vorr + " R6: " + v11)
+			//noalert("R3: " + v22 + " R5: " + vorr + " R6: " + v11)
 			temp = Math.round(100000 * v11) / 100000;	
 			setCellValue(r+1, c, temp.toFixed(2));
 					
@@ -128,10 +128,10 @@ function checkcode(r,c,entry)
 		//%Exposure in Cases entered.  Calculate Odds Ratio.
 		vorr = 0;
 		v11 = e/100;
- 	       //alert("Row= "+ r +"  Col= " + c + " Value= " + e)
+ 	       //noalert("Row= "+ r +"  Col= " + c + " Value= " + e)
 			temp = Math.round(100000 * (v11 * (1 - v22)) / (v22 * (1 - v11))) / 100000;		
-			//alert("Calculated Value: " + temp);
-	        //alert("R3: " + v22 + " R5: " + vorr + " R6: " + v11)				
+			//noalert("Calculated Value: " + temp);
+	        //noalert("R3: " + v22 + " R5: " + vorr + " R6: " + v11)				
 	  		setCellValue(r-1, c, temp.toFixed(2));
 			myTable.moveUp=true;
 		}
@@ -162,7 +162,7 @@ with (outTable)
 
 		//Calc() //Function in the ssizecc.js file for output calculation
 		//parseFloat(data[1]["E5D0"]);
-		//alert(parseFloat(data[1]["E0D0"]));
+		//noalert(parseFloat(data[1]["E0D0"]));
 		//vx is the numerator
 		
 		//vN = parseFloat(data[1]["E6D1"]);

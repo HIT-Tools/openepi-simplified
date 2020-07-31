@@ -174,7 +174,7 @@ function getLayer(id)
 
 function setTopRow(id,TopLeft,Ltxt) 
 {
-	//alert("I am in the setTopRow");
+	//noalert("I am in the setTopRow");
 	var objTopLeft = getLayer(id);
 	var objTopRight = getLayer("TopRight");
 	var TempColor = 0;
@@ -405,7 +405,7 @@ function saveSettings()
 	//end of old code
 	if (!cookiesEnabled())
 		{
-		alert(cookiemsg);
+		noalert(cookiemsg);
 		return;
 		}
 	var _$box0 = document.form1;
@@ -417,7 +417,7 @@ function saveSettings()
 	var _$box3 = _$box0;
 	var box3 = _$box3.ConfidenceLevel.options[_$box3.ConfidenceLevel.selectedIndex].value;
 	var box4 = _$box0.Language.options[_$box0.Language.selectedIndex].value;
-	//alert(_$box3.ConfidenceLevel.options[_$box3.ConfidenceLevel.selectedIndex].value);
+	//noalert(_$box3.ConfidenceLevel.options[_$box3.ConfidenceLevel.selectedIndex].value);
 	writeCookie("openepi","Dropbox0", box0, expiryDate, "/");
 	writeCookie("openepi","TopLeft", element("TopLeft").innerHTML, expiryDate, "/");
 	writeCookie("openepi","TopRight", element("TopRight").innerHTML, expiryDate, "/");
@@ -495,7 +495,7 @@ function saveSettings()
 		
 	if (!document.cookie)
 		{
-		alert(cookiemsg);
+		noalert(cookiemsg);
 		}
 	else
 		{	
@@ -533,10 +533,10 @@ function changeLanguage()
   { var _$box0=document.form1;
   
     saveSettings();
-	//alert(window.top.Language)
-	alert(changelangmsg);
+	//noalert(window.top.Language)
+	noalert(changelangmsg);
 	//parent.document.location.replace("../menu/OpenEpiMenu.htm");
-	//alert("value here="+_$box0.Language.options[_$box0.Language.selectedIndex].value)
+	//noalert("value here="+_$box0.Language.options[_$box0.Language.selectedIndex].value)
 	//top.location.reload();  //Forced reload  Does not work--permission denied
 
   }

@@ -43,12 +43,12 @@ inTbl += '{\n';
 inTbl += 'if (LoadData && appDataArray && appDataArray.length>1)\n';
 inTbl += '\t   {\n';
 inTbl += '\t    \n';
-inTbl += '\t\t//alert("sample data in appDataArray[1]="+appDataArray[1]["E0D0"])\n';
-inTbl += '\t\t//alert("sample data in appDataArray[5]="+appDataArray[5]["E0D0"])\n';
+inTbl += '\t\t//noalert("sample data in appDataArray[1]="+appDataArray[1]["E0D0"])\n';
+inTbl += '\t\t//noalert("sample data in appDataArray[5]="+appDataArray[5]["E0D0"])\n';
 inTbl += '\t\t //EntryWin exists and is completely loaded and not closed")\n';
 inTbl += '\t    dataMatrix=appDataArray;\n';
-inTbl += '\t//alert("148 sample data in EntryWin.dataMatrix[1]="+EntryWin.dataMatrix[1]["E0D0"])\n';
-inTbl += '\t\t//alert("sample data in EntryWin.dataMatrix[5]="+EntryWin.dataMatrix[5]["E0D0"])\n';
+inTbl += '\t//noalert("148 sample data in EntryWin.dataMatrix[1]="+EntryWin.dataMatrix[1]["E0D0"])\n';
+inTbl += '\t\t//noalert("sample data in EntryWin.dataMatrix[5]="+EntryWin.dataMatrix[5]["E0D0"])\n';
 inTbl += '\t\treadMemToTable(1);  //Get stratum 1 data\n';
 inTbl += '\t\t\n';
 inTbl += '\t\treadMetaToTable();  //Get metadata from dataMatrix\n';
@@ -75,7 +75,7 @@ inTbl += '{\n';
 //Shows the alert modal dialog box.  Placed here so that the dialog appears
 //in front of Etable.  Dialogs called from another window will appear in front of
 //that window, leading to confusion if Etable has been in the foreground.
-inTbl += '  alert(prompt);\n';
+inTbl += '  noalert(prompt);\n';
 inTbl += '}\n';
 inTbl += 'function setColors()\n';
 inTbl += '{\n';
@@ -84,13 +84,13 @@ inTbl += 'var totalcolor="#aaaaaa";\n';
 inTbl += 'var valuecolor="#bbbbbb";\n';
 inTbl += 'var variablecolor="#cccccc";\n';
 inTbl += 'var ccolor = myTable.bgcolor;\n';
-//alert("in setcolors")\n';
+//noalert("in setcolors")\n';
 inTbl += 'for (r=0 ; r< myTable.rows ; r++)\n';
 inTbl += '  {\n';
 inTbl += '\t\tfor (c=0; c < myTable.cols ; c++)\n';
 inTbl += '\t\t{\n';
 inTbl += '\t\t   t=myTable.row[r].cell[c].type; \n';
-inTbl += '\t\t  // alert("r="+r+" c="+"t="+t)\n';
+inTbl += '\t\t  // noalert("r="+r+" c="+"t="+t)\n';
 inTbl += '\t\t\tif (t== "data") {ccolor=datacolor;}\n';
 inTbl += '\t\t\t  else if  (t=="rowtot" || t== "row total" || t=="column total") {ccolor=totalcolor;}  \n';
 inTbl += '\t\t\t  else if (t=="valname") {ccolor=valuecolor;}\n';
@@ -130,7 +130,7 @@ inTbl += 'function cmdExecute(cmdArray)\n';
 inTbl += '{\n';
 //Executes a series of commands passed in as a one-dimensional array\n';
 //Commands must be JavaScript as text strings\n';
-//alert("in cmdExecute cmdArray has "+cmdArray.length +" commands")\n';
+//noalert("in cmdExecute cmdArray has "+cmdArray.length +" commands")\n';
 inTbl += 'count=0;\n';
 inTbl += 'for (var i=0; i<cmdArray.length; i++)\n';
 inTbl += '  {\n';
@@ -149,7 +149,7 @@ inTbl += '   }\n';
 inTbl += ' if(typeof(myTable)=="object")\n';
 inTbl += '    {configured=true;}\n';
 inTbl += '   else\n';
-inTbl += '    {alert("myTable not ready")}\n';
+inTbl += '    {noalert("myTable not ready")}\n';
 inTbl += ' return count;  \n';
 inTbl += '}\n';
 //Note: The functions evalEntry and evalKey MUST exist, since they are called specifically by the dynamic stratum's input box.\n';
@@ -162,7 +162,7 @@ inTbl += '}\n';
 inTbl += 'function evalKey(evt) {\n';
 inTbl += '  var keyCode = document.layers ? evt.which : document.all ?  \n';
 inTbl += '        evt.keyCode : evt.keyCode;\n';
-inTbl += ' //alert("keycode "+evt.keyCode);\n';
+inTbl += ' //noalert("keycode "+evt.keyCode);\n';
 inTbl += '  if (keyCode == 9)   \n';
 inTbl += '    {evalEntry();\n';
 inTbl += '\treturn false;}\n';
@@ -234,7 +234,7 @@ inTbl += '       } \n';
 inTbl += '\t}   \n';
 inTbl += '   else \n';
 inTbl += '  \t  {\n';
-inTbl += '\t  alert(selstrat);\n';
+inTbl += '\t  noalert(selstrat);\n';
 inTbl += '\t  }\n';
 inTbl += ' \n';
 inTbl += ' if (strat.options.length<2)\n';
@@ -249,7 +249,7 @@ inTbl += 'function changeStratumTo(newchoice)\n';
 inTbl += '{\n';
 inTbl += 'evalEntry();\n';
 inTbl += 'var strat = document.form1.theStratum;\n';
-//alert("New Stratum="+newchoice + "currentstratum="+currentstratum)
+//noalert("New Stratum="+newchoice + "currentstratum="+currentstratum)
 //Store currentstratum to dataMatrix
 inTbl += 'storeAllToMem(currentstratum, MaxValueAtLeft, MaxValueAtTop, ExposureLeft);\n';
 //Get new stratum from dataMatrix if it exists there
@@ -279,7 +279,7 @@ inTbl += '    myTable.moveInputTo(dataMatrix[0].datarmin,dataMatrix[0].datacmin)
 inTbl += '   }\n';
 inTbl += 'else\n';
 inTbl += '   {\n';
-inTbl += '    alert(plsenter)\n';
+inTbl += '    noalert(plsenter)\n';
 inTbl += '\tclearTable();\n';
 inTbl += '   }     \n';
 inTbl += '}\n';
@@ -316,7 +316,7 @@ inTbl += '    if (show) \n';
 inTbl += '\t     {\n';
 inTbl += '\t\t \n';
 inTbl += '\t\t eval("document.layers["+spanname+"].visibility=&quot;show&quot;;");\n';
-inTbl += '\t\t alert("show");\n';
+inTbl += '\t\t noalert("show");\n';
 inTbl += '\t\t }\n';
 inTbl += '    else \n';
 inTbl += '\t     {\n';
@@ -367,7 +367,7 @@ inTbl += 'var w=Math.round(600/obj.cols);\n';
 inTbl += 'if (w<40){w=40};\n';
 inTbl += 'if (w>100){w=100}\n';
 inTbl += 'out.newtable(obj.cols+1,w);\n';
-//alert("obj.cols="+obj.cols)\n';
+//noalert("obj.cols="+obj.cols)\n';
 inTbl += 'out.title("<h3>" + obj.headText + "</h3>");\n';
 inTbl += 'out.line(obj.cols+1);\n';
 inTbl += 'for (var r=0; r<obj.rows; r++)\n';
@@ -403,7 +403,7 @@ inTbl += '    if (parent) {OECalculate(dataMatrix);}\n';
 inTbl += '   }\n';
 inTbl += '   else\n';
 inTbl += '   {\n';
-inTbl += '    alert(beforecalc)\n';
+inTbl += '    noalert(beforecalc)\n';
 inTbl += '\tclearTable();\n';
 inTbl += '\tmyTable.moveInputNext();\n';
 inTbl += '\tmyTable.moveInputTo(myTable.inputR-1,myTable.inputC);\n';
@@ -535,7 +535,7 @@ try
 }
 catch(err)
 {
-  alert(ffmsg);
+  noalert(ffmsg);
 }
 */
 inTbl += '<script type=text/javascript>\n';
@@ -560,7 +560,7 @@ inTbl += ' myTable.moveInputNext();\n';
 inTbl += '} \n';
 inTbl += 'else \n';
 inTbl += '{ \n';
-inTbl += '  alert(notalone);\n';
+inTbl += '  noalert(notalone);\n';
 inTbl += '}\n';
 inTbl += '}\n';
 

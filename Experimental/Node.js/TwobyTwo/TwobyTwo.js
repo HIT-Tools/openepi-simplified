@@ -213,7 +213,7 @@ if(numStrata>1)
 	        cmdObj.tableAsHTML(stratum)
 	        newrow("<br>");    //Skip a row
 	      }
- // alert(137)
+ // noalert(137)
       //The next two calls calculate results for a stratum, but return the output
       //commands in the parameter arrays for later use.	
       calc2x2Stratum(cmdObj,stratum,oddsBased,riskBased,assoc,oddsEtiolprev,riskEtiolprev,references )
@@ -233,13 +233,13 @@ if(numStrata>1)
       } 
       if (numStrata>1)
       {
-	 // alert(156)
+	 // noalert(156)
 	  exactStats.strat2x2("Crude",mORbased,mRRbased,massoc,mreferences)
       exactStats.strat2x2("Adjusted",mORbased,mRRbased,massoc,mreferences)
       calc2x2Stratum(cmdObj,"Crude",oddsBased,riskBased,assoc,oddsEtiolprev,riskEtiolprev,references )
-     //alert(159)
+     //noalert(159)
 	  calc2x2Adjusted(cmdObj,oddsBased,riskBased,assoc,oddsEtiolprev,riskEtiolprev,references)
-     //alert(161)
+     //noalert(161)
 	  }
 
 
@@ -331,7 +331,7 @@ eval (oddsBased[0])  //First the column headings
 for (i=1; i<=numStrata+summarystrata; i++)
 {
  eval (mORbased[i]);
-// alert(mORbased[i] + "i="+i);
+// noalert(mORbased[i] + "i="+i);
  eval (oddsBased[i]);
  if (numStrata==1 || i==numStrata+1)
    {
@@ -375,13 +375,13 @@ if (numStrata>1)
 	upRRmh=adjRRmh*Math.exp(z*SE);
 	//Display results
 	//'\nnewrow("c:'+stratum+'","span2:Risk in Exposed","'+fmtSigFig(risk_exposed_pt,4)+'","c:span2:'+limits(risk_exposed_lower,risk_exposed_upper)+'")'
-   // alert(limits(lowRRDirect,upRRDirect,1))
+   // noalert(limits(lowRRDirect,upRRDirect,1))
 	riskBased[index]='\nnewrow("Adjusted","span2:Directly Adjusted RR","'+fmtSigFig(adjRRDirect,4)+'"\,\"c:span2:'+limits(lowRRDirect,upRRDirect,1)+'\",\"span2:Taylor series\")'
-	//alert("401"+riskBased[index])
+	//noalert("401"+riskBased[index])
 	riskBased[index]+='\nnewrow("","span2:MH Adjusted RR","'+fmtSigFig(adjRRmh,4)+'","c:span2:'+limits(lowRRmh,upRRmh,1)+'",\"span2:Taylor series\")'
 	riskBased[index]+='\nnewrow("","span2:Directly Adjusted RD","c:'+fmtSigFig(adjRDdirect,4,"%")+'","c:span2:'+limits(lowRD,upRD,0,100)+'",\"span2:Taylor series\")'
 		 //note: RD limits will be marked if they exclude 0, not 1
-	//alert("405"+riskBased[index])	 
+	//noalert("405"+riskBased[index])	 
 	for(i=1; i<=numStrata; i++)
 	  {
 		BDchiRR+=Math.pow ( Math.log(RRarr[i])-Math.log(adjRRDirect),2) / (1/(wRRarr[i]))
@@ -421,7 +421,7 @@ if (numStrata>1)
 	 {
 	  riskBased[index]+='\nnewrow ("","span6: p greater than 0.05 does not suggest interaction. Adjusted RD can be used.")'
 	 }
-    // alert("440"+riskBased[index])
+    // noalert("440"+riskBased[index])
 
    //Calculate adjusted odds-based statistics across strata
    var adjORdirect=0;
@@ -439,7 +439,7 @@ if (numStrata>1)
    var lowORmh= adjORmh*Math.exp(-(z*ORmhSE));
    var upORmh=adjORmh*Math.exp(z*ORmhSE);
    //Calc Directly Adjusted Odds Ratio
-   //alert("sumwtimesOR="+sumwtimesOR+" sumwOR="+sumwOR)
+   //noalert("sumwtimesOR="+sumwtimesOR+" sumwOR="+sumwOR)
 
    var daOR= Math.exp( sumwtimesOR/sumwOR);
    var lowORda=daOR*Math.exp(-(z/Math.sqrt(sumwOR)))
@@ -512,13 +512,13 @@ else
 
 //Now set up a,b,c,d correctly from the single stratum
 a  = parseFloat(dataTable["E1D1"]);
-//alert("a="+a);
+//noalert("a="+a);
 b  = parseFloat(dataTable["E0D1"]);
-//alert("c="+c);
+//noalert("c="+c);
 c  = parseFloat(dataTable["E1D0"]);
-//alert("b="+b);
+//noalert("b="+b);
 d  = parseFloat(dataTable["E0D0"]);
-//alert("d="+d)
+//noalert("d="+d)
 
 //Note that this setup assumes a,b,c,d with Disease on the LEFT and
 //EXPOSURE at the TOP of the table, the opposite of the Epi Info
@@ -530,7 +530,7 @@ r2 = c+d;
 c1 = a+c;  //Total number of exposed persons
 c2 = b+d;
 t  = a+b+c+d;
-//alert("a="+a+" b="+b+" c="+c+" d="+d)
+//noalert("a="+a+" b="+b+" c="+c+" d="+d)
 if (stratum=="Crude")
    {
     rec=numStrata+1
@@ -578,10 +578,10 @@ if ((cmdObj.data[0].strata==1) && ((a == 0) || (b == 0) || (c == 0) || (d == 0))
   var pcs = pchisq(cs,1,true); //Chi square, 1 degree of freedom, number only
   var pcsc = pchisq(csc,1,true);
   var pmhcs = pchisq(mhcs,1,true);
- //alert("570 pcs="+pcs+"    fmtPValue(pcs)="+fmtPValue(pcs));
+ //noalert("570 pcs="+pcs+"    fmtPValue(pcs)="+fmtPValue(pcs));
  
   assoc[rec]='\nnewrow("c:'+pstratum+'","span2:Uncorrected chi square",'+fmtSigFig(cs,4)+',"c:span2:'+fmtPValue(0.5*pcs) +'","c:'+fmtPValue(pcs)+'")';
- // alert("rec="+rec +"\n" +assoc[rec])
+ // noalert("rec="+rec +"\n" +assoc[rec])
   assoc[rec]+='\nnewrow("","span2:Yates corrected chi square",'+fmtSigFig(csc,4)+',"c:span2:'+fmtPValue(0.5*pcsc) +'","c:'+fmtPValue(pcsc)+'")';
   assoc[rec]+='\nnewrow("","span2:Mantel-Haenszel chi square",'+fmtSigFig(mhcs,4)+',"c:span2:'+fmtPValue(0.5*pmhcs) +'","c:'+fmtPValue(pmhcs)+'")';
   cscrit=cscritFromOEConfLevel(cmdObj.data[0].conflevel);
@@ -747,9 +747,9 @@ if ((cmdObj.data[0].strata==1) && ((a == 0) || (b == 0) || (c == 0) || (d == 0))
   {
    accumulateStratum(a,b,c,d) 
   }
-// alert(limits(rr_lo,rr_hi,1)) 
+// noalert(limits(rr_lo,rr_hi,1)) 
  riskBased[rec]+='\nnewrow("","span2:Risk Ratio","'+fmtSigFig(rr,4)+'","c:span2:'+limits(rr_lo,rr_hi,1) +'\",\"span2:Taylor series\")'
- //alert(riskBased[rec])
+ //noalert(riskBased[rec])
  riskBased[rec]+='\nnewrow("","span2:Risk Difference","c:'+fmtSigFig(dp,4,"%")+'","c:span2:'+limits(dp_lo,dp_hi,0,100)+'\",\"span2:Taylor series\")'
  //riskBased[rec]+='\nline(7,1);';
  if (stratum==1)
@@ -857,7 +857,7 @@ var RR,OR,RD;
    RRarr[stratum]=RR;
    w= (c/(a*n1)) + (d/(b*n0)) ;
    w=1/w
-  // alert("w="+w+" stratum="+stratum+"a="+a+" b="+b+" c="+c+" d="+d+" n1="+n1+" n0="+n0)
+  // noalert("w="+w+" stratum="+stratum+"a="+a+" b="+b+" c="+c+" d="+d+" n1="+n1+" n0="+n0)
    wRRarr[stratum]=w; 
    sumRRDirectwlnRR+=w* Math.log(RR);
    sumwRR+=w;
@@ -884,14 +884,14 @@ var RR,OR,RD;
    w= 1/(1/a + 1/b + 1/c + 1/d) ;
    ORarr[stratum]=OR
    wORarr[stratum]=w
-  // alert("OR="+OR+" Math.log(OR)="+Math.log(OR)+" w*ln(OR)="+w*Math.log(OR))
+  // noalert("OR="+OR+" Math.log(OR)="+Math.log(OR)+" w*ln(OR)="+w*Math.log(OR))
    sumwtimesOR+=w*Math.log(OR);
    sumwOR+=w;
   
 //Variables for Mantel-Haenszel Adjusted OR     
    summhORNum+= a*d/t;//These are the same as R and S below, but are left here for clarity.
    summhORDenom+=b*c/t; 
-   //alert("summhORNum="+summhORNum+" a="+a)
+   //noalert("summhORNum="+summhORNum+" a="+a)
    var P,Q,R,S; //For Robins, Greenland, Breslow
    P=(a+d)/t;
    Q=(b+c)/t;

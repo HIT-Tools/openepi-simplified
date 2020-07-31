@@ -48,7 +48,7 @@ function configureInput()
 		var topright="(-)" ;
 		var lefttop="(+)";
 		var leftbottom="(-)";
-		//alert("ExposureLeft="+ExposureLeft);
+		//noalert("ExposureLeft="+ExposureLeft);
 		 if (!ExposureLeft) 
 		 {
 		   //switch disease and exposure
@@ -173,7 +173,7 @@ function checkcode(r,c,entry)
   //zeros.  Conditional statements, such as the switch statement can be used
   //to write code that applies only to particular cells.
   //To see what row and column entries are made in, uncomment the following line:
-  //alert("Row="+r+"  Col=" + c)
+  //noalert("Row="+r+"  Col=" + c)
   /* The following is a useless bit of code, but it illustrates how you might
   set a value of a cell in the table and also how to get the value of another cell.
   The value entered by the user is passed in as "entry".  Hence, you can act on the
@@ -187,7 +187,7 @@ function checkcode(r,c,entry)
 	 //row 2, column 3. 
 	 EntryWin.setCellValue(2,3,parseInt(entry)*43)  //Here's how you set a cell value
 	                                                //other than the one being entered.
-	 alert(EntryWin.getCellValue(2,2))              //Here's how you get a cell value
+	 noalert(EntryWin.getCellValue(2,2))              //Here's how you get a cell value
 	                                                //from another cell.
 	}
 	*/
@@ -223,7 +223,7 @@ function OECalculate(data)
 //array, uncomment the following 3 lines and run the program:
 
 //window.panel2.writeTable(data)
-//alert("This is the data array, ready for programming in the statistical routine.")
+//noalert("This is the data array, ready for programming in the statistical routine.")
 //return  //exits from OECalculate
 
 //Remove the comment from the 3 lines above to see a table of the contents of the data array

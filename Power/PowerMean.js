@@ -44,7 +44,7 @@ function CalcPower(data)
 // significance level;
 var powerz=0; var  cscrit=0; var z=0; var pt=0; //pt=percent;
 var pt=parseFloat(data[1].E0D2);
-//alert("percent"+pt);
+//noalert("percent"+pt);
 
 	if (pt==99.99)  cscrit=15.137
     if (pt==99.98)  cscrit=13.831
@@ -82,21 +82,21 @@ var d = parseFloat(data[1].E2D5); // for the display purpose in the output table
 var diff = parseFloat(Math.abs(d));
 
 if ( (m1==0)&& (m2==0)&&(diff==0) ){
-	alert("Missing values! enter mean of group-1 and group-2 (or) enter mean difference of these 2 groups")
+	noalert("Missing values! enter mean of group-1 and group-2 (or) enter mean difference of these 2 groups")
 	}
 if (diff==0) {
 	diff=Math.abs(m1-m2);
 	}
 if (  ((m1==0) && (m2!=0))|| ((m2==0) && (m1!=0))  ) {
-	alert("missing mean value in the other group!!")
+	noalert("missing mean value in the other group!!")
 	}
 
 
 
 var n1 = parseFloat(data[1].E3D0);
-if (n1==0) alert("missing value of sample size in group-1");
+if (n1==0) noalert("missing value of sample size in group-1");
 var n2 = parseFloat(data[1].E3D2);
-if (n1==0) alert("missing value of sample size in group-1");
+if (n1==0) noalert("missing value of sample size in group-1");
 var ratio = n2/n1;
 
 
@@ -120,7 +120,7 @@ if ((v1!=0) && (v2!=0)) {
 // Power calculation;
 	powerz= -z +  (Math.sqrt(n1)*diff)/( Math.sqrt(  Math.pow(s1,2) + (Math.pow(s2,2)/ratio)  ));
 	powerz = (1-(Norm(powerz)/2))*100; //to get a percent value;
-	//alert("size "+n1+"  power"+powerz+"   power-cc"+powerzcc);
+	//noalert("size "+n1+"  power"+powerz+"   power-cc"+powerzcc);
 
 //------------------------------------------------------------;
 

@@ -8,7 +8,7 @@ if (!storeStratumDataToMem(currStratum, maxAtLeft, maxAtTop, expLeft ))
 else
   {  
    storeMetaToMem(maxAtLeft, maxAtTop, expLeft)
- //  alert(jsStringFromArray(dataMatrix))  //for debugging
+ //  noalert(jsStringFromArray(dataMatrix))  //for debugging
    return true;
   } 
 }
@@ -54,7 +54,7 @@ for (var r=0; r<myTable.rows; r++)
  }	
 if (rmax==-1 || cmax==-1) 
 {
-alert("No cells of type 'data' found.  Can't make data array.")
+noalert("No cells of type 'data' found.  Can't make data array.")
 }
 else
 {
@@ -237,13 +237,13 @@ for(r=0; r<myTable.rows; r++)
 			 {
 			  //Put values in the first row of values into the Dvals array
 			  metaData.Dvals[metaData.Dvals.length]=v1
-			  //alert("r="+r+" Dvals includes="+metaData.Dvals[metaData.Dvals.length-1])
-			  //alert("Dvals.length="+metaData.Dvals.length+" Dval value="+metaData.Dvals[metaData.Dvals.length-1])
+			  //noalert("r="+r+" Dvals includes="+metaData.Dvals[metaData.Dvals.length-1])
+			  //noalert("Dvals.length="+metaData.Dvals.length+" Dval value="+metaData.Dvals[metaData.Dvals.length-1])
 			 }
 			else
 			 {
 			  metaData.Evals[metaData.Evals.length]=v1
-			 // alert("Eval value="+metaData.Evals[metaData.Evals.length-1])
+			 // noalert("Eval value="+metaData.Evals[metaData.Evals.length-1])
 			 } 
 		   }
 		 else if (tt=="varname")
@@ -259,7 +259,7 @@ for(r=0; r<myTable.rows; r++)
 		   }	   
 	 }
   }	 
-  //alert("244 useTableSettings="+useTableSettings)
+  //noalert("244 useTableSettings="+useTableSettings)
 if (useTableSettings)
   { 
     var temp=""
@@ -288,7 +288,7 @@ if (useTableSettings)
 	 //if maxatleft is true than swap the valnames
 	 if (maxAtLeft) 
 	  { 
-	   //alert("at 253 metaData.Dvals[0]="+metaData.Dvals[0] + " maxAtTop="+maxAtTop)
+	   //noalert("at 253 metaData.Dvals[0]="+metaData.Dvals[0] + " maxAtTop="+maxAtTop)
 	   if (expLeft==true)
 	     { 
 		  //Reverse (invert) the arrays
@@ -299,7 +299,7 @@ if (useTableSettings)
 		  metaData.Evals.reverse(); 
 		 }
 	  }
-	   //alert("at 264 metaData.Dvals[0]="+metaData.Dvals[0] + " maxAtTop="+maxAtTop)
+	   //noalert("at 264 metaData.Dvals[0]="+metaData.Dvals[0] + " maxAtTop="+maxAtTop)
 	 
 	 
 	 if (maxAtTop) 
@@ -438,9 +438,9 @@ var topvals=new Array()
 	   }
 	 if (MaxValueAtLeft==true)
 	  {
-	   //alert("before reversing topval.0="+topvals[0])
+	   //noalert("before reversing topval.0="+topvals[0])
 	   topvals.reverse()
-	   //alert("after reversing topval.0="+topvals[0])
+	   //noalert("after reversing topval.0="+topvals[0])
 	  } 
 	 if (MaxValueAtTop==true)
 	  {
@@ -509,16 +509,16 @@ for(r=0; r<myTable.rows; r++)
 function readMemToTable(stratum)
 {
 var r,c;
- //alert("in readMemToTable")
+ //noalert("in readMemToTable")
 if (dataMatrix[stratum]) 
  {
-  //alert("dataMatrix for stratum"+stratum+" exists");
- // alert("myTable.rows="+myTable.rows)
+  //noalert("dataMatrix for stratum"+stratum+" exists");
+ // noalert("myTable.rows="+myTable.rows)
 for (r=0; r<myTable.rows ;r++)
   {
    for (c=0; c<myTable.cols; c++)
     { 
-	//alert("type="+myTable.row[r].cell[c].type)
+	//noalert("type="+myTable.row[r].cell[c].type)
 	 if (myTable.row[r].cell[c].type=="data") 
 	   {
 	     myTable.insert(r,c,dataMatrix[stratum][strIdFromRC(r,c)])
@@ -591,7 +591,7 @@ for (stratum=1;stratum<tableData.length;stratum++)
 win2=window.open("about:blank", "window2","Width=800,Height=600,scrollbars=yes"); 
 win2.document.write(list1+mdata+"<br>"+s2)
 win2.document.close();
-//alert(jsStringFromArray(tableData))  //for debugging
+//noalert(jsStringFromArray(tableData))  //for debugging
 }
 
 //end of DataStore module

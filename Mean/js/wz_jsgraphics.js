@@ -59,7 +59,7 @@ function chkDHTM(x, i)
 
 function pntDoc()
 {   
-    alert("this.htm in pntDoc="+this.htm);
+    noalert("this.htm in pntDoc="+this.htm);
 	document.write(this.htm);
 	this.htm = '';
 }

@@ -22,7 +22,7 @@ function initPanels(panelInicial)
           {
             //just for now
 		  document.getElementById('panel'+pp).style.display = 'none';
-		  //alert("display set to none for panel "+pp+ " in showpanel");
+		  //noalert("display set to none for panel "+pp+ " in showpanel");
           }
 		}
 		else
@@ -98,10 +98,10 @@ if (panelNum==2)
      //Open a copy of the entire window to allow scrolling
    //setTimeout(" panelWin = window.open(''+self.location,'mywin','left=20,top=20,height=500,width=500, toolbar=0,resizable=1');panelWin.focus();",4000);
     //panelWin.focus();
-    //alert(92 + document.location);
+    //noalert(92 + document.location);
     panelWin=window.open('../Etable/Empty.htm','<a target=name href="../Etable/Empty.htm">','fullscreen=yes,resizable=no, scrollbars=yes, titlebar=no');
    }
-  //alert(panelWin.document.location);
+  //noalert(panelWin.document.location);
 
 panelWin.document.write(HTMLforDiv);
 
@@ -137,7 +137,7 @@ function hidePanel(){
        //The following line causes Safari to Crash completely.
       // document.getElementById('panel'+currentPanel).style.display = 'none';
 
-	//alert("display set to none for panel "+currentPanel+ " in hidepanel")
+	//noalert("display set to none for panel "+currentPanel+ " in hidepanel")
 	document.getElementById('panel'+currentPanel).style.visibility = 'hidden';
 	document.getElementById('tab'+currentPanel).style.backgroundColor = '#ffffff';
 	document.getElementById('tab'+currentPanel).style.color = 'navy';

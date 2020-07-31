@@ -181,7 +181,7 @@ function getLayer(id)
 
 function setTopRow(id,TopLeft,Ltxt) 
 {
-	//alert("I am in the setTopRow");
+	//noalert("I am in the setTopRow");
 	var objTopLeft = getLayer(id);
 	var objTopRight = getLayer("TopRight");
 	var TempColor = 0;
@@ -413,7 +413,7 @@ function saveSettings()
 
    /*if (!cookiesEnabled())
 		{
-		alert(cookiemsg);
+		noalert(cookiemsg);
 		return;
 		}
      */
@@ -426,7 +426,7 @@ function saveSettings()
 	var _$box3 = _$box0;
 	var box3 = _$box3.ConfidenceLevel.options[_$box3.ConfidenceLevel.selectedIndex].value;
 	var box4 = _$box0.Language.options[_$box0.Language.selectedIndex].value;
-	//alert(_$box3.ConfidenceLevel.options[_$box3.ConfidenceLevel.selectedIndex].value);
+	//noalert(_$box3.ConfidenceLevel.options[_$box3.ConfidenceLevel.selectedIndex].value);
 	writeCookie("openepi","Dropbox0", box0, expiryDate, "/");
 	writeCookie("openepi","TopLeft", element("TopLeft").innerHTML, expiryDate, "/");
 	writeCookie("openepi","TopRight", element("TopRight").innerHTML, expiryDate, "/");
@@ -505,11 +505,11 @@ function saveSettings()
     writeCookie("openepi", "ScreenConfig", ScreenConfig,expiryDate,"/");
    /*	if (!document.cookie)
 		{
-		//alert(cookiemsg);
+		//noalert(cookiemsg);
 		}
 	else
 		{
-		alert(t("Settings Saved"))
+		noalert(t("Settings Saved"))
 	   //	ShowHide("savedmsg",true);
 		}
     */
@@ -651,7 +651,7 @@ function goBack()
 <h3 align="center">OpenEpi Settings</h3>
 
 
-<form id="form1" name="form1" method="post" action="Javascript:alert('Settings Saved');">
+<form id="form1" name="form1" method="post" action="Javascript:noalert('Settings Saved');">
 
 <table>
 

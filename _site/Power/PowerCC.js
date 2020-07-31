@@ -45,7 +45,7 @@ function CalcPower(data) {
 var  cscrit=0; var z=0; var pt=0;//pt=percent;
 
 var pt=parseFloat(data[1].E0D0);
-//alert("percent"+pt);
+//noalert("percent"+pt);
 
 	if (pt==99.99)  cscrit=15.137
     if (pt==99.98)  cscrit=13.831
@@ -86,7 +86,7 @@ z = Math.sqrt(cscrit);
 
 var n1 = parseFloat(data[1].E2D0);
 if (n1==0) {
-	alert("Number of case are missing");
+	noalert("Number of case are missing");
 	return;
 	}
 //alert ("size="+n1);
@@ -94,7 +94,7 @@ if (n1==0) {
 
 var n2 = parseFloat(data[1].E2D1);
 if (n2==0) {
-	alert("Number of control are missing");
+	noalert("Number of control are missing");
 	return;
 	}
 

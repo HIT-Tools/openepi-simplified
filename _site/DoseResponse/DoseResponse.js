@@ -128,14 +128,14 @@ for(stratum=1; stratum <dataArr.length; stratum++)
 	   mhORad[t]+=a*bbase/ttot   //MH summary Odds Ratio numerator for this exposure level
 	   mhORbc[t]+=b*abase/ttot   //Denominator, also summed over all strata
 	   }
-	   //alert("a="+a+" b="+b+" t="+t+" mhORad[t]="+ mhORad[t])
-	   //alert("t="+t+" mhORbc[t]="+ mhORbc[t])
-	  // alert("a="+a+" b="+b+" bbase="+bbase+" abase="+abase+" OR="+OR)
+	   //noalert("a="+a+" b="+b+" t="+t+" mhORad[t]="+ mhORad[t])
+	   //noalert("t="+t+" mhORbc[t]="+ mhORbc[t])
+	  // noalert("a="+a+" b="+b+" bbase="+bbase+" abase="+abase+" OR="+OR)
 	   newrow(x+"",a+"",b+"",m+"",fmtFixed(a/b,2),fmtFixed(OR,2))
 	   }
 	 Vsum+=(n1*n2*(n*T3-(T2*T2)))/(n*n*(n-1))
 	 V1sum+=T1-((n1/n)*T2)
-	   //alert("T1="+T1+" T2="+T2+" T3="+T3) 
+	   //noalert("T1="+T1+" T2="+T2+" T3="+T3) 
 	 line(6) 
 	 newrow("Total",n1+"",n2+"",n+"") 
      newrow()
@@ -150,7 +150,7 @@ for(stratum=1; stratum <dataArr.length; stratum++)
  for (i=0; i<levels; i++)
    {
    //For each level of exposure, show the MH summary Odds ratio.
-   //alert("i="+i+" mhORad[i]="+ mhORad[i]+" mhORbc[i]="+mhORbc[i])
+   //noalert("i="+i+" mhORad[i]="+ mhORad[i]+" mhORbc[i]="+mhORbc[i])
    if (i==0)
     {
 	 mhsumOR=1
@@ -160,7 +160,7 @@ for(stratum=1; stratum <dataArr.length; stratum++)
 	 mhsumOR=mhORad[i]/mhORbc[i]
 	}	
    newrow("span2:Level "+i+" vs. Level 0::","","l:"+fmtFixed(mhsumOR,3),fmtFixed((acrude[i]*dcrude)/(bcrude[i]*ccrude),3))
-   //alert("a=" +acrude[i]+" b="+bcrude[i]+"c="+ccrude+" d="+dcrude)
+   //noalert("a=" +acrude[i]+" b="+bcrude[i]+"c="+ccrude+" d="+dcrude)
    }
  newrow();  
  newrow("span6:If MH and crude ORs are equal, confounding by the stratifying variable");

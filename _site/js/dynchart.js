@@ -1,6 +1,6 @@
 function StratumLockCheck(r,c){
 	if (this.row[r].cell[c].locked) {
-		alert("Dynamic Table Error:\nCell(' + r + ',' + c + ') is locked")
+		noalert("Dynamic Table Error:\nCell(' + r + ',' + c + ') is locked")
 		return true
 	}
 	else {return false}
@@ -22,8 +22,8 @@ function StratumAddTo(r,c,val)
 	{
 		if (this.lockCheck(r,c)) {return true}
 	}
-	if (r > this.rows) {alert("Dynamic Table Error:\nThere is no Row " + r); return false}
-	if (c > this.cols) {alert("Dynamic Table Error:\nThere is no Column " + c); return false}
+	if (r > this.rows) {noalert("Dynamic Table Error:\nThere is no Row " + r); return false}
+	if (c > this.cols) {noalert("Dynamic Table Error:\nThere is no Column " + c); return false}
 	if (!this.row[r].cell[c].value) {this.insert(r,c,val); return false}
 	this.row[r].cell[c].value = this.row[r].cell[c].value + val
 	this.cellWrite(r,c)
@@ -39,10 +39,10 @@ function StratumSubFrom(r,c,val){
 		return false;
 		}
 	}
-	if (r > this.rows) {alert("Dynamic Table Error:\nThere is no Row " + r); return false;}
-	if (c > this.cols) {alert("Dynamic Table Error:\nThere is no Column " + c); return false;}
+	if (r > this.rows) {noalert("Dynamic Table Error:\nThere is no Row " + r); return false;}
+	if (c > this.cols) {noalert("Dynamic Table Error:\nThere is no Column " + c); return false;}
 	if (!this.row[r].cell[c].value) {this.row[r].cell[c].value = '0'}
-	if(isNaN(this.row[r].cell[c].value)) {alert("Dynamic Table Error:\nCell value is not an integer"); return false;}
+	if(isNaN(this.row[r].cell[c].value)) {noalert("Dynamic Table Error:\nCell value is not an integer"); return false;}
 	this.row[r].cell[c].value = parseInt((this.row[r].cell[c].value - val),10)
 	this.cellWrite(r,c)
 }
@@ -51,7 +51,7 @@ Stratum.prototype.subFrom = StratumSubFrom
 
 function StratumInsertRow(r,args){
 	if (args.length > this.cols) {
-		alert("Dynamic Table Error:\nNot enough columns to accommodate data")
+		noalert("Dynamic Table Error:\nNot enough columns to accommodate data")
 		return
 		}
 	for (i=0 ; i < args.length ; i++){
@@ -65,7 +65,7 @@ Stratum.prototype.insertRow = StratumInsertRow
 
 function StratumInsertCol(c,args){
 	if (args.length > this.rows) {
-		alert("Dynamic Table Error:\nNot enough rows to accommodate data")
+		noalert("Dynamic Table Error:\nNot enough rows to accommodate data")
 		return
 		}
 	for (i=0 ; i < args.length ; i++){
@@ -135,7 +135,7 @@ function StratumTotalCol(r,c,entry)
 	   if (this.row[i].cell[c].type == "data")
 	    {
 		if(isNaN(this.row[i].cell[c].value)){
-			//alert("Dynamic Table Error:\nCannot total column containing string")
+			//noalert("Dynamic Table Error:\nCannot total column containing string")
 			this.results = ''
 			return this.results
 		 }
@@ -192,7 +192,7 @@ function StratumTotalRow(r,c,entry)
 	    { 
 		 if(isNaN(this.row[r].cell[i].value))
 		   {
-			//alert("Problem in row total function:\nCannot total row containing text")
+			//noalert("Problem in row total function:\nCannot total row containing text")
 			this.results = ''
 			return this.results
 		   }

@@ -6,13 +6,13 @@
 
 var alerting = false;    //Set this to true to activate alert boxes, lots of them
 var OnTop;// = readCookie("openepi","Dropbox0");
-//alert("onTop=" +OnTop)
+//noalert("onTop=" +OnTop)
 var TopLeft ;// = readCookie("openepi","TopLeft");
-//alert("TopLeft=" +TopLeft)
+//noalert("TopLeft=" +TopLeft)
 var TopRight ;// = readCookie("openepi","TopRight");
-//alert("TopRight=" +TopRight)
+//noalert("TopRight=" +TopRight)
 var Dropbox1 ;// = readCookie("openepi","Dropbox1");
-//alert("Dropbox1=" +Dropbox1)
+//noalert("Dropbox1=" +Dropbox1)
 
 var Exposure ;
 var Top ;
@@ -68,7 +68,7 @@ function clearStrg() {
 
  function log(txt) {
     if(alerting) {
-      alert(txt);
+      noalert(txt);
     }
   }
 
@@ -165,7 +165,7 @@ function cookiesEnabled()
 function writeCookie(cookieName, multiValueName, value, expires, path)
 {
 	var cookieValue = readUnescapedCookie(cookieName);
-    //alert("55 in writeCookie of readcookie");
+    //noalert("55 in writeCookie of readcookie");
 	if (cookieValue)
 	{
 		var stripAttributeRegExp = new RegExp("(^|&)" + multiValueName + "=[^&]*&?");
@@ -183,7 +183,7 @@ function writeCookie(cookieName, multiValueName, value, expires, path)
 	var cookieDetails = cookieName + "=" + cookieValue;
 	cookieDetails += (expires ? "; expires=" + expires.toGMTString(): '');
 	cookieDetails += (path ? "; path=" + path: '');
-     //alert(116 + "in ReadCookie.js, cookieDetails="+cookieDetails);
+     //noalert(116 + "in ReadCookie.js, cookieDetails="+cookieDetails);
      if(cookiesEnabled())
        {document.cookie = cookieDetails; }
      else
@@ -261,31 +261,31 @@ function saveSettings()
 function readSettings()
 {
 OnTop = readCookie("openepi","Dropbox0");
-//alert("onTop=" +OnTop)
+//noalert("onTop=" +OnTop)
 TopLeft = readCookie("openepi","TopLeft");
-//alert("TopLeft=" +TopLeft)
+//noalert("TopLeft=" +TopLeft)
 TopRight = readCookie("openepi","TopRight");
-//alert("TopRight=" +TopRight)
+//noalert("TopRight=" +TopRight)
 Dropbox1 = readCookie("openepi","Dropbox1");
-//alert("Dropbox1=" +Dropbox1)
+//noalert("Dropbox1=" +Dropbox1)
 Exposure = readCookie("openepi","Exp");
-//alert("Exp=" +Exposure)
+//noalert("Exp=" +Exposure)
 Top = readCookie("openepi","Top");
-//alert("Top=" +Top)
+//noalert("Top=" +Top)
 Bottom = readCookie("openepi","Bottom");
-//alert("Bottom=" +Bottom)
+//noalert("Bottom=" +Bottom)
 Dropbox2 = readCookie("openepi","Dropbox2");
-//alert("Dropbox2=" +Dropbox2)
+//noalert("Dropbox2=" +Dropbox2)
 AutoLayout = readCookie("openepi","AutoLayout");
-//alert("AutoLayout=" +AutoLayout)
+//noalert("AutoLayout=" +AutoLayout)
 ConfidenceLevel = readCookie("openepi","ConfidenceLevel");
-//alert("ConfidenceLevel=" + ConfidenceLevel)
+//noalert("ConfidenceLevel=" + ConfidenceLevel)
 Pvalues = readCookie("openepi","Pvalues");
-//alert("Pvalues=" +Pvalues)
+//noalert("Pvalues=" +Pvalues)
 Columnpercents = readCookie("openepi","Columnpercents");
-//alert("Columnpercents=" + Columnpercents)
+//noalert("Columnpercents=" + Columnpercents)
 RowPercents = readCookie("openepi","RowPercents");
-//alert("RowPercents="+RowPercents)
+//noalert("RowPercents="+RowPercents)
 Language = readCookie("openepi","Language");
 ShowTables = readCookie("openepi","ShowTables");
 ShowStrata = readCookie("openepi","ShowStrata");
@@ -293,7 +293,7 @@ ScreenConfig=readCookie("openepi","ScreenConfig");
 
 ExposureLeft =true;
 if (Exposure !=null && Exposure!="Exposure") {ExposureLeft=false};
-//alert("ExposureLeft="+ExposureLeft);
+//noalert("ExposureLeft="+ExposureLeft);
 MaxValueAtLeft = true;
 if (TopLeft != null&&TopLeft!="(+)") {MaxValueAtLeft=false}
 //alert ("MaxValueAtLeft="+MaxValueAtLeft);
@@ -304,7 +304,7 @@ if (ConfidenceLevel == null || ConfidenceLevel< 20) {ConfidenceLevel=95}
 ConfLevel = ConfidenceLevel;
 conflevel=ConfLevel;
 
-//alert("RowPercents in Etable="+RowPercents)
+//noalert("RowPercents in Etable="+RowPercents)
 
 if (Language == null)  {Language="EN"}
 

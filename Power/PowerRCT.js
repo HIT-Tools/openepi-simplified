@@ -45,7 +45,7 @@ function CalcPower(data) {
 var  cscrit=0; var z=0; var pt=0;//pt=percent;
 var pt=parseFloat(data[1].E0D0);
 
-//alert("percent"+pt);
+//noalert("percent"+pt);
 
 	if (pt==99.99)  cscrit=15.137
     if (pt==99.98)  cscrit=13.831
@@ -82,11 +82,11 @@ var pt=parseFloat(data[1].E0D0);
 	*/
 	
 z = Math.sqrt(cscrit);
-//alert("z"+z);
+//noalert("z"+z);
 
 var n1 = parseFloat(data[1].E2D0);
 if (n1==0) {
-	alert("Sample size of Treatment Group 1 is missing");
+	noalert("Sample size of Treatment Group 1 is missing");
 	return;
 	}
 //alert ("size exposed="+n1);
@@ -94,7 +94,7 @@ if (n1==0) {
 
 var n2 = parseFloat(data[1].E2D1);
 if (n2==0) {
-	alert("Sample size of Treatment Group 2 is missing");
+	noalert("Sample size of Treatment Group 2 is missing");
 	return;
 	}
 //alert ("size nonexposed="+n2);
@@ -122,7 +122,7 @@ p2= pp2/100;
 	var pbar=(p1*n1+p2*n2)/(n1+n2);
 	
 	var qbar=1-pbar;
-	//alert("size exposed"+n1+"size non-exposed"+n2+"exposed"+p1+"non-exposed"+p2+"differenec"+d+"ratio"+ratio+"risk ratio"+rr+"pbar"+pbar+"qbar"+qbar);
+	//noalert("size exposed"+n1+"size non-exposed"+n2+"exposed"+p1+"non-exposed"+p2+"differenec"+d+"ratio"+ratio+"risk ratio"+rr+"pbar"+pbar+"qbar"+qbar);
 	
 	powerz= (Math.sqrt(n1*d*d)- z*Math.sqrt((1+1/ratio)*pbar*qbar))/ Math.sqrt((p2*q2) + (p1*q1/ratio));   
 	powerz = (1-(Norm(powerz)/2))*100;
@@ -141,7 +141,7 @@ p2= pp2/100;
    	
 	
    	powerzcc= (  Math.sqrt(nn1*d*d)-  z*Math.sqrt( (1+1/ratio)*pbar*qbar ) )/ Math.sqrt( (p2*q2) + (p1*q1/ratio) ); 
-	//alert(powerzcc);
+	//noalert(powerzcc);
 	
 	if (isNaN(powerzcc)){
 	powerzcc=''+"'?' undefined";
@@ -149,7 +149,7 @@ p2= pp2/100;
 	else {
 	powerzcc = (1-(Norm(powerzcc)/2))*100; 
 	}; 
-	//alert("power"+powerz+"      "+"powerCC"+powerzcc);
+	//noalert("power"+powerz+"      "+"powerCC"+powerzcc);
 //------------------------------------------------------------;
 
 

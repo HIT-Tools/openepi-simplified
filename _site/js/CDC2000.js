@@ -31,7 +31,7 @@ function resultStr(LMSArray, numValue)
 {
   if ((typeof LMSArray =="undefined" ) || (LMSArray==""))
    {
-     alert("value out of range in CDC2000.js")
+     noalert("value out of range in CDC2000.js")
      return 999
    }
   else

@@ -39,13 +39,13 @@ if (colNames==null)
  colNames=dataString.replace(/^\s*\*.*$/gm,"")
  
  colNames=dataString.replace(/^\*[\d]+.*/gm,"" );  //Remove all lines containing one or more digits
- //alert("dataString="+ dataString);
+ //noalert("dataString="+ dataString);
 // colNames=dataString.match(/^.*[,:;\t][\D]+[,:;\t]?.*$/m)
   colNames=dataString.match(/[\D\s\,:;\t]*$/m)
 
  //find the first line having no number
 }
-alert("colNames at 45="+colNames)
+noalert("colNames at 45="+colNames)
 return colNames;
 }
 //-------------------------------
@@ -140,7 +140,7 @@ for (i=0; i<lineArray.length;i++)
 var numNonBlankLines=lineArray.length;  //Here just for convenience; This is the number of data lines,
                                    //the first dimension of the line array.
 
-//alert(arrayInfo(lineArray));
+//noalert(arrayInfo(lineArray));
 //The lineArray array is now ready for whatever you want to do with it.
 //You can return it from whatever function we are in at the moment  
 //return (arrayInfo(lineArray));
@@ -310,7 +310,7 @@ function handleChange(textID)
   //Produces summary data and places it in a
   //field called summaryData in the current
   //web page
-  alert("handleChange in "+textID)
+  noalert("handleChange in "+textID)
   var element= document.getElementById( textID );
   //alert (arrayFromString(element.value));
   var theArray=arrayFromString(element.value);
@@ -322,7 +322,7 @@ function handleSelect(textID)
 {
 //Does
 //http://the-stickman.com/web-development/javascript/finding-selection-cursor-position-in-a-textarea-in-internet-explorer/
-    alert("handleSelect in "+textID)
+    noalert("handleSelect in "+textID)
    var element = document.getElementById( textID );
 
 if( document.selection ){
@@ -337,7 +337,7 @@ if( document.selection ){
 	// Now we can calculate start and end points
 	element.selectionStart = stored_range.text.length - range.text.length;
 	element.selectionEnd = element.selectionStart + range.text.length;
-    // alert("250 in document.selection. element.selectionEnd="+ element.selectionEnd);
+    // noalert("250 in document.selection. element.selectionEnd="+ element.selectionEnd);
 }
 var theArray=new Array()
 var strSelection=element.value.substring(element.selectionStart,element.selectionEnd);
@@ -353,7 +353,7 @@ if (strSelection != "")
    }
 
 
-//alert("theArray.length="+theArray.length)
+//noalert("theArray.length="+theArray.length)
 if (theArray.length==1 )
      {
        //Handle ColSelection since the selection must be on a single line
@@ -370,7 +370,7 @@ if (theArray.length==1 )
        // alert (colStats);
     //    element.selection.clear() ;
      }
-//alert("start="+element.selectionStart + " end=" + element.selectionEnd)
+//noalert("start="+element.selectionStart + " end=" + element.selectionEnd)
 else
      {
 if ((element.selectionEnd-element.selectionStart)>0)
@@ -378,7 +378,7 @@ if ((element.selectionEnd-element.selectionStart)>0)
          showInGrid(arrayInfo(theArray));
          //element.form.summaryData.value=arrayInfo(theArray);
        }
-//alert(theArray);
+//noalert(theArray);
      }
 
 }

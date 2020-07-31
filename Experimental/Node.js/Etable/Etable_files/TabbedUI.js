@@ -8,7 +8,7 @@ for (pp=1; pp<6; pp++)
 	   if (pp!=panelInicial)
 	    {
 		  document.getElementById('panel'+pp).style.display = 'none';
-		  //alert("display set to none for panel "+pp+ " in showpanel");
+		  //noalert("display set to none for panel "+pp+ " in showpanel");
 		}
 		else
 		{
@@ -27,7 +27,7 @@ function showPanel(panelNum)
 	
 	document.getElementById('panel'+panelNum).style.visibility = 'visible';
 	//document.getElementById('panel'+panelNum).style.class ='panel'; //Experiment March 2007
-	//alert("panel "+ panelNum +"  class = panel")
+	//noalert("panel "+ panelNum +"  class = panel")
    	document.getElementById('panel'+panelNum).style.display = ''; //Experiment March 2007  'block' does not work
 	currentPanel = panelNum;
 	setState(panelNum);
@@ -37,7 +37,7 @@ function hidePanel(){
        //The following line causes Safari to Crash completely.
       // document.getElementById('panel'+currentPanel).style.display = 'none';
 
-	//alert("display set to none for panel "+currentPanel+ " in hidepanel")
+	//noalert("display set to none for panel "+currentPanel+ " in hidepanel")
 	document.getElementById('panel'+currentPanel).style.visibility = 'hidden';
 	document.getElementById('tab'+currentPanel).style.backgroundColor = '#ffffff';
 	document.getElementById('tab'+currentPanel).style.color = 'navy';

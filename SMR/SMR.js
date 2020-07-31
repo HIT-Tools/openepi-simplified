@@ -47,11 +47,11 @@ function CalcStats(outTable)
     //var added05 = 0;
     	
   	a  = parseFloat(outTable.data[1]["E0D0"]);
-	//alert("a="+a);
+	//noalert("a="+a);
   	b  = parseFloat(outTable.data[1]["E1D0"]);
   
     if (a == 0|| b==0) {
-		alert("At least one of the cells has missing value");
+		noalert("At least one of the cells has missing value");
 		return}; 
           
     var vx = eval(a)
@@ -60,7 +60,7 @@ function CalcStats(outTable)
   
   	//	to simply calculate SMR (point estimate);
     var ratio = vx/vN;
-	//alert("ratio"+ratio);
+	//noalert("ratio"+ratio);
 	
    	//---------------Significance tests------------------------------------;
 	// p-value for hypothesis of association;
@@ -75,7 +75,7 @@ function CalcStats(outTable)
 	else {vx=vx+1};
 	var x2=(Math.sqrt(9*vx))* ( 1 - 1/(9*vx) - Math.pow(vN/vx,1/3) );
     var x2_pvalue=Norm(x2);
-	//alert(x2+"pvalue"+x3);
+	//noalert(x2+"pvalue"+x3);
 	
 	
 //Fisher's exact test for poisson distribution ; 
@@ -87,13 +87,13 @@ if (Obs>=Exp) {
         var k=Obs-1; 
         while (k>=0) { 
         var numerator=Math.pow(e,-Exp)*Math.pow(Exp,k); 
-        //alert("numerator"+numerator); 
+        //noalert("numerator"+numerator); 
         var kk=k; 
         var denom=1; 
         while (kk>0) {denom=denom*kk; kk=kk-1}; //calculate the value of a factorial; 
-        //alert("denominator"+denom); 
+        //noalert("denominator"+denom); 
         var subtotal=numerator/denom; 
-        //alert("subtotal"+subtotal); 
+        //noalert("subtotal"+subtotal); 
         total=total+subtotal; 
         k=k-1; 
         } 
@@ -104,19 +104,19 @@ if (Obs<Exp) {
         var k=Obs-1; 
         while (k>=0) { 
         var numerator=Math.pow(e,-Exp)*Math.pow(Exp,k); 
-        //alert("numerator"+numerator); 
+        //noalert("numerator"+numerator); 
         var kk=k; 
         var denom=1; 
         while (kk>0) {denom=denom*kk; kk=kk-1}; //calculate the value of a factorial; 
-        //alert("denominator"+denom); 
+        //noalert("denominator"+denom); 
         var subtotal=numerator/denom; 
-        //alert("subtotal"+subtotal); 
+        //noalert("subtotal"+subtotal); 
         total=total+subtotal; 
         k=k-1; 
         } 
         p_value=2*total; 
 } 
-//alert("exact test P="+p_value); 
+//noalert("exact test P="+p_value); 
 
 	
 	
@@ -132,13 +132,13 @@ if (Obs<Exp) {
 	var k=Obs-1;
 	while (k>=0) {
 	var numerator=Math.pow(e,-Exp)*Math.pow(Exp,k);
-	//alert("numerator"+numerator);
+	//noalert("numerator"+numerator);
 	var kk=k;
 	var denom=1;
 	while (kk>0) {denom=denom*kk; kk=kk-1}; //calculate the value of a factorial;
-	//alert("denominator"+denom);
+	//noalert("denominator"+denom);
 	var subtotal1=numerator/denom;
-	//alert("subtotal"+subtotal);
+	//noalert("subtotal"+subtotal);
 	total1=total1+subtotal1;
 	k=k-1;
 	}
@@ -149,12 +149,12 @@ if (Obs<Exp) {
 	deno=1;
 	i=Obs;
 	while (i>0) {deno=deno*i; i=i-1}; 
-	//alert("denominator "+deno);
+	//noalert("denominator "+deno);
 	var aa=(num/deno)*0.5;
 	
 	//combine both parts of equation;
 	var MidP=2*(aa+total1);
-	//alert("mid-p"+MidP);
+	//noalert("mid-p"+MidP);
 }
 	
 	
@@ -163,7 +163,7 @@ if (Obs>=Exp) {
 	var k=Obs-1;
 	while (k>=0) {
 	var numerator=Math.pow(e,-Exp)*Math.pow(Exp,k);
-	//alert("numerator"+numerator);
+	//noalert("numerator"+numerator);
 	var kk=k;
 	var denom=1;
 	while (kk>0) {denom=denom*kk; kk=kk-1}; //calculate the value of a factorial;
@@ -199,7 +199,7 @@ if (Obs>=Exp) {
 	var zU=Math.sqrt(cscrit);
 	
 	// to compute Title ---% Confidence Interval;
-	//alert("cscript"+cscrit);
+	//noalert("cscript"+cscrit);
 	var ci=0;
 	if (cscrit==2.706) {ci=90};
 	if (cscrit==3.841) {ci=95};
@@ -224,7 +224,7 @@ if (Obs>=Exp) {
     while(dv>1e-5) { dv=dv/2; if  (  PoisP((1+vZ)*v/(1-v),0,vZ-1)    +  0.5*PoisP((1+vZ)*v/(1-v),vZ,vZ) <p)
     { v=v-dv } else { v=v+dv } }
     var QU = ((1+vZ)*v/(1-v))/Exp; 
-    //alert("mid-p="+QL+"upper tail"+QU);
+    //noalert("mid-p="+QL+"upper tail"+QU);
 	
 
 // Fisher's exact test;
@@ -241,7 +241,7 @@ if (Obs>=Exp) {
 	  
     while(dv>1e-5) { dv=dv/2; if(PoisP((1+vZ)*v/(1-v),0,vZ)<p) { v=v-dv } else { v=v+dv } }
     var QU3 = ((1+vZ)*v/(1-v))/Exp; 
- //alert("fisher-p="+QL3+"upper tail"+QU3);
+ //noalert("fisher-p="+QL3+"upper tail"+QU3);
  
 
 // Vandenbroucke method
@@ -279,18 +279,18 @@ if (ci==90 || ci==95|| ci==99){
 	}
 }
 	else {	QL2= " ";QU2= ' ';}
-	//alert("vanden-p="+QL1+"upper tail"+QU1);
-	//alert("ury-p="+QL2+"upper tail"+QU2);
+	//noalert("vanden-p="+QL1+"upper tail"+QU1);
+	//noalert("ury-p="+QL2+"upper tail"+QU2);
 
 //Byar method approximation;
     var vPL = ratio * Math.pow(1 - (1/(9 * Obs)) - (zL / (3 * (Math.sqrt(Obs)))),3);
     var vPU = ((Obs + 1)/Exp) * Math.pow(1 - (1/(9 * (Obs + 1))) + (zL / (3 * (Math.sqrt(Obs + 1)))),3);
-	//alert("Byar-p="+vPL+"upper tail"+vPU);
+	//noalert("Byar-p="+vPL+"upper tail"+vPU);
 
 //Boice-Monson method approximation;
     var PU = Math.exp( (Math.log(Obs/Exp)) + (zU*(1/Math.sqrt(Obs))) );
     var PL = Math.exp( (Math.log(Obs/Exp)) - (zU*(1/Math.sqrt(Obs))) );
-	//alert("Boice-monson-p="+PL+"upper tail"+PU);
+	//noalert("Boice-monson-p="+PL+"upper tail"+PU);
 
 		
 		

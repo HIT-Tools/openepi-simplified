@@ -4,7 +4,7 @@
 var Tlanguage="EN";
 //var currlanguage = readCookie("openepi","Language");       //ReadCookie.js must be loaded first
 var currlanguage=Language;
-//alert("currlanguage in 6 of Translate="+currlanguage);
+//noalert("currlanguage in 6 of Translate="+currlanguage);
 
 function browserLanguage()
 {
@@ -52,7 +52,7 @@ function initTranslation(requestedLang)
 	applabel=applabel.replace(/\//g,"\\");  //Converts forward slashes to backslashes
     applabel=applabel.replace(/file\:\\\\\\/,"");  //Takes out      'file:\\\'   Aug 2007--happens again in UpdateTranslation
 
-   // alert(" 710 applabel="+applabel);
+   // noalert(" 710 applabel="+applabel);
    //	if (typeof(Language)!=="undefined")
    //	  {
    //		currlanguage=Language;
@@ -71,29 +71,29 @@ ffmsg="If you are running OpenEpi in Firefox on local disk, enter ABOUT:CONFIG i
 		// If updateTranslation is running, use the language specified by the user
 
         currlanguage=window.top.writelang;
-		//alert("language set from TOP="+currlanguage);
+		//noalert("language set from TOP="+currlanguage);
 	  }
   }
   catch(err)
   {
-    alert(ffmsg);
+    noalert(ffmsg);
   }
  }
-	//alert("maxvalueatleft="+MaxValueAtLeft);
+	//noalert("maxvalueatleft="+MaxValueAtLeft);
 	//Changed following line Oct 2007
 	// if (currlanguage.length==0 || currlanguage=="EN")
 	 if ((currlanguage===null)||(currlanguage.length===0 ))
 	  {
 		   currlanguage=browserLanguage();
 	  }
-	//alert("currlanguage="+currlanguage);
+	//noalert("currlanguage="+currlanguage);
 
 
 
  var transFile= "../Translations/"+currlanguage+".js"
  transFile="'"+transFile+"'";
  var tScript='<SCRIPT language=JavaScript src='+transFile+' type=text/JavaScript>' + '\</SC'+'RIPT>';
- //alert(tScript);
+ //noalert(tScript);
  document.write(tScript)
 
 
@@ -124,7 +124,7 @@ function translateHTML(doc)
 	  {doc = document.body}
    //	else
    //	  {doc = doc.body}
-	//alert("106 in translateHTML")
+	//noalert("106 in translateHTML")
 	visitTextNodes(doc);
 	return;
 }
@@ -204,7 +204,7 @@ while ((resultarr=pattern.exec(tempstr)) != null)
  {
   tempstr=resultarr[5];  //for next round
   finalstr+=t(resultarr[1])+resultarr[3]
-  //alert("finalstr="+finalstr)
+  //noalert("finalstr="+finalstr)
  }
 if (finalstr.length>0) {return finalstr}
 
@@ -214,12 +214,12 @@ phrase=phrase.toString();
 //var AllNum = /^[-]?\d*\.?\d*$/;
 
 //var isAllNum=AllNum.test(phrase);
-//alert("typeof(T)="+typeof(T)+ "\nphrase="+phrase +"\ntypeof(T[phrase])="+typeof(T[phrase]));
+//noalert("typeof(T)="+typeof(T)+ "\nphrase="+phrase +"\ntypeof(T[phrase])="+typeof(T[phrase]));
 //if ((typeof(T)==="undefined") || isAllNum)
 if (typeof(T)==="undefined")
   {
 	 //There is no translation available
-	  // alert("T is not defined");
+	  // noalert("T is not defined");
 	  return phrase
   }
 else
@@ -228,12 +228,12 @@ else
 	  if ((T[phrase].length>0) && (!window.top.updateTranslation))
 	    {
 		// Aug 2007 Added second condition above to prevent translation and then retranslation when updating
-		//if (phrase.length> 35) {alert("782 "+origphrase+"\n"+T[phrase])};
+		//if (phrase.length> 35) {noalert("782 "+origphrase+"\n"+T[phrase])};
 		 return T[phrase];
 		}
 	  else
 	    {
-		//alert("787 T not defined for "+origphrase);
+		//noalert("787 T not defined for "+origphrase);
 		 return phrase;  //Nothing there; return the English
 		}
    }

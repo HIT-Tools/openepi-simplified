@@ -87,7 +87,7 @@ if (SD==0 && SE==0 && variance==0) {
 
 var n = parseFloat(data[1].E2D0);
 if (n <= 0 || n.length > 9) {
-	alert("Sample size must be between 1 and 999999999");
+	noalert("Sample size must be between 1 and 999999999");
 	return false;
 	}
 
@@ -108,7 +108,7 @@ if (variance!=0) {
 
 var popsize = parseFloat(data[1].E3D0);
 if (popsize.length < 1 || popsize.length > 9 || popsize < n) {
-	alert("Population size must be between 1 and 999,999,999  &  must be >= sample size");
+	noalert("Population size must be between 1 and 999,999,999  &  must be >= sample size");
 	return false;
 	}
 

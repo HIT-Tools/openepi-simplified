@@ -30,9 +30,9 @@ var OEShell=true;
 //These global variables must be present for ETable to work with settings from
 //this module.
 //var ConfidenceLevel = readCookie("openepi","ConfidenceLevel");
-//alert("ConfidenceLevel=" + ConfidenceLevel)
+//noalert("ConfidenceLevel=" + ConfidenceLevel)
 //var Pvalues = readCookie("openepi","Pvalues");
-//alert("Pvalues=" +Pvalues)
+//noalert("Pvalues=" +Pvalues)
 //if (ConfidenceLevel == null || ConfidenceLevel< 20) {ConfidenceLevel=95}
 
 ConfidenceLevel=95; //Calculation does not use conf level.
@@ -103,7 +103,7 @@ function checkcode(r,c,entry)
   //To see what row and column entries are made in, uncomment the following line:
   //running the program, then enter unique numbers so that you can see which cells they
   //are in.
-  //alert("Row="+r+"  Col=" + c)
+  //noalert("Row="+r+"  Col=" + c)
   /* 
    The following "if" statement acts on an entry in row 1 (the numerator in this
    case).  It muliplies the entry by 43 and sets the cell in row 1, column 2, to
@@ -121,7 +121,7 @@ function checkcode(r,c,entry)
     {
 	 //Don't forget the DOUBLE equals sign for equality
 	 EntryWin.setCellValue(1,2,parseInt(entry)*43)
-	 alert(EntryWin.getCellValue(1,2))
+	 noalert(EntryWin.getCellValue(1,2))
 	}
 	*/
 	//The following code returns a blank string if the user enters anything other
