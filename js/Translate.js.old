@@ -136,7 +136,125 @@ function t(origphrase)
 //If T[phrase] is undefined AND there is a function window.top.updateTranslation, it calls this function to write the T definition for this
 //phrase into the translation file.
 var phrase=origphrase;
-return phrase;
+var i;
+var newphrase="";
+//alert (phrase +" length="+phrase.length);
+
+//Replace newline by space so that strings can be used as array indices
+var lines = new Array();
+lines = phrase.split("\n")
+if (lines.length>1)
+  { for (i=0; i<lines.length-1; i++)
+     {
+	  newphrase+=lines[i]+" ";
+	 }
+	newphrase+=lines[lines.length-1];
+	phrase=newphrase;
+  }
+/*var before =phrase
+phrase = phrase.replace( /[\"\“\”\‘\’]/g, "'");   //Convert double quotes and smart quotes to single quote  Aug 2007
+//phrase = phrase.replace( /'/g, "\'" );  //Slashify single quotes   Aug 2007
+phrase = phrase.replace(/\s{2,}/g," ");    //Convert 2 or more spaces to a single space Aug/2007
+//DEBUGGING  Aug 2007
+if (before !== phrase)
+  { alert (before + "\n" +phrase)}
+ */
+
+if (/[a-z]|[A-Z]+/.test(phrase))
+  {
+	//Has at least one alpha character
+	phrase = phrase.replace( /[\"\“\”\‘\’]/g, "'");   //Convert double quotes and smart quotes to single quote  Aug 2007
+ //   phrase = phrase.replace(/\s{2,}/g," ");    //Convert 2 or more spaces to a single space Aug/2007
+
+  }
+  else
+  {
+	return phrase
+  }
+
+//if (phrase.length=0) {return phrase}
+
+
+var tempphrase=phrase;
+
+if(/</.test(tempphrase))
+	{
+	 //Do a crude test first for efficiency, then remove HTML tags if any.  Will miss tags without closing tag
+	 tempphrase=tempphrase.replace(/(<[^>]*>)([^<]*)(<\/[^>]*>)/g,'$2');
+	}
+
+//Remove phrases consisting entirely of &, 1 to 4 non-spaces, and a semi-colon, such as "&nbsp;"
+
+tempphrase=tempphrase.replace(/\&\S{1,6}\;/g," ");
+
+ if (!(/[a-z]|[A-Z]+/.test(tempphrase)))
+  {
+	 //If the cleaned up tempphrase now contains no alpha characters, return the original phrase and go no further.
+	  return phrase
+  }
+
+
+//Deal with nt(phrase) construction and do not translate.  This is the users "function" to exclude part of a phrase
+var pattern = /(.*)(nt\()(.*)(\))(.*)/g
+//pattern.lastIndex=0;
+var tempstr=phrase;
+var finalstr="";
+var resultarr;
+while ((resultarr=pattern.exec(tempstr)) != null)
+ {
+  tempstr=resultarr[5];  //for next round
+  finalstr+=t(resultarr[1])+resultarr[3]
+  //alert("finalstr="+finalstr)
+ }
+if (finalstr.length>0) {return finalstr}
+
+
+phrase=phrase.toString();
+//var AllNum=/^((+|-)\d)?\d*(\.\d+)?$/;  //Regular expression for a number, not yet including those with comma in place of decimal point
+//var AllNum = /^[-]?\d*\.?\d*$/;
+
+//var isAllNum=AllNum.test(phrase);
+//alert("typeof(T)="+typeof(T)+ "\nphrase="+phrase +"\ntypeof(T[phrase])="+typeof(T[phrase]));
+//if ((typeof(T)==="undefined") || isAllNum)
+if (typeof(T)==="undefined")
+  {
+	 //There is no translation available
+	  // alert("T is not defined");
+	  return phrase
+  }
+else
+  if (typeof(T[phrase])!="undefined")
+   {  //Note: operator above was !== Aug 2007
+	  if ((T[phrase].length>0) && (!window.top.updateTranslation))
+	    {
+		// Aug 2007 Added second condition above to prevent translation and then retranslation when updating
+		//if (phrase.length> 35) {alert("782 "+origphrase+"\n"+T[phrase])};
+		 return T[phrase];
+		}
+	  else
+	    {
+		//alert("787 T not defined for "+origphrase);
+		 return phrase;  //Nothing there; return the English
+		}
+   }
+  else
+   {//No array item for this phrase.  If the updateTranslation shell is running, then update the translation array file
+     if (window.top.updateTranslation)
+	  {
+	    if (applabel==null)
+		 {
+	       window.top.updateTranslation(phrase);
+		 }
+		else
+		 {
+		   window.top.updateTranslation(phrase,applabel);  //Send it to the update module where it gets written as a comment in the file
+
+		   applabel=null;  //Reset applabel to null so that it only gets written once
+		 }
+		T[phrase]=""; //also update the array in memory, since the file is not read back with each update
+      }
+	 return phrase;
+   }
 }
 
 initTranslation();
