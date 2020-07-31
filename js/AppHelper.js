@@ -408,16 +408,6 @@ function popWindow(message, millisecs)
 
 function oesavefound()
 {//revised Sept 2009 to avoid error in Firefox 3.5
-  if (window.parent)
-  {
-    if (window.parent.parent=="OpenepiSave.hta")
-    {
-      //if (window.parent.parent.savingdata)
-      //  {
-      return true;
-      //  }
-    }
-  }
   return false;
 }
 
