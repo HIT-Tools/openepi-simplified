@@ -623,7 +623,7 @@ function writeFrontEnd(apptitle, authors, description, demofile)
   //fe += '<div id="tab4" class="tab" onClick = "showExWindow();" onMouseOver="hover(this);" onMouseOut="setState(4)">'
   fe += t('Examples')
   fe += '</div>'
-  fe += '<div id="tab5" class="tab" onClick = "location.href=&#39;../briefDoc/UsingOpenEpi.htm&#39;" onMouseOver="hover(this);" onMouseOut="setState(5)">'
+  fe += '<div id="tab5" class="tab" onClick = "location.href=&#39;../BriefDoc/UsingOpenEpi.htm&#39;" onMouseOver="hover(this);" onMouseOut="setState(5)">'
  // fe += '<div id="tab5" class="tab" onClick = "showPanel(5);" onMouseOver="hover(this);" onMouseOut="setState(5)">'
   fe += t("Help");
   fe += '</div>'
